@@ -2,7 +2,7 @@ package org.light4j.utils.mail;
 
 import java.util.List;
 
-import org.light4j.utils.string.StringUtils;
+import org.light4j.utils.base.StringUtils;
 
 /**
  * 邮件发送工具类
