@@ -1,11 +1,3 @@
-/**
- * Copyright(c) 2000-2013 HC360.COM, All Rights Reserved.
- * Project: hfbtransfer-client 
- * Author: huaxin
- * Createdate: 2013-5-4 обнГ7:14:09
- * Version: 1.0
- */
-
 package org.light4j.utils.longjiazuo;
 
 import java.io.File;
