@@ -2,7 +2,7 @@ package org.light4j.utils.math;
 
 import java.math.BigDecimal;
 
-import org.light4j.utils.base.ValidateHelper;
+import org.light4j.utils.validate.ValidateHelper;
 
 /**
  *  提供精确的加减乘除运算

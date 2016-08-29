@@ -10,7 +10,7 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 
 import org.light4j.utils.date.DateUtils;
-import org.light4j.utils.math.RandomUtils;
+import org.light4j.utils.random.RandomUtils;
 
 /**
  * 文件工具类

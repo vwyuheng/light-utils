@@ -1,4 +1,4 @@
-package org.light4j.utils.base;
+package org.light4j.utils.money;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
