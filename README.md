@@ -19,6 +19,10 @@
 <p>CloneUtils:克隆工具类，进行深克隆,包括对象、集合</p>
 
 <h3></h3>
+<h3>package:json-json工具类</h3>
+<p>CloneUtils:对阿里巴巴fastjson封装的工具类,提供json操作相关的功能</p>
+
+<h3></h3>
 <h3>date：时间类</h3>
 <p>DateFromatUtils：格式转换工具类</p>
 <p>DateUtils:日期、时间工具类</p>
@@ -41,11 +45,19 @@
 <p>FileUtils:文件处理工具类</p>
 <p>ZipUitls:ZIP工具类</p>
 
+<h3>package:http--http请求工具类</h3>
+<p>HttpUtils:HTTP POST和GET处理工具类</p>
+
 <h3>package:ImageUtil--图像处理</h3>
 <p>ImageUtil:图像处理。对图片进行压缩、水印、伸缩变换、透明处理、格式转换操作</p>
 
+<h3>mail:邮件类</h3>
+<p>EmailUtils:邮件发送工具类</p>
+
 <h3>math：数字类</h3>
 <p>BigDecimalUtils：BigDecimal工具类</p>
+
+<h3>random：随机数类</h3>
 <p>RandomUtils:随机数工具类</p>
 
 <h3>QRCode：二维码类</h3>
@@ -54,6 +66,9 @@
 
 <h3>sequence：序列</h3>
 <p>GenerateSequenceUtils：生成唯一的序列</p>
+
+<h3>task：任务调度类</h3>
+<p>TaskUtils：Java多线程、队列实现任务调度</p>
 
 <h3>package:sensitiveword--J敏感词</h3>
 <p>SensitivewordFilterUtil:铭感词过滤工具类</p>
