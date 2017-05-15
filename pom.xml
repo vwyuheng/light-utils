@@ -12,9 +12,9 @@
 	<!-- properties -->
 	<properties>
 		<!-- Plugin的属性定义 -->
-		<project.build.sourceEncoding>GBK</project.build.sourceEncoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-	
+
 	<!-- LICENSE -->
 	<licenses>
 		<license>
@@ -74,9 +74,6 @@
 			<artifactId>core</artifactId>
 			<version>3.2.0</version>
 		</dependency>
-
-		<!-- <dependency> <groupId>activation</groupId> <artifactId>activation</artifactId> 
-			<version>1.0.2</version> </dependency> -->
 
 		<dependency>
 			<groupId>javax.mail</groupId>
