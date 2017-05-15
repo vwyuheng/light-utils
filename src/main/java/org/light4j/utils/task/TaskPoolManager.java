@@ -12,13 +12,13 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Ïß³Ì³Ø¹ÜÀí
+ * çº¿ç¨‹æ± ç®¡ç†
  * 
  * @author longjiazuo
  */
 public class TaskPoolManager {
 	
-	/**¹¹ÔìÒ»¸öµ¥ÀıµÄÏß³Ì³Ø**/
+	/**æ„é€ ä¸€ä¸ªå•ä¾‹çš„çº¿ç¨‹æ± **/
 	private static TaskPoolManager tpm = new TaskPoolManager();
 	
     private TaskPoolManager() {
@@ -29,25 +29,25 @@ public class TaskPoolManager {
 		return tpm;
 	}
 
-	/**Ïß³Ì³ØÎ¬»¤Ïß³ÌµÄ×îÉÙÊıÁ¿**/
+	/**çº¿ç¨‹æ± ç»´æŠ¤çº¿ç¨‹çš„æœ€å°‘æ•°é‡**/
 	private final static int CORE_POOL_SIZE = 4;
 	
-	/**Ïß³Ì³ØÎ¬»¤Ïß³ÌµÄ×î´óÊıÁ¿**/
+	/**çº¿ç¨‹æ± ç»´æŠ¤çº¿ç¨‹çš„æœ€å¤§æ•°é‡**/
 	private final static int MAX_POOL_SIZE = 100;
 	
-	/**Ïß³Ì³ØÎ¬»¤Ïß³ÌËùÔÊĞíµÄ¿ÕÏĞÊ±¼ä**/
+	/**çº¿ç¨‹æ± ç»´æŠ¤çº¿ç¨‹æ‰€å…è®¸çš„ç©ºé—²æ—¶é—´**/
 	private final static int KEEP_ALIVE_TIME = 0;
 	
-	/**Ïß³Ì³ØËùÊ¹ÓÃµÄ»º³å¶ÓÁĞ´óĞ¡**/
+	/**çº¿ç¨‹æ± æ‰€ä½¿ç”¨çš„ç¼“å†²é˜Ÿåˆ—å¤§å°**/
 	private final static int WORK_QUEUE_SIZE = 100;
 	
-	/**ÏûÏ¢»º³å¶ÓÁĞ**/
+	/**æ¶ˆæ¯ç¼“å†²é˜Ÿåˆ—**/
 	private Queue<TaskEntity> taskQueue = new LinkedList<TaskEntity>();
 	
-	/**·ÃÎÊÏûÏ¢»º´æµÄµ÷¶ÈÏß³Ì**/
+	/**è®¿é—®æ¶ˆæ¯ç¼“å­˜çš„è°ƒåº¦çº¿ç¨‹**/
 	final Runnable accessBufferThread = new Runnable() {
 		public void run() {
-			/**²é¿´ÊÇ·ñÓĞ´ı¶¨ÇëÇó£¬Èç¹ûÓĞ£¬Ôò´´½¨Ò»¸öĞÂµÄTaskEntity£¬²¢Ìí¼Óµ½Ïß³Ì³ØÖĞ**/
+			/**æŸ¥çœ‹æ˜¯å¦æœ‰å¾…å®šè¯·æ±‚ï¼Œå¦‚æœæœ‰ï¼Œåˆ™åˆ›å»ºä¸€ä¸ªæ–°çš„TaskEntityï¼Œå¹¶æ·»åŠ åˆ°çº¿ç¨‹æ± ä¸­**/
 			if (hasMoreAcquire()) {
 				TaskEntity msg = taskQueue.poll();
 				Runnable task = new TaskRunner(msg);
@@ -62,19 +62,19 @@ public class TaskPoolManager {
 		}
 	};
 	
-	/**¹ÜÀíÏß³Ì³Ø**/
+	/**ç®¡ç†çº¿ç¨‹æ± **/
 	final ThreadPoolExecutor threadPool = new ThreadPoolExecutor(
 			CORE_POOL_SIZE, MAX_POOL_SIZE, KEEP_ALIVE_TIME, TimeUnit.SECONDS,
 			new ArrayBlockingQueue<Runnable>(WORK_QUEUE_SIZE), this.handler);
 	
-	/**µ÷¶ÈÏß³Ì³Ø**/
+	/**è°ƒåº¦çº¿ç¨‹æ± **/
 	final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 	
 	final ScheduledFuture<?> taskHandler = scheduler.scheduleAtFixedRate(accessBufferThread, 0, 1, TimeUnit.SECONDS);
 
 
 	/**
-	 * ÅĞ¶ÏÏß³Ì³ØÊ±ºòÎª¿Õ
+	 * åˆ¤æ–­çº¿ç¨‹æ± æ—¶å€™ä¸ºç©º
 	 * @return
 	 */
 	private boolean hasMoreAcquire() {
@@ -82,7 +82,7 @@ public class TaskPoolManager {
 	}
 
 	/**
-	 * ÏòÏß³Ì³ØÌí¼Óµ¥¸öÈÎÎñ
+	 * å‘çº¿ç¨‹æ± æ·»åŠ å•ä¸ªä»»åŠ¡
 	 * @param msg
 	 */
 	public void addTask(TaskEntity msg) {
@@ -91,7 +91,7 @@ public class TaskPoolManager {
 	}
 	
 	/**
-	 * ÏòÏß³Ì³ØÌí¼Ó¶à¸öÈÎÎñ
+	 * å‘çº¿ç¨‹æ± æ·»åŠ å¤šä¸ªä»»åŠ¡
 	 * @param msgList
 	 */
 	public void addTasks(List<TaskEntity> msgList) {

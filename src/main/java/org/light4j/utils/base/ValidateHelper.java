@@ -6,14 +6,14 @@ import java.util.Date;
 import java.util.Map;
 
 /**
- *  ÅĞ¶Ï¶ÔÏó¡¢×Ö·û´®¡¢¼¯ºÏÊÇ·ñÎª¿Õ¡¢²»Îª¿Õ
+ *  åˆ¤æ–­å¯¹è±¡ã€å­—ç¬¦ä¸²ã€é›†åˆæ˜¯å¦ä¸ºç©ºã€ä¸ä¸ºç©º
  *  
  * @author longjiazuo
  */
 public final class ValidateHelper {
 	
 	/**
-	 *  ÅĞ¶ÏÊı×éÊÇ·ñÎª¿Õ
+	 *  åˆ¤æ–­æ•°ç»„æ˜¯å¦ä¸ºç©º
 	 * @param array
 	 * @return boolean
 	 */
@@ -28,7 +28,7 @@ public final class ValidateHelper {
 	}
 	
 	/**
-	 *  ÅĞ¶ÏÊı×éÊÇ·ñ²»Îª¿Õ
+	 *  åˆ¤æ–­æ•°ç»„æ˜¯å¦ä¸ä¸ºç©º
 	 * @param array
 	 * @return boolean
 	 */
@@ -42,7 +42,7 @@ public final class ValidateHelper {
 	}
 	
 	/**
-	 *  ÅĞ¶Ï×Ö·û´®ÊÇ·ñÎª¿Õ
+	 *  åˆ¤æ–­å­—ç¬¦ä¸²æ˜¯å¦ä¸ºç©º
 	 * @param string
 	 * @return boolean
 	 */
@@ -56,7 +56,7 @@ public final class ValidateHelper {
 	}
 	
 	/**
-	 *  ÅĞ¶Ï×Ö·û´®ÊÇ·ñ²»Îª¿Õ
+	 *  åˆ¤æ–­å­—ç¬¦ä¸²æ˜¯å¦ä¸ä¸ºç©º
 	 * @param string
 	 * @return boolean
 	 */
@@ -70,7 +70,7 @@ public final class ValidateHelper {
 	}
 	
 	/**
-	 *  ÅĞ¶Ï¼¯ºÏÊÇ·ñÎª¿Õ
+	 *  åˆ¤æ–­é›†åˆæ˜¯å¦ä¸ºç©º
 	 * @param collection
 	 * @return boolean
 	 */
@@ -84,7 +84,7 @@ public final class ValidateHelper {
 	}
 	
 	/**
-	 *  ÅĞ¶Ï¼¯ºÏÊÇ·ñ²»Îª¿Õ
+	 *  åˆ¤æ–­é›†åˆæ˜¯å¦ä¸ä¸ºç©º
 	 * @param collection
 	 * @return boolean
 	 */
@@ -98,7 +98,7 @@ public final class ValidateHelper {
 	}
 	
 	/**
-	 *  ÅĞ¶Ïmap¼¯ºÏÊÇ·ñ²»Îª¿Õ
+	 *  åˆ¤æ–­mapé›†åˆæ˜¯å¦ä¸ä¸ºç©º
 	 * @param map
 	 * @return boolean
 	 */
@@ -113,7 +113,7 @@ public final class ValidateHelper {
 	}
 	
 	/**
-	 *  ÅĞ¶Ïmap¼¯ºÏÊÇ·ñÎª¿Õ
+	 *  åˆ¤æ–­mapé›†åˆæ˜¯å¦ä¸ºç©º
 	 * @param map
 	 * @return boolean
 	 */
@@ -128,9 +128,9 @@ public final class ValidateHelper {
 	}
 	
 	/**
-	 * ¼ìÑé¶ÔÏóÊÇ·ñÎª¿Õ,String ÖĞÖ»ÓĞ¿Õ¸ñÔÚ¶ÔÏóÖĞÒ²Ëã¿Õ.
+	 * æ£€éªŒå¯¹è±¡æ˜¯å¦ä¸ºç©º,String ä¸­åªæœ‰ç©ºæ ¼åœ¨å¯¹è±¡ä¸­ä¹Ÿç®—ç©º.
 	 * @param object
-	 * @return Îª¿Õ·µ»Øtrue,·ñÔòfalse.
+	 * @return ä¸ºç©ºè¿”å›true,å¦åˆ™false.
 	 */
 	@SuppressWarnings("rawtypes")
 	public static boolean isEmpty(Object object) {

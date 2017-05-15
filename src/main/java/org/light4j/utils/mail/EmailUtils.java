@@ -5,7 +5,7 @@ import java.util.List;
 import org.light4j.utils.base.StringUtils;
 
 /**
- * ÓÊ¼ş·¢ËÍ¹¤¾ßÀà
+ * é‚®ä»¶å‘é€å·¥å…·ç±»
  * @author jiang.li
  * @date 2013-12-19 14:27
  */
@@ -13,18 +13,18 @@ public class EmailUtils {
 	
 
 	/**
-	 * ·¢ËÍÓÊ¼ş
-	 * @param smtp        ÓÊ¼şĞ­Òé
-	 * @param fromAddress ·¢ËÍÈËµØÖ·
-	 * @param fromPass    ·¢ËÍÈËÃÜÂë
-	 * @param toaddress   ÊÕ¼şÈËµØÖ·
-	 * @param subject     ·¢ËÍÖ÷Ìâ
-	 * @param content     ·¢ËÍÄÚÈİ
+	 * å‘é€é‚®ä»¶
+	 * @param smtp        é‚®ä»¶åè®®
+	 * @param fromAddress å‘é€äººåœ°å€
+	 * @param fromPass    å‘é€äººå¯†ç 
+	 * @param toaddress   æ”¶ä»¶äººåœ°å€
+	 * @param subject     å‘é€ä¸»é¢˜
+	 * @param content     å‘é€å†…å®¹
 	 * @throws Exception
 	 */
 	public static void send(String smtp,String fromAddress,String fromPass,String toAddress, String subject, String content){
 		try{
-			System.out.println("¿ªÊ¼Ïò" + toAddress + "·¢ËÍÓÊ¼ş");
+			System.out.println("å¼€å§‹å‘" + toAddress + "å‘é€é‚®ä»¶");
 			EmailHandle emailHandle = new EmailHandle(smtp);
 			emailHandle.setFrom(fromAddress);
 			emailHandle.setNeedAuth(true);
@@ -34,58 +34,58 @@ public class EmailUtils {
 			emailHandle.setFrom(fromAddress);
 			emailHandle.setNamePass(fromAddress, fromPass);
 			emailHandle.sendEmail();
-			System.out.println("ÓÊ¼ş·¢ËÍ½áÊø!");
+			System.out.println("é‚®ä»¶å‘é€ç»“æŸ!");
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 	}
 	
 	/**
-	 * ·¢ËÍÓÊ¼ş
-	 * @param smtp        ÓÊ¼şĞ­Òé
-	 * @param fromAddress ·¢ËÍÈËµØÖ·
-	 * @param fromPass    ·¢ËÍÈËÃÜÂë
-	 * @param toAddress   ÊÕ¼şÈËµØÖ·
-	 * @param ccAdress    ³­ËÍÈËµØÖ·
-	 * @param subject     ·¢ËÍÖ÷Ìâ
-	 * @param content     ·¢ËÍÄÚÈİ
+	 * å‘é€é‚®ä»¶
+	 * @param smtp        é‚®ä»¶åè®®
+	 * @param fromAddress å‘é€äººåœ°å€
+	 * @param fromPass    å‘é€äººå¯†ç 
+	 * @param toAddress   æ”¶ä»¶äººåœ°å€
+	 * @param ccAdress    æŠ„é€äººåœ°å€
+	 * @param subject     å‘é€ä¸»é¢˜
+	 * @param content     å‘é€å†…å®¹
 	 * @throws Exception
 	 */
 	public static void send(String smtp,String fromAddress,String fromPass,String toAddress,String ccAdress, String subject, String content){
 		try{
-			System.out.println("¿ªÊ¼Ïò" + toAddress + "·¢ËÍÓÊ¼ş");
+			System.out.println("å¼€å§‹å‘" + toAddress + "å‘é€é‚®ä»¶");
 			EmailHandle emailHandle = new EmailHandle(smtp);
 			emailHandle.setFrom(fromAddress);
 			emailHandle.setNeedAuth(true);
 			emailHandle.setSubject(subject);
 			emailHandle.setBody(content);
 			emailHandle.setTo(toAddress);
-			/**Ìí¼Ó³­ËÍ**/
+			/**æ·»åŠ æŠ„é€**/
 			if(StringUtils.isNotEmpty(ccAdress)){
 				emailHandle.setCopyTo(ccAdress);
 			}
 			emailHandle.setFrom(fromAddress);
 			emailHandle.setNamePass(fromAddress, fromPass);
 			emailHandle.sendEmail();
-			System.out.println("ÓÊ¼ş·¢ËÍ½áÊø!");
+			System.out.println("é‚®ä»¶å‘é€ç»“æŸ!");
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 	}
 	
 	/**
-	 * ·¢ËÍÓÊ¼ş
-	 * @param smtp        ÓÊ¼şĞ­Òé
-	 * @param fromAddress ·¢ËÍÈËµØÖ·
-	 * @param fromPass    ·¢ËÍÈËÃÜÂë
-	 * @param toaddress   ÊÕ¼şÈËµØÖ·
-	 * @param subject     ·¢ËÍÖ÷Ìâ
-	 * @param content     ·¢ËÍÄÚÈİ
+	 * å‘é€é‚®ä»¶
+	 * @param smtp        é‚®ä»¶åè®®
+	 * @param fromAddress å‘é€äººåœ°å€
+	 * @param fromPass    å‘é€äººå¯†ç 
+	 * @param toaddress   æ”¶ä»¶äººåœ°å€
+	 * @param subject     å‘é€ä¸»é¢˜
+	 * @param content     å‘é€å†…å®¹
 	 * @throws Exception
 	 */
 	public static void send(String smtp,String fromAddress,String fromPass,String toAddress,String subject, String content,List<String> fileList){
 		try{
-			System.out.println("¿ªÊ¼Ïò" + toAddress + "·¢ËÍÓÊ¼ş");
+			System.out.println("å¼€å§‹å‘" + toAddress + "å‘é€é‚®ä»¶");
 			EmailHandle emailHandle = new EmailHandle(smtp);
 			emailHandle.setFrom(fromAddress);
 			emailHandle.setNeedAuth(true);
@@ -94,49 +94,49 @@ public class EmailUtils {
 			emailHandle.setTo(toAddress);
 			emailHandle.setFrom(fromAddress);
 			emailHandle.setNamePass(fromAddress, fromPass);
-			/** ¸½¼şÎÄ¼şÂ·¾¶ **/
+			/** é™„ä»¶æ–‡ä»¶è·¯å¾„ **/
 			for(String file : fileList){
 				emailHandle.addFileAffix(file);
 			}
 			emailHandle.sendEmail();
-			System.out.println("ÓÊ¼ş·¢ËÍ½áÊø!");
+			System.out.println("é‚®ä»¶å‘é€ç»“æŸ!");
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 	}
 	
 	/**
-	 * ·¢ËÍÓÊ¼ş
-	 * @param smtp        ÓÊ¼şĞ­Òé
-	 * @param fromAddress ·¢ËÍÈËµØÖ·
-	 * @param fromPass    ·¢ËÍÈËÃÜÂë
-	 * @param toAddress   ÊÕ¼şÈËµØÖ·
-	 * @param ccAdress    ³­ËÍÈËµØÖ·
-	 * @param subject     ·¢ËÍÖ÷Ìâ
-	 * @param content     ·¢ËÍÄÚÈİ
+	 * å‘é€é‚®ä»¶
+	 * @param smtp        é‚®ä»¶åè®®
+	 * @param fromAddress å‘é€äººåœ°å€
+	 * @param fromPass    å‘é€äººå¯†ç 
+	 * @param toAddress   æ”¶ä»¶äººåœ°å€
+	 * @param ccAdress    æŠ„é€äººåœ°å€
+	 * @param subject     å‘é€ä¸»é¢˜
+	 * @param content     å‘é€å†…å®¹
 	 * @throws Exception
 	 */
 	public static void send(String smtp,String fromAddress,String fromPass,String toAddress,String ccAdress,String subject, String content,List<String> fileList){
 		try{
-			System.out.println("¿ªÊ¼Ïò" + toAddress + "·¢ËÍÓÊ¼ş");
+			System.out.println("å¼€å§‹å‘" + toAddress + "å‘é€é‚®ä»¶");
 			EmailHandle emailHandle = new EmailHandle(smtp);
 			emailHandle.setFrom(fromAddress);
 			emailHandle.setNeedAuth(true);
 			emailHandle.setSubject(subject);
 			emailHandle.setBody(content);
 			emailHandle.setTo(toAddress);
-			/**Ìí¼Ó³­ËÍ**/
+			/**æ·»åŠ æŠ„é€**/
 			if(StringUtils.isNotEmpty(ccAdress)){
 				emailHandle.setCopyTo(ccAdress);
 			}
 			emailHandle.setFrom(fromAddress);
 			emailHandle.setNamePass(fromAddress, fromPass);
-			/** ¸½¼şÎÄ¼şÂ·¾¶ **/
+			/** é™„ä»¶æ–‡ä»¶è·¯å¾„ **/
 			for(String file : fileList){
 				emailHandle.addFileAffix(file);
 			}
 			emailHandle.sendEmail();
-			System.out.println("ÓÊ¼ş·¢ËÍ½áÊø!");
+			System.out.println("é‚®ä»¶å‘é€ç»“æŸ!");
 		}catch(Exception e){
 			e.printStackTrace();
 		}

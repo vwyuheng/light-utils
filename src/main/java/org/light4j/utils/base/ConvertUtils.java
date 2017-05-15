@@ -4,20 +4,21 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 /**
- * ×ª»»¹¤¾ßÀà<br>
- * Èô´ı×ª»»ÖµÎªnull»òÕß³öÏÖÒì³££¬ÔòÊ¹ÓÃÄ¬ÈÏÖµ
+ * è½¬æ¢å·¥å…·ç±»<br>
+ * è‹¥å¾…è½¬æ¢å€¼ä¸ºnullæˆ–è€…å‡ºç°å¼‚å¸¸ï¼Œåˆ™ä½¿ç”¨é»˜è®¤å€¼
  * 
  * @author longjiazuo
  */
 public class ConvertUtils {
 	
 	/**
-	 * ×Ö·û´®×ª»»Îªint
+	 * 
+	 * å­—ç¬¦ä¸²è½¬æ¢ä¸ºint
 	 *
 	 * @param str	
-	 * 					´ı×ª»»µÄ×Ö·û´®
+	 * 					å¾…è½¬æ¢çš„å­—ç¬¦ä¸²
 	 * @param defaultValue
-	 * 					Ä¬ÈÏÖµ
+	 * 					é»˜è®¤å€¼
 	 * @return
 	 */
 	public static int strToInt(String str, int defaultValue) {
@@ -29,12 +30,12 @@ public class ConvertUtils {
 	}
 
 	/**
-	 * String×ª»»Îªlong
+	 * Stringè½¬æ¢ä¸ºlong
 	 *
 	 * @param str
-	 * 					´ı×ª»»×Ö·û´®
+	 * 					å¾…è½¬æ¢å­—ç¬¦ä¸²
 	 * @param defaultValue
-	 * 					Ä¬ÈÏÖµ
+	 * 					é»˜è®¤å€¼
 	 * @return
 	 */
 	public static long strToLong(String str, long defaultValue) {
@@ -46,7 +47,7 @@ public class ConvertUtils {
 	}
 	
 	/**
-	 * ×Ö·û´®×ª»»Îªfloat
+	 * å­—ç¬¦ä¸²è½¬æ¢ä¸ºfloat
 	 *
 	 * @param str
 	 * 				
@@ -62,12 +63,12 @@ public class ConvertUtils {
 	}
 
 	/**
-	 * String×ª»»ÎªDouble
+	 * Stringè½¬æ¢ä¸ºDouble
 	 *
 	 * @param str
-	 * 					´ı×ª»»×Ö·û´®
+	 * 					å¾…è½¬æ¢å­—ç¬¦ä¸²
 	 * @param defaultValue
-	 * 					Ä¬ÈÏÖµ
+	 * 					é»˜è®¤å€¼
 	 * @return
 	 */
 	public static double strToDouble(String str, double defaultValue) {
@@ -79,12 +80,12 @@ public class ConvertUtils {
 	}
 
 	/**
-	 * ×Ö·û´®×ª»»ÈÕÆÚ
+	 * å­—ç¬¦ä¸²è½¬æ¢æ—¥æœŸ
 	 *
 	 * @param str
-	 * 						´ı×ª»»µÄ×Ö·û´®
+	 * 						å¾…è½¬æ¢çš„å­—ç¬¦ä¸²
 	 * @param defaultValue
-	 * 						Ä¬ÈÏÈÕÆÚ
+	 * 						é»˜è®¤æ—¥æœŸ
 	 * @return
 	 */
 	public static java.util.Date strToDate(String str,java.util.Date defaultValue) {
@@ -92,14 +93,14 @@ public class ConvertUtils {
 	}
 
 	/**
-	 * ×Ö·û´®×ª»»ÎªÖ¸¶¨¸ñÊ½µÄÈÕÆÚ
+	 * å­—ç¬¦ä¸²è½¬æ¢ä¸ºæŒ‡å®šæ ¼å¼çš„æ—¥æœŸ
 	 *
 	 * @param str
-	 * 					´ı×ª»»µÄ×Ö·û´®
+	 * 					å¾…è½¬æ¢çš„å­—ç¬¦ä¸²
 	 * @param format
-	 * 					ÈÕÆÚ¸ñÊ½
+	 * 					æ—¥æœŸæ ¼å¼
 	 * @param defaultValue
-	 * 					Ä¬ÈÏÈÕÆÚ
+	 * 					é»˜è®¤æ—¥æœŸ
 	 * @return
 	 */
 	public static java.util.Date strToDate(String str, String format,java.util.Date defaultValue) {
@@ -112,12 +113,12 @@ public class ConvertUtils {
 	}
 
 	/**
-	 * ÈÕÆÚ×ª»»Îª×Ö·û´®
+	 * æ—¥æœŸè½¬æ¢ä¸ºå­—ç¬¦ä¸²
 	 *
 	 * @param date
-	 * 				´ı×ª»»µÄÈÕÆÚ
+	 * 				å¾…è½¬æ¢çš„æ—¥æœŸ
 	 * @param defaultValue
-	 * 				Ä¬ÈÏ×Ö·û´®
+	 * 				é»˜è®¤å­—ç¬¦ä¸²
 	 * @return
 	 */
 	public static String dateToStr(java.util.Date date, String defaultValue) {
@@ -125,14 +126,14 @@ public class ConvertUtils {
 	}
 
 	/**
-	 * ÈÕÆÚ×ª»»ÎªÖ¸¶¨¸ñÊ½µÄ×Ö·û´®
+	 * æ—¥æœŸè½¬æ¢ä¸ºæŒ‡å®šæ ¼å¼çš„å­—ç¬¦ä¸²
 	 * 
 	 * @param date
-	 * 				´ı×ª»»µÄÈÕÆÚ
+	 * 				å¾…è½¬æ¢çš„æ—¥æœŸ
 	 * @param format
-	 * 				Ö¸¶¨¸ñÊ½
+	 * 				æŒ‡å®šæ ¼å¼
 	 * @param defaultValue
-	 * 				Ä¬ÈÏÖµ
+	 * 				é»˜è®¤å€¼
 	 * @return
 	 */
 	public static String dateToStr(java.util.Date date, String format, String defaultValue) {
@@ -145,12 +146,12 @@ public class ConvertUtils {
 	}
 
 	/**
-	 * Èç¹û×Ö·û´®Îª¿ÕÔòÊ¹ÓÃÄ¬ÈÏ×Ö·û´®
+	 * å¦‚æœå­—ç¬¦ä¸²ä¸ºç©ºåˆ™ä½¿ç”¨é»˜è®¤å­—ç¬¦ä¸²
 	 *
 	 * @param str
-	 * 				×Ö·û´®
+	 * 				å­—ç¬¦ä¸²
 	 * @param defaultValue
-	 * 				Ä¬ÈÏÖµ
+	 * 				é»˜è®¤å€¼
 	 * @return
 	 */
 	public static String strToStr(String str, String defaultValue) {
@@ -160,7 +161,7 @@ public class ConvertUtils {
 	}
 
 	/**
-	 * util date ×ª»»Îª sqldate
+	 * util date è½¬æ¢ä¸º sqldate
 	 *
 	 * @param date
 	 * @return
@@ -170,7 +171,7 @@ public class ConvertUtils {
 	}
 
 	/**
-	 * sql date ×ª»»Îª util date
+	 * sql date è½¬æ¢ä¸º util date
 	 *
 	 * @param date
 	 * @return
@@ -180,7 +181,7 @@ public class ConvertUtils {
 	}
 
 	/**
-	 * date ×ª»»Îª timestamp
+	 * date è½¬æ¢ä¸º timestamp
 	 *
 	 * @param date
 	 * @return
@@ -190,7 +191,7 @@ public class ConvertUtils {
 	}
 
 	/**
-	 * timestamp ×ª»»Îªdate
+	 * timestamp è½¬æ¢ä¸ºdate
 	 *
 	 * @param date
 	 * @return

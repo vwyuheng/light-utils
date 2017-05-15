@@ -32,44 +32,44 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
 
 /**
- * Excel Éú³ÉÍ¨ÓÃÀà£¬ÎªÁË¼æÈİ£¬ËùÓĞ Excel Í³Ò»Éú³É Excel2003 ¼´£ºxx.xls
+ * Excel ç”Ÿæˆé€šç”¨ç±»ï¼Œä¸ºäº†å…¼å®¹ï¼Œæ‰€æœ‰ Excel ç»Ÿä¸€ç”Ÿæˆ Excel2003 å³ï¼šxx.xls
  * @Author : chenssy
- * @Date £º 2014Äê6ÔÂ15ÈÕ ÏÂÎç9:09:38
+ * @Date ï¼š 2014å¹´6æœˆ15æ—¥ ä¸‹åˆ9:09:38
  */
 public class ExcelExportHelper {
 	
-	/** Ê±¼ä¸ñÊ½£ºÄ¬ÈÏÎªyyyy-MM-dd */
+	/** æ—¶é—´æ ¼å¼ï¼šé»˜è®¤ä¸ºyyyy-MM-dd */
 	private String DATE_PATTERN = "yyyy-MM-dd";
 	
-	/** Í¼Æ¬¿í¶È£¬Ä¬ÈÏÎª£º100 */
+	/** å›¾ç‰‡å®½åº¦ï¼Œé»˜è®¤ä¸ºï¼š100 */
 	private int IMAGE_WIDTH = 30;
 	 
-	/** Í¼Æ¬¸ß¶È£¬Ä¬ÈÏÎª£º50 */
+	/** å›¾ç‰‡é«˜åº¦ï¼Œé»˜è®¤ä¸ºï¼š50 */
 	private int IMAGE_HEIGHT = 5;
 	
-	/** µ¥Ôª¸ñµÄ×î´ó¿í¶È */
+	/** å•å…ƒæ ¼çš„æœ€å¤§å®½åº¦ */
 	private int[] maxWidth;
 	
 	/** 
-	 * µ¥Ò³Ö§³Ö×î¶àÊı¾İÁĞ£º³¬¹ı65534»á³ö´í
-	 * ÈôÊı¾İÁĞ¶àÓà65534ÔòĞèÒªÍ¨¹ıMORE_EXCEL_FLAG¡¢MORE_SHEET_FLAGÀ´Çø±ğÉú³É¶à¸öExcel¡¢»¹ÊÇsheet
+	 * å•é¡µæ”¯æŒæœ€å¤šæ•°æ®åˆ—ï¼šè¶…è¿‡65534ä¼šå‡ºé”™
+	 * è‹¥æ•°æ®åˆ—å¤šä½™65534åˆ™éœ€è¦é€šè¿‡MORE_EXCEL_FLAGã€MORE_SHEET_FLAGæ¥åŒºåˆ«ç”Ÿæˆå¤šä¸ªExcelã€è¿˜æ˜¯sheet
 	 */
 	private int maxRowCount = 2500;
 	
-	/** ´óÁ¿Êı¾İ£¬¶à¸öExcel±êÊ¶---0001 */
+	/** å¤§é‡æ•°æ®ï¼Œå¤šä¸ªExcelæ ‡è¯†---0001 */
 	private String  MORE_EXCEL_FLAG = "0001";
 	
-	/** ´óÁ¿Êı¾İ£¬¶à¸ösheet±êÊ¶---0001 */
+	/** å¤§é‡æ•°æ®ï¼Œå¤šä¸ªsheetæ ‡è¯†---0001 */
 	private String MORE_SHEET_FLAG = "0002";
 	
 	/**
-	 * Ä¬ÈÏ¹¹Ôìº¯Êı 
+	 * é»˜è®¤æ„é€ å‡½æ•° 
 	 */
 	public ExcelExportHelper(){
 	}
 	
 	/**
-	 * @param datePattern Ö¸¶¨µÄÊ±¼ä¸ñÊ½
+	 * @param datePattern æŒ‡å®šçš„æ—¶é—´æ ¼å¼
 	 */
 	public ExcelExportHelper(String datePattern){
 		this.DATE_PATTERN = datePattern;
@@ -77,9 +77,9 @@ public class ExcelExportHelper {
 	
 	/**
 	 * @param imageWidth 
-	 * 					Ö¸¶¨Í¼Æ¬µÄ¿í¶È
+	 * 					æŒ‡å®šå›¾ç‰‡çš„å®½åº¦
 	 * @param imageHeight
-	 * 				           Ö¸¶¨Í¼Æ¬µÄ¸ß¶È
+	 * 				           æŒ‡å®šå›¾ç‰‡çš„é«˜åº¦
 	 */
 	public ExcelExportHelper(int imageWidth,int imageHeight){
 		this.IMAGE_HEIGHT = imageHeight;
@@ -88,11 +88,11 @@ public class ExcelExportHelper {
 	
 	/**
 	 * @param datePatter 
-	 * 					Ö¸¶¨Ê±¼ä¸ñÊ½
+	 * 					æŒ‡å®šæ—¶é—´æ ¼å¼
 	 * @param imageWidth 
-	 * 					Ö¸¶¨Í¼Æ¬µÄ¿í¶È
+	 * 					æŒ‡å®šå›¾ç‰‡çš„å®½åº¦
 	 * @param imageHeight 
-	 * 					Ö¸¶¨Í¼Æ¬µÄ¸ß¶È
+	 * 					æŒ‡å®šå›¾ç‰‡çš„é«˜åº¦
 	 */
 	public ExcelExportHelper(String datePatter,int imageWidht,int imageHeight){
 		this.DATE_PATTERN = datePatter;
@@ -101,275 +101,275 @@ public class ExcelExportHelper {
 	}
 	
 	/**
-	 * Í¨ÓÃ·½·¨£¬Ê¹ÓÃ java ·´Éä»úÖÆ£¬¸ù¾İÌá¹©±íÍ· header £¬Êı¾İÁĞ excelList Éú³É Excel,ÈçÓĞÍ¼Æ¬Çë×ª»»Îªbyte[]<br>
-	 * header¡¢excelList¹æÔòÈçÏÂ£º<br>
-	 * header¡¢excelListÖĞµÄBean±ØĞë¶ÔÓ¦£¨javaBeanµÄÊôĞÔË³Ğò£©£ºÈçÏÂ<br>
-	 * header£ºĞÕÃû¡¢ÄêÁä¡¢ĞÔ±ğ¡¢°à¼¶<br>
-	 * Bean£ºname¡¢age¡¢sex¡¢class<br>
+	 * é€šç”¨æ–¹æ³•ï¼Œä½¿ç”¨ java åå°„æœºåˆ¶ï¼Œæ ¹æ®æä¾›è¡¨å¤´ header ï¼Œæ•°æ®åˆ— excelList ç”Ÿæˆ Excel,å¦‚æœ‰å›¾ç‰‡è¯·è½¬æ¢ä¸ºbyte[]<br>
+	 * headerã€excelListè§„åˆ™å¦‚ä¸‹ï¼š<br>
+	 * headerã€excelListä¸­çš„Beanå¿…é¡»å¯¹åº”ï¼ˆjavaBeançš„å±æ€§é¡ºåºï¼‰ï¼šå¦‚ä¸‹<br>
+	 * headerï¼šå§“åã€å¹´é¾„ã€æ€§åˆ«ã€ç­çº§<br>
+	 * Beanï¼šnameã€ageã€sexã€class<br>
 	 * 
 	 * @author chenssy 
-	 * @date 2014Äê6ÔÂ15ÈÕ ÏÂÎç9:18:37
+	 * @date 2014å¹´6æœˆ15æ—¥ ä¸‹åˆ9:18:37
 	 * 
 	 * @param header  
-	 * 				±í¸ñÊôĞÔÁĞÃûÊı×é
+	 * 				è¡¨æ ¼å±æ€§åˆ—åæ•°ç»„
 	 * @param excelList 
-	 * 			ĞèÒªÏÔÊ¾µÄÊı¾İ¼¯ºÏ,¼¯ºÏÖĞÒ»¶¨Òª·ÅÖÃ·ûºÏjavabean·ç¸ñµÄÀàµÄ¶ÔÏó¡£´Ë·½·¨Ö§³ÖµÄ javabean
-	 *          ÊôĞÔµÄÊı¾İÀàĞÍÓĞ»ù±¾Êı¾İÀàĞÍ¼°String,Date,byte[](Í¼Æ¬Êı¾İ)
+	 * 			éœ€è¦æ˜¾ç¤ºçš„æ•°æ®é›†åˆ,é›†åˆä¸­ä¸€å®šè¦æ”¾ç½®ç¬¦åˆjavabeané£æ ¼çš„ç±»çš„å¯¹è±¡ã€‚æ­¤æ–¹æ³•æ”¯æŒçš„ javabean
+	 *          å±æ€§çš„æ•°æ®ç±»å‹æœ‰åŸºæœ¬æ•°æ®ç±»å‹åŠString,Date,byte[](å›¾ç‰‡æ•°æ®)
 	 * @param sheetTitle 	
-	 * 			±í¸ñ±êÌâÃû
-	 * @return Éú³ÉµÄHSSFWorkBook
+	 * 			è¡¨æ ¼æ ‡é¢˜å
+	 * @return ç”Ÿæˆçš„HSSFWorkBook
 	 * @version 1.0
 	 */
 	public HSSFWorkbook exportExcel(String[] header,List<Object> excelList,String sheetTitle){
-		//Éú³ÉÒ»¸öExcel
+		//ç”Ÿæˆä¸€ä¸ªExcel
 		HSSFWorkbook book = new HSSFWorkbook();  
-		//Éú³ÉÒ»¸ö±í¸ñ
-		sheetTitle = getSheetTitle(sheetTitle);   //ÅĞ¶Ï¡¢ÉèÖÃsheetTitle
+		//ç”Ÿæˆä¸€ä¸ªè¡¨æ ¼
+		sheetTitle = getSheetTitle(sheetTitle);   //åˆ¤æ–­ã€è®¾ç½®sheetTitle
 		HSSFSheet sheet = book.createSheet(sheetTitle);
 		
-		//ÉèÖÃExcelÀïÃæÊı¾İ
+		//è®¾ç½®Excelé‡Œé¢æ•°æ®
 		setExcelContentData(book,sheet,header,excelList);
 		
-		System.out.println("¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ªExcelExportHelper:ExcelÉú³É³É¹¦...");
+		System.out.println("â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”ExcelExportHelper:Excelç”ŸæˆæˆåŠŸ...");
 		
 		return book;
 	}
 	
 	/**
 	 * 
-	 * Í¨ÓÃ·½·¨£¬Ê¹ÓÃ java ·´Éä»úÖÆ£¬¸ù¾İÌá¹©±íÍ· header £¬Êı¾İÁĞ excelList Éú³É Excel,ÈçÓĞÍ¼Æ¬Çë×ª»»Îªbyte[]<br>
-	 * header¡¢propertiesĞèÒªÒ»Ò»¶ÔÓ¦£º<Br>
-	 * header = ["Ñ§ºÅ","ÄêÁä","ĞÔ±ğ","°à¼¶"]
-	 * properties = ["id","age","sex","class"],Æä¶ÔÓ¦µÄexcelListÖĞjavaBeanµÄÊôĞÔÖµ
+	 * é€šç”¨æ–¹æ³•ï¼Œä½¿ç”¨ java åå°„æœºåˆ¶ï¼Œæ ¹æ®æä¾›è¡¨å¤´ header ï¼Œæ•°æ®åˆ— excelList ç”Ÿæˆ Excel,å¦‚æœ‰å›¾ç‰‡è¯·è½¬æ¢ä¸ºbyte[]<br>
+	 * headerã€propertieséœ€è¦ä¸€ä¸€å¯¹åº”ï¼š<Br>
+	 * header = ["å­¦å·","å¹´é¾„","æ€§åˆ«","ç­çº§"]
+	 * properties = ["id","age","sex","class"],å…¶å¯¹åº”çš„excelListä¸­javaBeançš„å±æ€§å€¼
 	 * 
 	 * @author chenssy 
-	 * @date 2014Äê6ÔÂ19ÈÕ ÏÂÎç6:02:02
+	 * @date 2014å¹´6æœˆ19æ—¥ ä¸‹åˆ6:02:02
 	 * 
 	 * @param header  
-	 * 				Excel±íÍ·
+	 * 				Excelè¡¨å¤´
 	 * @param properties  
-	 * 				±íÍ·¶ÔÓ¦javaBeanÖĞµÄÊôĞÔ
+	 * 				è¡¨å¤´å¯¹åº”javaBeanä¸­çš„å±æ€§
 	 * @param excelList  
-	 * 				ĞèÒªÏÔÊ¾µÄÊı¾İ¼¯ºÏ,¼¯ºÏÖĞÒ»¶¨Òª·ÅÖÃ·ûºÏjavabean·ç¸ñµÄÀàµÄ¶ÔÏó¡£´Ë·½·¨Ö§³ÖµÄ 
-	 * 				javabeanÊôĞÔµÄÊı¾İÀàĞÍÓĞ»ù±¾Êı¾İÀàĞÍ¼°String,Date,byte[](Í¼Æ¬Êı¾İ)
+	 * 				éœ€è¦æ˜¾ç¤ºçš„æ•°æ®é›†åˆ,é›†åˆä¸­ä¸€å®šè¦æ”¾ç½®ç¬¦åˆjavabeané£æ ¼çš„ç±»çš„å¯¹è±¡ã€‚æ­¤æ–¹æ³•æ”¯æŒçš„ 
+	 * 				javabeanå±æ€§çš„æ•°æ®ç±»å‹æœ‰åŸºæœ¬æ•°æ®ç±»å‹åŠString,Date,byte[](å›¾ç‰‡æ•°æ®)
 	 * @param sheetTitle  
-	 * 				±í¸ñ±êÌâÃû
+	 * 				è¡¨æ ¼æ ‡é¢˜å
 	 * 
-	 * @return Éú³ÉµÄHSSFWorkbook
+	 * @return ç”Ÿæˆçš„HSSFWorkbook
 	 * @version 1.0
 	 */
 	public HSSFWorkbook exportExcel(String[] header,String[] properties,List<Object> excelList,
 			String sheetTitle){
-		//Éú³ÉÒ»¸öExcel
+		//ç”Ÿæˆä¸€ä¸ªExcel
 		HSSFWorkbook book = new HSSFWorkbook();
-		// Éú³ÉÒ»¸ö±í¸ñ
-		sheetTitle = getSheetTitle(sheetTitle); // ÅĞ¶Ï¡¢ÉèÖÃsheetTitle
+		// ç”Ÿæˆä¸€ä¸ªè¡¨æ ¼
+		sheetTitle = getSheetTitle(sheetTitle); // åˆ¤æ–­ã€è®¾ç½®sheetTitle
 		HSSFSheet sheet = book.createSheet(sheetTitle);
 
-		// ÉèÖÃExcelÀïÃæÊı¾İ
+		// è®¾ç½®Excelé‡Œé¢æ•°æ®
 		setExcelContentData(book, sheet, header, properties ,excelList);
 
-		System.out.println("¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ªExcelExportHelper:ExcelÉú³É³É¹¦...");
+		System.out.println("â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”ExcelExportHelper:Excelç”ŸæˆæˆåŠŸ...");
 
 		return book;
 	}
 
 	/**
-	 * Í¨ÓÃ·½·¨£¬Ê¹ÓÃ java ·´Éä»úÖÆ£¬¸ù¾İÌá¹©±íÍ· header £¬Êı¾İÁĞ excelList Éú³É Excel,²¢½«Excel±£´æÖÁÄ³¸öÂ·¾¶ÏÂ,
-	 * ÈçÓĞÍ¼Æ¬Çë×ª»»Îªbyte[]<br>
-	 * header¡¢excelList¹æÔòÈçÏÂ£º<br>
-	 * header¡¢excelListÖĞµÄBean±ØĞëÒ»Ò»¶ÔÓ¦(javaBeanµÄÊôĞÔË³Ğò)£ºÈçÏÂ<br>
-	 * header£ºĞÕÃû¡¢ÄêÁä¡¢ĞÔ±ğ¡¢°à¼¶<br>
-	 * Bean£ºname¡¢age¡¢sex¡¢class<br>
+	 * é€šç”¨æ–¹æ³•ï¼Œä½¿ç”¨ java åå°„æœºåˆ¶ï¼Œæ ¹æ®æä¾›è¡¨å¤´ header ï¼Œæ•°æ®åˆ— excelList ç”Ÿæˆ Excel,å¹¶å°†Excelä¿å­˜è‡³æŸä¸ªè·¯å¾„ä¸‹,
+	 * å¦‚æœ‰å›¾ç‰‡è¯·è½¬æ¢ä¸ºbyte[]<br>
+	 * headerã€excelListè§„åˆ™å¦‚ä¸‹ï¼š<br>
+	 * headerã€excelListä¸­çš„Beanå¿…é¡»ä¸€ä¸€å¯¹åº”(javaBeançš„å±æ€§é¡ºåº)ï¼šå¦‚ä¸‹<br>
+	 * headerï¼šå§“åã€å¹´é¾„ã€æ€§åˆ«ã€ç­çº§<br>
+	 * Beanï¼šnameã€ageã€sexã€class<br>
 	 * 
 	 * @author chenssy 
-	 * @date 2014Äê6ÔÂ17ÈÕ ÏÂÎç2:24:38
+	 * @date 2014å¹´6æœˆ17æ—¥ ä¸‹åˆ2:24:38
 	 * 
 	 * @param header 
-	 * 				±í¸ñÊôĞÔÁĞÃûÊı×é
+	 * 				è¡¨æ ¼å±æ€§åˆ—åæ•°ç»„
 	 * @param excelList 
-	 * 				ĞèÒªÏÔÊ¾µÄÊı¾İ¼¯ºÏ,¼¯ºÏÖĞÒ»¶¨Òª·ÅÖÃ·ûºÏjavabean·ç¸ñµÄÀàµÄ¶ÔÏó¡£´Ë·½·¨Ö§³ÖµÄ
-     *              javabeanÊôĞÔµÄÊı¾İÀàĞÍÓĞ»ù±¾Êı¾İÀàĞÍ¼°String,Date,byte[](Í¼Æ¬Êı¾İ)
+	 * 				éœ€è¦æ˜¾ç¤ºçš„æ•°æ®é›†åˆ,é›†åˆä¸­ä¸€å®šè¦æ”¾ç½®ç¬¦åˆjavabeané£æ ¼çš„ç±»çš„å¯¹è±¡ã€‚æ­¤æ–¹æ³•æ”¯æŒçš„
+     *              javabeanå±æ€§çš„æ•°æ®ç±»å‹æœ‰åŸºæœ¬æ•°æ®ç±»å‹åŠString,Date,byte[](å›¾ç‰‡æ•°æ®)
 	 * @param sheetTitle 
-	 * 				±í¸ñ±êÌâÃû
+	 * 				è¡¨æ ¼æ ‡é¢˜å
 	 * @param filePath 
-	 * 				ExcelÎÄ¼ş±£´æÎ»ÖÃ 
+	 * 				Excelæ–‡ä»¶ä¿å­˜ä½ç½® 
 	 * @param fileName 
-	 * 				ExcelÎÄ¼şÃû
+	 * 				Excelæ–‡ä»¶å
 	 * 
 	 * @return
 	 * @version 1.0
 	 */
 	public void exportExcelAndSave(String[] header,List<Object> excelList,String sheetTitle,
 			String filePath,String fileName){
-		//Éú³ÉExcel
+		//ç”ŸæˆExcel
 		HSSFWorkbook book = exportExcel(header, excelList, sheetTitle);
 		
-		//±£´æÉú³ÉµÄExcel
+		//ä¿å­˜ç”Ÿæˆçš„Excel
 		saveExcel(book,filePath,fileName);
 	}
 	
 	/**
-	 * Í¨ÓÃ·½·¨£¬Ê¹ÓÃ java ·´Éä»úÖÆ£¬¸ù¾İÌá¹©±íÍ· header £¬Êı¾İÁĞ excelList Éú³É Excel,²¢½«Excel±£´æÖÁÄ³¸öÂ·¾¶ÏÂ,
-	 * ÈçÓĞÍ¼Æ¬Çë×ª»»Îªbyte[]<br>
-	 * header¡¢propertiesĞèÒªÒ»Ò»¶ÔÓ¦£º<Br>
-	 * header = ["Ñ§ºÅ","ÄêÁä","ĞÔ±ğ","°à¼¶"]<Br>
-	 * properties = ["id","age","sex","class"],Æä¶ÔÓ¦µÄexcelListÖĞjavaBeanµÄÊôĞÔÖµ
+	 * é€šç”¨æ–¹æ³•ï¼Œä½¿ç”¨ java åå°„æœºåˆ¶ï¼Œæ ¹æ®æä¾›è¡¨å¤´ header ï¼Œæ•°æ®åˆ— excelList ç”Ÿæˆ Excel,å¹¶å°†Excelä¿å­˜è‡³æŸä¸ªè·¯å¾„ä¸‹,
+	 * å¦‚æœ‰å›¾ç‰‡è¯·è½¬æ¢ä¸ºbyte[]<br>
+	 * headerã€propertieséœ€è¦ä¸€ä¸€å¯¹åº”ï¼š<Br>
+	 * header = ["å­¦å·","å¹´é¾„","æ€§åˆ«","ç­çº§"]<Br>
+	 * properties = ["id","age","sex","class"],å…¶å¯¹åº”çš„excelListä¸­javaBeançš„å±æ€§å€¼
 	 * 
 	 * @author chenssy 
-	 * @date 2014Äê6ÔÂ19ÈÕ ÏÂÎç6:24:56
+	 * @date 2014å¹´6æœˆ19æ—¥ ä¸‹åˆ6:24:56
 	 * 
 	 * @param header 
-	 * 				±í¸ñÊôĞÔÁĞÃûÊı×é
+	 * 				è¡¨æ ¼å±æ€§åˆ—åæ•°ç»„
 	 * @param properties 
-	 * 				±íÍ·¶ÔÓ¦javaBeanÖĞµÄÊôĞÔ
+	 * 				è¡¨å¤´å¯¹åº”javaBeanä¸­çš„å±æ€§
 	 * @param excelList 
-	 * 				ĞèÒªÏÔÊ¾µÄÊı¾İ¼¯ºÏ,¼¯ºÏÖĞÒ»¶¨Òª·ÅÖÃ·ûºÏjavabean·ç¸ñµÄÀàµÄ¶ÔÏó¡£´Ë·½·¨Ö§³ÖµÄ
-     *              javabeanÊôĞÔµÄÊı¾İÀàĞÍÓĞ»ù±¾Êı¾İÀàĞÍ¼°String,Date,byte[](Í¼Æ¬Êı¾İ)
+	 * 				éœ€è¦æ˜¾ç¤ºçš„æ•°æ®é›†åˆ,é›†åˆä¸­ä¸€å®šè¦æ”¾ç½®ç¬¦åˆjavabeané£æ ¼çš„ç±»çš„å¯¹è±¡ã€‚æ­¤æ–¹æ³•æ”¯æŒçš„
+     *              javabeanå±æ€§çš„æ•°æ®ç±»å‹æœ‰åŸºæœ¬æ•°æ®ç±»å‹åŠString,Date,byte[](å›¾ç‰‡æ•°æ®)
 	 * @param sheetTitle 
-	 * 				±í¸ñ±êÌâÃû
+	 * 				è¡¨æ ¼æ ‡é¢˜å
 	 * @param filePath 
-	 * 				ExcelÎÄ¼ş±£´æÎ»ÖÃ 
+	 * 				Excelæ–‡ä»¶ä¿å­˜ä½ç½® 
 	 * @param fileName 
-	 * 				ExcelÎÄ¼şÃû
+	 * 				Excelæ–‡ä»¶å
 	 * @version 1.0
 	 */
 	public void exportExcelAndSave(String[] header,String[] properties,List<Object> excelList,String sheetTitle,
 			String filePath,String fileName){
-		//Éú³ÉExcel
+		//ç”ŸæˆExcel
 		HSSFWorkbook book = exportExcel(header, properties,excelList, sheetTitle);	
-		//±£´æÉú³ÉµÄExcel
+		//ä¿å­˜ç”Ÿæˆçš„Excel
 		saveExcel(book,filePath,fileName);
 	}
 
 	/**
-	 * Í¨ÓÃ·½·¨£¬Ê¹ÓÃ java ·´Éä»úÖÆ£¬¸ù¾İÌá¹©±íÍ· header £¬Êı¾İÁĞ excelList Éú³É Excel,²¢½« Excel ´ò°ü zip ¸ñÊ½±£´æÖÁÄ³¸öÂ·¾¶ÏÂ,
-	 * ÈçÓĞÍ¼Æ¬Çë×ª»»Îªbyte[]<br>
-	 * header¡¢excelList¹æÔòÈçÏÂ£º<br>
-	 * header¡¢excelListÖĞµÄBean±ØĞëÒ»Ò»¶ÔÓ¦(javaBeanµÄÊôĞÔË³Ğò)£ºÈçÏÂ<br>
-	 * header£ºĞÕÃû¡¢ÄêÁä¡¢ĞÔ±ğ¡¢°à¼¶<br>
-	 * Bean£ºname¡¢age¡¢sex¡¢class<br>
+	 * é€šç”¨æ–¹æ³•ï¼Œä½¿ç”¨ java åå°„æœºåˆ¶ï¼Œæ ¹æ®æä¾›è¡¨å¤´ header ï¼Œæ•°æ®åˆ— excelList ç”Ÿæˆ Excel,å¹¶å°† Excel æ‰“åŒ… zip æ ¼å¼ä¿å­˜è‡³æŸä¸ªè·¯å¾„ä¸‹,
+	 * å¦‚æœ‰å›¾ç‰‡è¯·è½¬æ¢ä¸ºbyte[]<br>
+	 * headerã€excelListè§„åˆ™å¦‚ä¸‹ï¼š<br>
+	 * headerã€excelListä¸­çš„Beanå¿…é¡»ä¸€ä¸€å¯¹åº”(javaBeançš„å±æ€§é¡ºåº)ï¼šå¦‚ä¸‹<br>
+	 * headerï¼šå§“åã€å¹´é¾„ã€æ€§åˆ«ã€ç­çº§<br>
+	 * Beanï¼šnameã€ageã€sexã€class<br>
 	 * 
 	 * @author chenssy 
-	 * @date 2014Äê6ÔÂ18ÈÕ ÏÂÎç12:36:01
+	 * @date 2014å¹´6æœˆ18æ—¥ ä¸‹åˆ12:36:01
 	 * 
 	 * @param header 
-	 * 				±í¸ñÊôĞÔÁĞÃûÊı×é
+	 * 				è¡¨æ ¼å±æ€§åˆ—åæ•°ç»„
 	 * @param excelList 
-	 * 				ĞèÒªÏÔÊ¾µÄÊı¾İ¼¯ºÏ,¼¯ºÏÖĞÒ»¶¨Òª·ÅÖÃ·ûºÏjavabean·ç¸ñµÄÀàµÄ¶ÔÏó¡£´Ë·½·¨Ö§³ÖµÄ
-     *              javabeanÊôĞÔµÄÊı¾İÀàĞÍÓĞ»ù±¾Êı¾İÀàĞÍ¼°String,Date,byte[](Í¼Æ¬Êı¾İ)
+	 * 				éœ€è¦æ˜¾ç¤ºçš„æ•°æ®é›†åˆ,é›†åˆä¸­ä¸€å®šè¦æ”¾ç½®ç¬¦åˆjavabeané£æ ¼çš„ç±»çš„å¯¹è±¡ã€‚æ­¤æ–¹æ³•æ”¯æŒçš„
+     *              javabeanå±æ€§çš„æ•°æ®ç±»å‹æœ‰åŸºæœ¬æ•°æ®ç±»å‹åŠString,Date,byte[](å›¾ç‰‡æ•°æ®)
 	 * @param sheetTitle
-	 *				±í¸ñ±êÌâÃû
+	 *				è¡¨æ ¼æ ‡é¢˜å
 	 * @param filePath 		
-	 * 				zipÎÄ¼ş±£´æÎ»ÖÃ 
+	 * 				zipæ–‡ä»¶ä¿å­˜ä½ç½® 
 	 * @param excelName  
-	 * 				ExcelÃû³Æ
+	 * 				Excelåç§°
 	 * @param zipName 
-	 * 				zipÃû³Æ
+	 * 				zipåç§°
 	 * 
 	 * @version 1.0
 	 */
 	public void exportExcelAndZip(String[] header,List<Object> excelList,String sheetTitle,
 			String filePath,String excelName,String zipName){
-		//Éú³ÉExcel
+		//ç”ŸæˆExcel
 		HSSFWorkbook book = exportExcel(header, excelList, sheetTitle);
 		
-		//½«Éú³ÉµÄExcel´ò°ü±£´æÆğÀ´
+		//å°†ç”Ÿæˆçš„Excelæ‰“åŒ…ä¿å­˜èµ·æ¥
 		List<HSSFWorkbook> books = new ArrayList<HSSFWorkbook>();
 		books.add(book);
 		zipExcelAndSave(books, filePath, zipName, excelName);
 	}
 	
 	/**
-	 * Í¨ÓÃ·½·¨£¬Ê¹ÓÃ java ·´Éä»úÖÆ£¬¸ù¾İÌá¹©±íÍ· header £¬Êı¾İÁĞ excelList Éú³É Excel,²¢½« Excel ´ò°ü zip ¸ñÊ½±£´æÖÁÄ³¸öÂ·¾¶ÏÂ,
-	 * ÈçÓĞÍ¼Æ¬Çë×ª»»Îªbyte[]<br>
-	 * header¡¢propertiesĞèÒªÒ»Ò»¶ÔÓ¦£º<Br>
-	 * header = ["Ñ§ºÅ","ÄêÁä","ĞÔ±ğ","°à¼¶"]
-	 * properties = ["id","age","sex","class"],Æä¶ÔÓ¦µÄexcelListÖĞjavaBeanµÄÊôĞÔÖµ
+	 * é€šç”¨æ–¹æ³•ï¼Œä½¿ç”¨ java åå°„æœºåˆ¶ï¼Œæ ¹æ®æä¾›è¡¨å¤´ header ï¼Œæ•°æ®åˆ— excelList ç”Ÿæˆ Excel,å¹¶å°† Excel æ‰“åŒ… zip æ ¼å¼ä¿å­˜è‡³æŸä¸ªè·¯å¾„ä¸‹,
+	 * å¦‚æœ‰å›¾ç‰‡è¯·è½¬æ¢ä¸ºbyte[]<br>
+	 * headerã€propertieséœ€è¦ä¸€ä¸€å¯¹åº”ï¼š<Br>
+	 * header = ["å­¦å·","å¹´é¾„","æ€§åˆ«","ç­çº§"]
+	 * properties = ["id","age","sex","class"],å…¶å¯¹åº”çš„excelListä¸­javaBeançš„å±æ€§å€¼
 	 * 
 	 * @author chenssy 
-	 * @date 2014Äê6ÔÂ19ÈÕ ÏÂÎç6:33:04
+	 * @date 2014å¹´6æœˆ19æ—¥ ä¸‹åˆ6:33:04
 	 * 
 	 * @param header 
-	 * 				±í¸ñÊôĞÔÁĞÃûÊı×é
+	 * 				è¡¨æ ¼å±æ€§åˆ—åæ•°ç»„
 	 * @param properties
-	 *				±íÍ·¶ÔÓ¦javaBeanµÄÊôĞÔ
+	 *				è¡¨å¤´å¯¹åº”javaBeançš„å±æ€§
 	 * @param excelList 
-	 * 				ĞèÒªÏÔÊ¾µÄÊı¾İ¼¯ºÏ,¼¯ºÏÖĞÒ»¶¨Òª·ÅÖÃ·ûºÏjavabean·ç¸ñµÄÀàµÄ¶ÔÏó¡£´Ë·½·¨Ö§³ÖµÄ
-     *              javabeanÊôĞÔµÄÊı¾İÀàĞÍÓĞ»ù±¾Êı¾İÀàĞÍ¼°String,Date,byte[](Í¼Æ¬Êı¾İ)
+	 * 				éœ€è¦æ˜¾ç¤ºçš„æ•°æ®é›†åˆ,é›†åˆä¸­ä¸€å®šè¦æ”¾ç½®ç¬¦åˆjavabeané£æ ¼çš„ç±»çš„å¯¹è±¡ã€‚æ­¤æ–¹æ³•æ”¯æŒçš„
+     *              javabeanå±æ€§çš„æ•°æ®ç±»å‹æœ‰åŸºæœ¬æ•°æ®ç±»å‹åŠString,Date,byte[](å›¾ç‰‡æ•°æ®)
 	 * @param sheetTitle 
-	 * 				±í¸ñ±êÌâÃû
+	 * 				è¡¨æ ¼æ ‡é¢˜å
 	 * @param filePath 
-	 * 				zipÎÄ¼ş±£´æÎ»ÖÃ 
+	 * 				zipæ–‡ä»¶ä¿å­˜ä½ç½® 
 	 * @param excelName  
-	 * 				ExcelÃû³Æ
+	 * 				Excelåç§°
 	 * @param zipName
-	 * 				zipÃû³Æ
+	 * 				zipåç§°
 	 * 
 	 * @version 1.0
 	 */
 	public void exportExcelAndZip(String[] header,String[] properties,List<Object> excelList,String sheetTitle,
 			String filePath,String excelName,String zipName){
-		//Éú³ÉExcel
+		//ç”ŸæˆExcel
 		HSSFWorkbook book = exportExcel(header, properties,excelList, sheetTitle);
 				
-		//½«Éú³ÉµÄExcel´ò°ü±£´æÆğÀ´
+		//å°†ç”Ÿæˆçš„Excelæ‰“åŒ…ä¿å­˜èµ·æ¥
 		List<HSSFWorkbook> books = new ArrayList<HSSFWorkbook>();
 		books.add(book);
 		zipExcelAndSave(books, filePath, zipName, excelName);
 	}
 	
 	/**
-	 * Í¨ÓÃ·½·¨£¬Ê¹ÓÃ java ·´Éä»úÖÆ£¬¸ù¾İÌá¹©±íÍ· header £¬Êı¾İÁĞ excelList Éú³É Excel,ÈçÓĞÍ¼Æ¬Çë×ª»»Îªbyte[]<br>
-	 * ÓÃÓÚ´óÊı¾İÁ¿Ê±Ê¹ÓÃ,Éæ¼°µ½Ò»¸ö±íÖ»ÄÜÓĞ65536ĞĞ,µ±Êı¾İÁ¿½Ï´óÊ±»áÖ±½ÓĞ´ÈëÏÂÒ»¸ö±í(excel¡¢sheet)
-	 * header¡¢excelList¹æÔòÈçÏÂ£º<br>
-	 * header¡¢excelListÖĞµÄBean±ØĞëÒ»Ò»¶ÔÓ¦(javaBeanµÄÊôĞÔË³Ğò)£ºÈçÏÂ<br>
-	 * header£ºĞÕÃû¡¢ÄêÁä¡¢ĞÔ±ğ¡¢°à¼¶<br>
-	 * Bean£ºname¡¢age¡¢sex¡¢class<br>
+	 * é€šç”¨æ–¹æ³•ï¼Œä½¿ç”¨ java åå°„æœºåˆ¶ï¼Œæ ¹æ®æä¾›è¡¨å¤´ header ï¼Œæ•°æ®åˆ— excelList ç”Ÿæˆ Excel,å¦‚æœ‰å›¾ç‰‡è¯·è½¬æ¢ä¸ºbyte[]<br>
+	 * ç”¨äºå¤§æ•°æ®é‡æ—¶ä½¿ç”¨,æ¶‰åŠåˆ°ä¸€ä¸ªè¡¨åªèƒ½æœ‰65536è¡Œ,å½“æ•°æ®é‡è¾ƒå¤§æ—¶ä¼šç›´æ¥å†™å…¥ä¸‹ä¸€ä¸ªè¡¨(excelã€sheet)
+	 * headerã€excelListè§„åˆ™å¦‚ä¸‹ï¼š<br>
+	 * headerã€excelListä¸­çš„Beanå¿…é¡»ä¸€ä¸€å¯¹åº”(javaBeançš„å±æ€§é¡ºåº)ï¼šå¦‚ä¸‹<br>
+	 * headerï¼šå§“åã€å¹´é¾„ã€æ€§åˆ«ã€ç­çº§<br>
+	 * Beanï¼šnameã€ageã€sexã€class<br>
 	 * 
 	 * @author chenssy 
-	 * @date 2014Äê6ÔÂ17ÈÕ ÏÂÎç9:53:15
+	 * @date 2014å¹´6æœˆ17æ—¥ ä¸‹åˆ9:53:15
 	 * 
 	 * @param header 
-	 * 				±í¸ñÊôĞÔÁĞÃûÊı×é
+	 * 				è¡¨æ ¼å±æ€§åˆ—åæ•°ç»„
 	 * @param excelList 
-	 * 				ĞèÒªÏÔÊ¾µÄÊı¾İ¼¯ºÏ,¼¯ºÏÖĞÒ»¶¨Òª·ÅÖÃ·ûºÏjavabean·ç¸ñµÄÀàµÄ¶ÔÏó¡£´Ë·½·¨Ö§³ÖµÄ
-     *              javabeanÊôĞÔµÄÊı¾İÀàĞÍÓĞ»ù±¾Êı¾İÀàĞÍ¼°String,Date,byte[](Í¼Æ¬Êı¾İ)
+	 * 				éœ€è¦æ˜¾ç¤ºçš„æ•°æ®é›†åˆ,é›†åˆä¸­ä¸€å®šè¦æ”¾ç½®ç¬¦åˆjavabeané£æ ¼çš„ç±»çš„å¯¹è±¡ã€‚æ­¤æ–¹æ³•æ”¯æŒçš„
+     *              javabeanå±æ€§çš„æ•°æ®ç±»å‹æœ‰åŸºæœ¬æ•°æ®ç±»å‹åŠString,Date,byte[](å›¾ç‰‡æ•°æ®)
 	 * @param sheetTitle 
-	 * 				±í¸ñ±êÌâÃû
+	 * 				è¡¨æ ¼æ ‡é¢˜å
 	 * @param flag 
-	 * 				·ÖÒ³±êÊ¶Îª¡£flag == 0001£ºÉú³É¶à¸öExcel,flag == 0002£ºÉú³É¶à¸ösheet
+	 * 				åˆ†é¡µæ ‡è¯†ä¸ºã€‚flag == 0001ï¼šç”Ÿæˆå¤šä¸ªExcel,flag == 0002ï¼šç”Ÿæˆå¤šä¸ªsheet
 	 * 
 	 * @return List<HSSFWorkbook>
 	 * @version 1.0
 	 */
 	public List<HSSFWorkbook> exportExcelForBigData(String[] header,List<Object> excelList,String sheetTitle,
 			String flag){
-		List<HSSFWorkbook> list = new ArrayList<HSSFWorkbook>();    //´´½¨±íÊı¾İ½á¹û¼¯
+		List<HSSFWorkbook> list = new ArrayList<HSSFWorkbook>();    //åˆ›å»ºè¡¨æ•°æ®ç»“æœé›†
 
-		//ÅĞ¶ÏĞèÒªÉú³É¼¸¸öExcel
+		//åˆ¤æ–­éœ€è¦ç”Ÿæˆå‡ ä¸ªExcel
 		int num  = excelList.size() % maxRowCount == 0 ? excelList.size() / maxRowCount : excelList.size() / maxRowCount + 1;
 		
 		HSSFWorkbook book = new HSSFWorkbook();
-		List<Object> newList  = null;    //ĞÂÊı¾İÁĞ±í
-		String newTitle = null;    //ĞÂtitle
+		List<Object> newList  = null;    //æ–°æ•°æ®åˆ—è¡¨
+		String newTitle = null;    //æ–°title
 		for(int i = 0 ; i < num ; i++){
-			//¼ÆËãĞÂµÄÊı¾İÁĞ±í
+			//è®¡ç®—æ–°çš„æ•°æ®åˆ—è¡¨
 			int beginRowNum = maxRowCount * i;
 			int endRowNum = maxRowCount * (i + 1) > excelList.size() ? excelList.size() : maxRowCount * (i + 1);
 			newList = excelList.subList(beginRowNum, endRowNum);
 			newTitle = getSheetTitle(sheetTitle) + "_" + i;    
-			if(MORE_EXCEL_FLAG.equals(flag)){     //Èç¹ûÊÇ´´½¨¶à¸öExcel
+			if(MORE_EXCEL_FLAG.equals(flag)){     //å¦‚æœæ˜¯åˆ›å»ºå¤šä¸ªExcel
 				book = exportExcel(header, newList, newTitle);
 				list.add(book);
 			}
-			else if(MORE_SHEET_FLAG.equals(flag)){   //´´½¨¶àsheet
+			else if(MORE_SHEET_FLAG.equals(flag)){   //åˆ›å»ºå¤šsheet
 				HSSFSheet sheet = book.createSheet(newTitle);
 				setExcelContentData(book,sheet,header,newList);
 			}
 		}
 		
-		if(MORE_SHEET_FLAG.equals(flag)){   //´´½¨¶àsheet
+		if(MORE_SHEET_FLAG.equals(flag)){   //åˆ›å»ºå¤šsheet
 			list.add(book);
 		}
 		
@@ -377,54 +377,54 @@ public class ExcelExportHelper {
 	}
 	
 	/**
-	 * Í¨ÓÃ·½·¨£¬Ê¹ÓÃ java ·´Éä»úÖÆ£¬¸ù¾İÌá¹©±íÍ· header £¬Êı¾İÁĞ excelList Éú³É Excel,ÈçÓĞÍ¼Æ¬Çë×ª»»Îªbyte[]<br>
-	 * ÓÃÓÚ´óÊı¾İÁ¿Ê±Ê¹ÓÃ,Éæ¼°µ½Ò»¸ö±íÖ»ÄÜÓĞ65536ĞĞ,µ±Êı¾İÁ¿½Ï´óÊ±»áÖ±½ÓĞ´ÈëÏÂÒ»¸ö±í(excel¡¢sheet)
-	 * header¡¢propertiesĞèÒªÒ»Ò»¶ÔÓ¦£º<Br>
-	 * header = ["Ñ§ºÅ","ÄêÁä","ĞÔ±ğ","°à¼¶"]
-	 * properties = ["id","age","sex","class"],Æä¶ÔÓ¦µÄexcelListÖĞjavaBeanµÄÊôĞÔÖµ
+	 * é€šç”¨æ–¹æ³•ï¼Œä½¿ç”¨ java åå°„æœºåˆ¶ï¼Œæ ¹æ®æä¾›è¡¨å¤´ header ï¼Œæ•°æ®åˆ— excelList ç”Ÿæˆ Excel,å¦‚æœ‰å›¾ç‰‡è¯·è½¬æ¢ä¸ºbyte[]<br>
+	 * ç”¨äºå¤§æ•°æ®é‡æ—¶ä½¿ç”¨,æ¶‰åŠåˆ°ä¸€ä¸ªè¡¨åªèƒ½æœ‰65536è¡Œ,å½“æ•°æ®é‡è¾ƒå¤§æ—¶ä¼šç›´æ¥å†™å…¥ä¸‹ä¸€ä¸ªè¡¨(excelã€sheet)
+	 * headerã€propertieséœ€è¦ä¸€ä¸€å¯¹åº”ï¼š<Br>
+	 * header = ["å­¦å·","å¹´é¾„","æ€§åˆ«","ç­çº§"]
+	 * properties = ["id","age","sex","class"],å…¶å¯¹åº”çš„excelListä¸­javaBeançš„å±æ€§å€¼
 	 * 
 	 * @author chenssy 
-	 * @date 2014Äê6ÔÂ19ÈÕ ÏÂÎç6:41:23
+	 * @date 2014å¹´6æœˆ19æ—¥ ä¸‹åˆ6:41:23
 	 * 
 	 * @param header 
-	 * 				±í¸ñÊôĞÔÁĞÃûÊı×é
+	 * 				è¡¨æ ¼å±æ€§åˆ—åæ•°ç»„
 	 * @param properties 
-	 * 				±íÍ·¶ÔÓ¦javaBeanµÄÊôĞÔ
+	 * 				è¡¨å¤´å¯¹åº”javaBeançš„å±æ€§
 	 * @param excelList 
-	 * 				ĞèÒªÏÔÊ¾µÄÊı¾İ¼¯ºÏ,¼¯ºÏÖĞÒ»¶¨Òª·ÅÖÃ·ûºÏjavabean·ç¸ñµÄÀàµÄ¶ÔÏó¡£´Ë·½·¨Ö§³ÖµÄ
-     *              javabeanÊôĞÔµÄÊı¾İÀàĞÍÓĞ»ù±¾Êı¾İÀàĞÍ¼°String,Date,byte[](Í¼Æ¬Êı¾İ)
+	 * 				éœ€è¦æ˜¾ç¤ºçš„æ•°æ®é›†åˆ,é›†åˆä¸­ä¸€å®šè¦æ”¾ç½®ç¬¦åˆjavabeané£æ ¼çš„ç±»çš„å¯¹è±¡ã€‚æ­¤æ–¹æ³•æ”¯æŒçš„
+     *              javabeanå±æ€§çš„æ•°æ®ç±»å‹æœ‰åŸºæœ¬æ•°æ®ç±»å‹åŠString,Date,byte[](å›¾ç‰‡æ•°æ®)
 	 * @param sheetTitle 
-	 * 				±í¸ñ±êÌâÃû
+	 * 				è¡¨æ ¼æ ‡é¢˜å
 	 * @param flag 
-	 * 				·ÖÒ³±êÊ¶Îª¡£flag == 0001£ºÉú³É¶à¸öExcel,flag == 0002£ºÉú³É¶à¸ösheet
+	 * 				åˆ†é¡µæ ‡è¯†ä¸ºã€‚flag == 0001ï¼šç”Ÿæˆå¤šä¸ªExcel,flag == 0002ï¼šç”Ÿæˆå¤šä¸ªsheet
 	 * @return List<HSSFWorkbook>
 	 * @version 1.0
 	 */
 	public List<HSSFWorkbook> exportExcelForBigData(String[] header,String[] properties,
 			List<Object> excelList,String sheetTitle, String flag){
-		List<HSSFWorkbook> list = new ArrayList<HSSFWorkbook>();    //´´½¨±íÊı¾İ½á¹û¼¯
-		// ÅĞ¶ÏĞèÒªÉú³É¼¸¸öExcel
+		List<HSSFWorkbook> list = new ArrayList<HSSFWorkbook>();    //åˆ›å»ºè¡¨æ•°æ®ç»“æœé›†
+		// åˆ¤æ–­éœ€è¦ç”Ÿæˆå‡ ä¸ªExcel
 		int num = excelList.size() % maxRowCount == 0 ? excelList.size() / maxRowCount : excelList.size() / maxRowCount + 1;
 
 		HSSFWorkbook book = new HSSFWorkbook();
-		List<Object> newList = null; // ĞÂÊı¾İÁĞ±í
-		String newTitle = null; // ĞÂtitle
+		List<Object> newList = null; // æ–°æ•°æ®åˆ—è¡¨
+		String newTitle = null; // æ–°title
 		for (int i = 0; i < num; i++) {
-			// ¼ÆËãĞÂµÄÊı¾İÁĞ±í
+			// è®¡ç®—æ–°çš„æ•°æ®åˆ—è¡¨
 			int beginRowNum = maxRowCount * i;
 			int endRowNum = maxRowCount * (i + 1) > excelList.size() ? excelList.size() : maxRowCount * (i + 1);
 			newList = excelList.subList(beginRowNum, endRowNum);
 			newTitle = getSheetTitle(sheetTitle) + "_" + i;
-			if (MORE_EXCEL_FLAG.equals(flag)) { // Èç¹ûÊÇ´´½¨¶à¸öExcel
+			if (MORE_EXCEL_FLAG.equals(flag)) { // å¦‚æœæ˜¯åˆ›å»ºå¤šä¸ªExcel
 				book = exportExcel(header,properties, newList, newTitle);
 				list.add(book);
-			} else if (MORE_SHEET_FLAG.equals(flag)) { // ´´½¨¶àsheet
+			} else if (MORE_SHEET_FLAG.equals(flag)) { // åˆ›å»ºå¤šsheet
 				HSSFSheet sheet = book.createSheet(newTitle);
 				setExcelContentData(book, sheet, header, properties,newList);
 			}
 		}
 
-		if (MORE_SHEET_FLAG.equals(flag)) { // ´´½¨¶àsheet
+		if (MORE_SHEET_FLAG.equals(flag)) { // åˆ›å»ºå¤šsheet
 			list.add(book);
 		}
 		return list;
@@ -432,196 +432,196 @@ public class ExcelExportHelper {
 	
 	
 	/**
-	 * Í¨ÓÃ·½·¨£¬Ê¹ÓÃ java ·´Éä»úÖÆ£¬¸ù¾İÌá¹©±íÍ· header £¬Êı¾İÁĞ excelList Éú³É Excel,²¢½«Excel±£´æÖÁÄ³¸öÂ·¾¶ÏÂ,
-	 * ÈçÓĞÍ¼Æ¬Çë×ª»»Îªbyte[]<br>
-	 * ÓÃÓÚ´óÊı¾İÁ¿Ê±Ê¹ÓÃ,Éæ¼°µ½Ò»¸ö±íÖ»ÄÜÓĞ65536ĞĞ,µ±Êı¾İÁ¿½Ï´óÊ±»áÖ±½ÓĞ´ÈëÏÂÒ»¸ö±í(excel¡¢sheet)
-	 * header¡¢excelList¹æÔòÈçÏÂ£º<br>
-	 * header¡¢excelListÖĞµÄBean±ØĞëÒ»Ò»¶ÔÓ¦(javaBeanµÄÊôĞÔË³Ğò)£ºÈçÏÂ<br>
-	 * header£ºĞÕÃû¡¢ÄêÁä¡¢ĞÔ±ğ¡¢°à¼¶<br>
-	 * Bean£ºname¡¢age¡¢sex¡¢class<br>
+	 * é€šç”¨æ–¹æ³•ï¼Œä½¿ç”¨ java åå°„æœºåˆ¶ï¼Œæ ¹æ®æä¾›è¡¨å¤´ header ï¼Œæ•°æ®åˆ— excelList ç”Ÿæˆ Excel,å¹¶å°†Excelä¿å­˜è‡³æŸä¸ªè·¯å¾„ä¸‹,
+	 * å¦‚æœ‰å›¾ç‰‡è¯·è½¬æ¢ä¸ºbyte[]<br>
+	 * ç”¨äºå¤§æ•°æ®é‡æ—¶ä½¿ç”¨,æ¶‰åŠåˆ°ä¸€ä¸ªè¡¨åªèƒ½æœ‰65536è¡Œ,å½“æ•°æ®é‡è¾ƒå¤§æ—¶ä¼šç›´æ¥å†™å…¥ä¸‹ä¸€ä¸ªè¡¨(excelã€sheet)
+	 * headerã€excelListè§„åˆ™å¦‚ä¸‹ï¼š<br>
+	 * headerã€excelListä¸­çš„Beanå¿…é¡»ä¸€ä¸€å¯¹åº”(javaBeançš„å±æ€§é¡ºåº)ï¼šå¦‚ä¸‹<br>
+	 * headerï¼šå§“åã€å¹´é¾„ã€æ€§åˆ«ã€ç­çº§<br>
+	 * Beanï¼šnameã€ageã€sexã€class<br>
 	 * 
 	 * @author chenssy 
-	 * @date 2014Äê6ÔÂ17ÈÕ ÏÂÎç10:39:15
+	 * @date 2014å¹´6æœˆ17æ—¥ ä¸‹åˆ10:39:15
 	 * 
 	 * @param header 
-	 * 				±í¸ñÊôĞÔÁĞÃûÊı×é
+	 * 				è¡¨æ ¼å±æ€§åˆ—åæ•°ç»„
 	 * @param excelList 
-	 * 				ĞèÒªÏÔÊ¾µÄÊı¾İ¼¯ºÏ,¼¯ºÏÖĞÒ»¶¨Òª·ÅÖÃ·ûºÏjavabean·ç¸ñµÄÀàµÄ¶ÔÏó¡£´Ë·½·¨Ö§³ÖµÄ
-     *              javabeanÊôĞÔµÄÊı¾İÀàĞÍÓĞ»ù±¾Êı¾İÀàĞÍ¼°String,Date,byte[](Í¼Æ¬Êı¾İ)
+	 * 				éœ€è¦æ˜¾ç¤ºçš„æ•°æ®é›†åˆ,é›†åˆä¸­ä¸€å®šè¦æ”¾ç½®ç¬¦åˆjavabeané£æ ¼çš„ç±»çš„å¯¹è±¡ã€‚æ­¤æ–¹æ³•æ”¯æŒçš„
+     *              javabeanå±æ€§çš„æ•°æ®ç±»å‹æœ‰åŸºæœ¬æ•°æ®ç±»å‹åŠString,Date,byte[](å›¾ç‰‡æ•°æ®)
 	 * @param sheetTitle 
-	 * 				±í¸ñ±êÌâÃû
+	 * 				è¡¨æ ¼æ ‡é¢˜å
 	 * @param flag 
-	 * 				·ÖÒ³±êÊ¶Îª¡£flag == 0001£ºÉú³É¶à¸öExcel,flag == 0002£ºÉú³É¶à¸ösheet
+	 * 				åˆ†é¡µæ ‡è¯†ä¸ºã€‚flag == 0001ï¼šç”Ÿæˆå¤šä¸ªExcel,flag == 0002ï¼šç”Ÿæˆå¤šä¸ªsheet
 	 * @param filePath
-	 * 			 	ÎÄ¼ş±£´æÂ·¾¶
+	 * 			 	æ–‡ä»¶ä¿å­˜è·¯å¾„
 	 * @param fileName 
-	 * 				±£´æÎÄ¼şÃû
+	 * 				ä¿å­˜æ–‡ä»¶å
 	 * @return 
 	 * @version 1.0
 	 */
 	public void exportExcelForBigDataAndSave(String[] header,List<Object> excelList,String sheetTitle,
 			String flag,String filePath,String fileName){
-		//»ñÈ¡Êı¾İ½á¹û¼¯
+		//è·å–æ•°æ®ç»“æœé›†
 		List<HSSFWorkbook> books = exportExcelForBigData(header, excelList, sheetTitle, flag);
 		String _fileName = "";
 		for(int i = 0 ; i < books.size() ; i ++){
 			HSSFWorkbook book = books.get(i);
 			_fileName = getFileName(fileName) + "_0" + i;
-			//±£´æExcelÎÄ¼ş
+			//ä¿å­˜Excelæ–‡ä»¶
 			saveExcel(book, filePath, _fileName);
 		}
 	}
 	
 	/**
-	 * Í¨ÓÃ·½·¨£¬Ê¹ÓÃ java ·´Éä»úÖÆ£¬¸ù¾İÌá¹©±íÍ· header £¬Êı¾İÁĞ excelList Éú³É Excel,²¢½«Excel±£´æÖÁÄ³¸öÂ·¾¶ÏÂ,
-	 * ÈçÓĞÍ¼Æ¬Çë×ª»»Îªbyte[]<br>
-	 * ÓÃÓÚ´óÊı¾İÁ¿Ê±Ê¹ÓÃ,Éæ¼°µ½Ò»¸ö±íÖ»ÄÜÓĞ65536ĞĞ,µ±Êı¾İÁ¿½Ï´óÊ±»áÖ±½ÓĞ´ÈëÏÂÒ»¸ö±í(excel¡¢sheet)
-	 * header¡¢propertiesĞèÒªÒ»Ò»¶ÔÓ¦£º<Br>
-	 * header = ["Ñ§ºÅ","ÄêÁä","ĞÔ±ğ","°à¼¶"]
-	 * properties = ["id","age","sex","class"],Æä¶ÔÓ¦µÄexcelListÖĞjavaBeanµÄÊôĞÔÖµ
+	 * é€šç”¨æ–¹æ³•ï¼Œä½¿ç”¨ java åå°„æœºåˆ¶ï¼Œæ ¹æ®æä¾›è¡¨å¤´ header ï¼Œæ•°æ®åˆ— excelList ç”Ÿæˆ Excel,å¹¶å°†Excelä¿å­˜è‡³æŸä¸ªè·¯å¾„ä¸‹,
+	 * å¦‚æœ‰å›¾ç‰‡è¯·è½¬æ¢ä¸ºbyte[]<br>
+	 * ç”¨äºå¤§æ•°æ®é‡æ—¶ä½¿ç”¨,æ¶‰åŠåˆ°ä¸€ä¸ªè¡¨åªèƒ½æœ‰65536è¡Œ,å½“æ•°æ®é‡è¾ƒå¤§æ—¶ä¼šç›´æ¥å†™å…¥ä¸‹ä¸€ä¸ªè¡¨(excelã€sheet)
+	 * headerã€propertieséœ€è¦ä¸€ä¸€å¯¹åº”ï¼š<Br>
+	 * header = ["å­¦å·","å¹´é¾„","æ€§åˆ«","ç­çº§"]
+	 * properties = ["id","age","sex","class"],å…¶å¯¹åº”çš„excelListä¸­javaBeançš„å±æ€§å€¼
 	 * 
 	 * @author chenssy 
-	 * @date 2014Äê6ÔÂ19ÈÕ ÏÂÎç8:22:25
+	 * @date 2014å¹´6æœˆ19æ—¥ ä¸‹åˆ8:22:25
 	 * 
 	 * @param header 
-	 * 				±í¸ñÊôĞÔÁĞÃûÊı×é
+	 * 				è¡¨æ ¼å±æ€§åˆ—åæ•°ç»„
 	 * @param properties 
-	 * 				±íÍ·¶ÔÓ¦javaBeanÊôĞÔ
+	 * 				è¡¨å¤´å¯¹åº”javaBeanå±æ€§
 	 * @param excelList 
-	 * 				ĞèÒªÏÔÊ¾µÄÊı¾İ¼¯ºÏ,¼¯ºÏÖĞÒ»¶¨Òª·ÅÖÃ·ûºÏjavabean·ç¸ñµÄÀàµÄ¶ÔÏó¡£´Ë·½·¨Ö§³ÖµÄ
-     *              javabeanÊôĞÔµÄÊı¾İÀàĞÍÓĞ»ù±¾Êı¾İÀàĞÍ¼°String,Date,byte[](Í¼Æ¬Êı¾İ)
+	 * 				éœ€è¦æ˜¾ç¤ºçš„æ•°æ®é›†åˆ,é›†åˆä¸­ä¸€å®šè¦æ”¾ç½®ç¬¦åˆjavabeané£æ ¼çš„ç±»çš„å¯¹è±¡ã€‚æ­¤æ–¹æ³•æ”¯æŒçš„
+     *              javabeanå±æ€§çš„æ•°æ®ç±»å‹æœ‰åŸºæœ¬æ•°æ®ç±»å‹åŠString,Date,byte[](å›¾ç‰‡æ•°æ®)
 	 * @param sheetTitle 
-	 * 				±í¸ñ±êÌâÃû
+	 * 				è¡¨æ ¼æ ‡é¢˜å
 	 * @param flag 
-	 * 				·ÖÒ³±êÊ¶Îª¡£flag == 0001£ºÉú³É¶à¸öExcel,flag == 0002£ºÉú³É¶à¸ösheet
+	 * 				åˆ†é¡µæ ‡è¯†ä¸ºã€‚flag == 0001ï¼šç”Ÿæˆå¤šä¸ªExcel,flag == 0002ï¼šç”Ÿæˆå¤šä¸ªsheet
 	 * @param filePath 
-	 * 				ÎÄ¼ş±£´æÂ·¾¶
+	 * 				æ–‡ä»¶ä¿å­˜è·¯å¾„
 	 * @param fileName 
-	 * 				±£´æÎÄ¼şÃû
+	 * 				ä¿å­˜æ–‡ä»¶å
 	 * @version 1.0
 	 */
 	public void exportExcelForBigDataAndSave(String[] header,String[] properties,List<Object> excelList,String sheetTitle,
 			String flag,String filePath,String fileName){
-		//»ñÈ¡Êı¾İ½á¹û¼¯
+		//è·å–æ•°æ®ç»“æœé›†
 		List<HSSFWorkbook> books = exportExcelForBigData(header, properties,excelList, sheetTitle, flag);
 		
 		String _fileName = "";
 		for(int i = 0 ; i < books.size() ; i ++){
 			HSSFWorkbook book = books.get(i);
 			_fileName = getFileName(fileName) + "_0" + i;
-			//±£´æExcelÎÄ¼ş
+			//ä¿å­˜Excelæ–‡ä»¶
 			saveExcel(book, filePath, _fileName);
 		}
 	}
 	
 	
 	/**
-	 * Í¨ÓÃ·½·¨£¬Ê¹ÓÃ java ·´Éä»úÖÆ£¬¸ù¾İÌá¹©±íÍ· header £¬Êı¾İÁĞ excelList Éú³É Excel,²¢½« Excel ´ò°ü³É ZIP 
-	 * ±£´æÖÁÄ³¸öÂ·¾¶ÏÂ,ÈçÓĞÍ¼Æ¬Çë×ª»»Îªbyte[]<br>
-	 * ÓÃÓÚ´óÊı¾İÁ¿Ê±Ê¹ÓÃ,Éæ¼°µ½Ò»¸ö±íÖ»ÄÜÓĞ65536ĞĞ,µ±Êı¾İÁ¿½Ï´óÊ±»áÖ±½ÓĞ´ÈëÏÂÒ»¸ö±í(excel¡¢sheet)
-	 * header¡¢excelList¹æÔòÈçÏÂ£º<br>
-	 * header¡¢excelListÖĞµÄBean±ØĞëÒ»Ò»¶ÔÓ¦(javaBeanµÄÊôĞÔË³Ğò)£ºÈçÏÂ<br>
-	 * header£ºĞÕÃû¡¢ÄêÁä¡¢ĞÔ±ğ¡¢°à¼¶<br>
-	 * Bean£ºname¡¢age¡¢sex¡¢class<br>
+	 * é€šç”¨æ–¹æ³•ï¼Œä½¿ç”¨ java åå°„æœºåˆ¶ï¼Œæ ¹æ®æä¾›è¡¨å¤´ header ï¼Œæ•°æ®åˆ— excelList ç”Ÿæˆ Excel,å¹¶å°† Excel æ‰“åŒ…æˆ ZIP 
+	 * ä¿å­˜è‡³æŸä¸ªè·¯å¾„ä¸‹,å¦‚æœ‰å›¾ç‰‡è¯·è½¬æ¢ä¸ºbyte[]<br>
+	 * ç”¨äºå¤§æ•°æ®é‡æ—¶ä½¿ç”¨,æ¶‰åŠåˆ°ä¸€ä¸ªè¡¨åªèƒ½æœ‰65536è¡Œ,å½“æ•°æ®é‡è¾ƒå¤§æ—¶ä¼šç›´æ¥å†™å…¥ä¸‹ä¸€ä¸ªè¡¨(excelã€sheet)
+	 * headerã€excelListè§„åˆ™å¦‚ä¸‹ï¼š<br>
+	 * headerã€excelListä¸­çš„Beanå¿…é¡»ä¸€ä¸€å¯¹åº”(javaBeançš„å±æ€§é¡ºåº)ï¼šå¦‚ä¸‹<br>
+	 * headerï¼šå§“åã€å¹´é¾„ã€æ€§åˆ«ã€ç­çº§<br>
+	 * Beanï¼šnameã€ageã€sexã€class<br>
 	 * 
 	 * @author chenssy 
-	 * @date 2014Äê6ÔÂ19ÈÕ ÏÂÎç10:39:15
+	 * @date 2014å¹´6æœˆ19æ—¥ ä¸‹åˆ10:39:15
 	 * 
 	 * @param header 
-	 * 				±í¸ñÊôĞÔÁĞÃûÊı×é
+	 * 				è¡¨æ ¼å±æ€§åˆ—åæ•°ç»„
 	 * @param excelList 
-	 * 				ĞèÒªÏÔÊ¾µÄÊı¾İ¼¯ºÏ,¼¯ºÏÖĞÒ»¶¨Òª·ÅÖÃ·ûºÏjavabean·ç¸ñµÄÀàµÄ¶ÔÏó¡£´Ë·½·¨Ö§³ÖµÄ
-     *              javabeanÊôĞÔµÄÊı¾İÀàĞÍÓĞ»ù±¾Êı¾İÀàĞÍ¼°String,Date,byte[](Í¼Æ¬Êı¾İ)
+	 * 				éœ€è¦æ˜¾ç¤ºçš„æ•°æ®é›†åˆ,é›†åˆä¸­ä¸€å®šè¦æ”¾ç½®ç¬¦åˆjavabeané£æ ¼çš„ç±»çš„å¯¹è±¡ã€‚æ­¤æ–¹æ³•æ”¯æŒçš„
+     *              javabeanå±æ€§çš„æ•°æ®ç±»å‹æœ‰åŸºæœ¬æ•°æ®ç±»å‹åŠString,Date,byte[](å›¾ç‰‡æ•°æ®)
 	 * @param sheetTitle 
-	 * 				±í¸ñ±êÌâÃû
+	 * 				è¡¨æ ¼æ ‡é¢˜å
 	 * @param flag 
-	 * 				·ÖÒ³±êÊ¶Îª¡£flag == 0001£ºÉú³É¶à¸öExcel,flag == 0002£ºÉú³É¶à¸ösheet
+	 * 				åˆ†é¡µæ ‡è¯†ä¸ºã€‚flag == 0001ï¼šç”Ÿæˆå¤šä¸ªExcel,flag == 0002ï¼šç”Ÿæˆå¤šä¸ªsheet
 	 * @param filePath 
-	 * 				ÎÄ¼ş±£´æÂ·¾¶
+	 * 				æ–‡ä»¶ä¿å­˜è·¯å¾„
 	 * @param excelName 
-	 * 				ExcelÎÄ¼şÃû
+	 * 				Excelæ–‡ä»¶å
 	 * @param zipName 
-	 * 				zipÎÄ¼şÃû
+	 * 				zipæ–‡ä»¶å
 	 * @return 
 	 * @version 1.0
 	 */
 	public void exportExcelForBigDataAndZipAndSave(String[] header,List<Object> excelList,String sheetTitle,
 			String flag,String filePath,String excelName,String zipName){
-		//»ñÈ¡Éú³ÉµÄExcel¼¯ºÏ
+		//è·å–ç”Ÿæˆçš„Excelé›†åˆ
 		List<HSSFWorkbook> books = exportExcelForBigData(header, excelList, sheetTitle, flag);
 		
-		//½«Éú³ÉµÄExcel´ò°ü²¢±£´æ
+		//å°†ç”Ÿæˆçš„Excelæ‰“åŒ…å¹¶ä¿å­˜
 		zipExcelAndSave(books, filePath, zipName, excelName);
 	}
 	
 	/**
-	 * Í¨ÓÃ·½·¨£¬Ê¹ÓÃ java ·´Éä»úÖÆ£¬¸ù¾İÌá¹©±íÍ· header £¬Êı¾İÁĞ excelList Éú³É Excel,²¢½« Excel ´ò°ü³É ZIP 
-	 * ±£´æÖÁÄ³¸öÂ·¾¶ÏÂ,ÈçÓĞÍ¼Æ¬Çë×ª»»Îªbyte[]<br>
-	 * ÓÃÓÚ´óÊı¾İÁ¿Ê±Ê¹ÓÃ,Éæ¼°µ½Ò»¸ö±íÖ»ÄÜÓĞ65536ĞĞ,µ±Êı¾İÁ¿½Ï´óÊ±»áÖ±½ÓĞ´ÈëÏÂÒ»¸ö±í(excel¡¢sheet)
-	 * header¡¢propertiesĞèÒªÒ»Ò»¶ÔÓ¦£º<Br>
-	 * header = ["Ñ§ºÅ","ÄêÁä","ĞÔ±ğ","°à¼¶"]
-	 * properties = ["id","age","sex","class"],Æä¶ÔÓ¦µÄexcelListÖĞjavaBeanµÄÊôĞÔÖµ
+	 * é€šç”¨æ–¹æ³•ï¼Œä½¿ç”¨ java åå°„æœºåˆ¶ï¼Œæ ¹æ®æä¾›è¡¨å¤´ header ï¼Œæ•°æ®åˆ— excelList ç”Ÿæˆ Excel,å¹¶å°† Excel æ‰“åŒ…æˆ ZIP 
+	 * ä¿å­˜è‡³æŸä¸ªè·¯å¾„ä¸‹,å¦‚æœ‰å›¾ç‰‡è¯·è½¬æ¢ä¸ºbyte[]<br>
+	 * ç”¨äºå¤§æ•°æ®é‡æ—¶ä½¿ç”¨,æ¶‰åŠåˆ°ä¸€ä¸ªè¡¨åªèƒ½æœ‰65536è¡Œ,å½“æ•°æ®é‡è¾ƒå¤§æ—¶ä¼šç›´æ¥å†™å…¥ä¸‹ä¸€ä¸ªè¡¨(excelã€sheet)
+	 * headerã€propertieséœ€è¦ä¸€ä¸€å¯¹åº”ï¼š<Br>
+	 * header = ["å­¦å·","å¹´é¾„","æ€§åˆ«","ç­çº§"]
+	 * properties = ["id","age","sex","class"],å…¶å¯¹åº”çš„excelListä¸­javaBeançš„å±æ€§å€¼
 	 * 
 	 * @author chenssy 
-	 * @date 2014Äê6ÔÂ19ÈÕ ÏÂÎç8:24:21
+	 * @date 2014å¹´6æœˆ19æ—¥ ä¸‹åˆ8:24:21
 	 * 
 	 * @param header 
-	 * 				±í¸ñÊôĞÔÁĞÃûÊı×é
+	 * 				è¡¨æ ¼å±æ€§åˆ—åæ•°ç»„
 	 * @param properties 
-	 * 				±íÍ·¶ÔÓ¦javaBeanÊôĞÔ
+	 * 				è¡¨å¤´å¯¹åº”javaBeanå±æ€§
 	 * @param excelList 
-	 * 				ĞèÒªÏÔÊ¾µÄÊı¾İ¼¯ºÏ,¼¯ºÏÖĞÒ»¶¨Òª·ÅÖÃ·ûºÏjavabean·ç¸ñµÄÀàµÄ¶ÔÏó¡£´Ë·½·¨Ö§³ÖµÄ
-     *              javabeanÊôĞÔµÄÊı¾İÀàĞÍÓĞ»ù±¾Êı¾İÀàĞÍ¼°String,Date,byte[](Í¼Æ¬Êı¾İ)
+	 * 				éœ€è¦æ˜¾ç¤ºçš„æ•°æ®é›†åˆ,é›†åˆä¸­ä¸€å®šè¦æ”¾ç½®ç¬¦åˆjavabeané£æ ¼çš„ç±»çš„å¯¹è±¡ã€‚æ­¤æ–¹æ³•æ”¯æŒçš„
+     *              javabeanå±æ€§çš„æ•°æ®ç±»å‹æœ‰åŸºæœ¬æ•°æ®ç±»å‹åŠString,Date,byte[](å›¾ç‰‡æ•°æ®)
 	 * @param sheetTitle 
-	 * 				±í¸ñ±êÌâÃû
+	 * 				è¡¨æ ¼æ ‡é¢˜å
 	 * @param flag 
-	 * 				·ÖÒ³±êÊ¶Îª¡£ flag == 0001£ºÉú³É¶à¸öExcel,flag == 0002£ºÉú³É¶à¸ösheet
+	 * 				åˆ†é¡µæ ‡è¯†ä¸ºã€‚ flag == 0001ï¼šç”Ÿæˆå¤šä¸ªExcel,flag == 0002ï¼šç”Ÿæˆå¤šä¸ªsheet
 	 * @param filePath 
-	 * 				ÎÄ¼ş±£´æÂ·¾¶
+	 * 				æ–‡ä»¶ä¿å­˜è·¯å¾„
 	 * @param excelName  
-	 * 				ExcelÎÄ¼şÃû
+	 * 				Excelæ–‡ä»¶å
 	 * @param zipName 
-	 * 				ZIPÎÄ¼şÃû
+	 * 				ZIPæ–‡ä»¶å
 	 * @version 1.0
 	 */
 	public void exportExcelForBigDataAndZipAndSave(String[] header,String[] properties,List<Object> excelList,String sheetTitle,
 			String flag,String filePath,String excelName,String zipName){
-		//»ñÈ¡Éú³ÉµÄExcel¼¯ºÏ
+		//è·å–ç”Ÿæˆçš„Excelé›†åˆ
 		List<HSSFWorkbook> books = exportExcelForBigData(header, properties,excelList, sheetTitle, flag);
 		
-		//½«Éú³ÉµÄExcel´ò°ü²¢±£´æ
+		//å°†ç”Ÿæˆçš„Excelæ‰“åŒ…å¹¶ä¿å­˜
 		zipExcelAndSave(books, filePath, zipName, excelName);
 	}
 
 	/**
-	 * Ìî³äExcelÊı¾İÄÚÈİ
+	 * å¡«å……Excelæ•°æ®å†…å®¹
 	 * @author chenssy 
-	 * @date 2014Äê6ÔÂ17ÈÕ ÏÂÎç10:32:34
+	 * @date 2014å¹´6æœˆ17æ—¥ ä¸‹åˆ10:32:34
 	 * @param book Excel
 	 * @param sheet sheet
-	 * @param header ExcelÍ·²¿title
-	 * @param excelList ExcelÊı¾İÁĞ
+	 * @param header Excelå¤´éƒ¨title
+	 * @param excelList Excelæ•°æ®åˆ—
 	 * @version 1.0
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked", "deprecation" })
 	private void setExcelContentData(HSSFWorkbook book,HSSFSheet sheet,String[] header,List<Object> excelList) {
-		//ÉèÖÃÁĞÍ·ÑùÊ½(¾ÓÖĞ¡¢±ä´Ö¡¢À¶É«)
+		//è®¾ç½®åˆ—å¤´æ ·å¼(å±…ä¸­ã€å˜ç²—ã€è“è‰²)
 		HSSFCellStyle headerStyle = book.createCellStyle();
 		setHeaderStyle(headerStyle, book);
 
-		// ÉèÖÃµ¥Ôª¸ñÑùÊ½
+		// è®¾ç½®å•å…ƒæ ¼æ ·å¼
 		HSSFCellStyle cellStyle = book.createCellStyle();
 		setCellStyle(cellStyle, book);
 
-		// ´´½¨Í·²¿
+		// åˆ›å»ºå¤´éƒ¨
 		HSSFRow row = createHeader(sheet, headerStyle, header);
 
-		// »­Í¼µÄ¶¥¼¶¹ÜÀíÆ÷£¬Ò»¸ösheetÖ»ÄÜ»ñÈ¡Ò»¸ö£¨Ò»¶¨Òª×¢ÒâÕâµã£©
+		// ç”»å›¾çš„é¡¶çº§ç®¡ç†å™¨ï¼Œä¸€ä¸ªsheetåªèƒ½è·å–ä¸€ä¸ªï¼ˆä¸€å®šè¦æ³¨æ„è¿™ç‚¹ï¼‰
 		HSSFPatriarch patriarch = sheet.createDrawingPatriarch();
 
 		
 		int index = 0;
-		/* ±ÜÃâÔÚµü´ú¹ı³ÌÖĞ²úÉúµÄĞÂ¶ÔÏóÌ«¶à£¬ÕâÀï½²Ñ­»·ÄÚ²¿±äÁ¿È«²¿ÒÆ³öÀ´ */
+		/* é¿å…åœ¨è¿­ä»£è¿‡ç¨‹ä¸­äº§ç”Ÿçš„æ–°å¯¹è±¡å¤ªå¤šï¼Œè¿™é‡Œè®²å¾ªç¯å†…éƒ¨å˜é‡å…¨éƒ¨ç§»å‡ºæ¥ */
 		Object t = null;    
 		HSSFCell cell = null;
 		Field field = null;
@@ -630,54 +630,54 @@ public class ExcelExportHelper {
 		Class tCls = null;
 		Method getMethod = null;
 		Object value = null;
-		// ±éÀú¼¯ºÏÊı¾İ£¬²úÉúÊı¾İĞĞ
+		// éå†é›†åˆæ•°æ®ï¼Œäº§ç”Ÿæ•°æ®è¡Œ
 		Iterator<Object> it = excelList.iterator();
-		maxWidth = new int[header.length];   //³õÊ¼»¯µ¥Ôª¸ñ¿í¶È
+		maxWidth = new int[header.length];   //åˆå§‹åŒ–å•å…ƒæ ¼å®½åº¦
 		while (it.hasNext()) {
 			index++;
 			row = sheet.createRow(index);
-			// ÉèÖÃÊı¾İÁĞ
+			// è®¾ç½®æ•°æ®åˆ—
 			t = it.next();
-			// ÀûÓÃ·´Éä£¬¸ù¾İjavabeanÊôĞÔµÄÏÈºóË³Ğò£¬¶¯Ì¬µ÷ÓÃgetXxx()·½·¨µÃµ½ÊôĞÔÖµ
+			// åˆ©ç”¨åå°„ï¼Œæ ¹æ®javabeanå±æ€§çš„å…ˆåé¡ºåºï¼ŒåŠ¨æ€è°ƒç”¨getXxx()æ–¹æ³•å¾—åˆ°å±æ€§å€¼
 			Field[] fields = t.getClass().getDeclaredFields();
 			for (short i = 0; i < fields.length; i++) {
 				cell = row.createCell(i);
 				cell.setCellStyle(cellStyle);
 				field = fields[i];
 				fieldName = field.getName();
-				getMethodName = "get"+ fieldName.substring(0, 1).toUpperCase()+ fieldName.substring(1);  //¹¹½¨getter·½·¨
+				getMethodName = "get"+ fieldName.substring(0, 1).toUpperCase()+ fieldName.substring(1);  //æ„å»ºgetteræ–¹æ³•
 				try {
 					tCls = t.getClass();
 					getMethod = tCls.getMethod(getMethodName,new Class[] {});
 				    value = (Object) getMethod.invoke(t, new Object[] {});
-					// ½«valueÉèÖÃµ±µ¥Ôª¸ñÖ¸¶¨Î»ÖÃ
+					// å°†valueè®¾ç½®å½“å•å…ƒæ ¼æŒ‡å®šä½ç½®
 					setCellData(row, index, i, value, cell, sheet, patriarch, book);
 				} catch (NoSuchMethodException e) {
 					e.printStackTrace();
-					System.out.println("¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª´´½¨ExcelÊı¾İÁĞ±íÊ±³ö´í¡£method:setDataRow,message£º"+e.getMessage());
+					System.out.println("â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”åˆ›å»ºExcelæ•°æ®åˆ—è¡¨æ—¶å‡ºé”™ã€‚method:setDataRow,messageï¼š"+e.getMessage());
 				} catch (SecurityException e) {
 					e.printStackTrace();
-					System.out.println("¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª´´½¨ExcelÊı¾İÁĞ±íÊ±³ö´í¡£method:setDataRow,message£º"+e.getMessage());
+					System.out.println("â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”åˆ›å»ºExcelæ•°æ®åˆ—è¡¨æ—¶å‡ºé”™ã€‚method:setDataRow,messageï¼š"+e.getMessage());
 				} catch (IllegalAccessException e) {
 					e.printStackTrace();
-					System.out.println("¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª´´½¨ExcelÊı¾İÁĞ±íÊ±³ö´í¡£method:setDataRow,message£º"+e.getMessage());
+					System.out.println("â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”åˆ›å»ºExcelæ•°æ®åˆ—è¡¨æ—¶å‡ºé”™ã€‚method:setDataRow,messageï¼š"+e.getMessage());
 				} catch (IllegalArgumentException e) {
 					e.printStackTrace();
-					System.out.println("¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª´´½¨ExcelÊı¾İÁĞ±íÊ±³ö´í¡£method:setDataRow,message£º"+e.getMessage());
+					System.out.println("â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”åˆ›å»ºExcelæ•°æ®åˆ—è¡¨æ—¶å‡ºé”™ã€‚method:setDataRow,messageï¼š"+e.getMessage());
 				} catch (InvocationTargetException e) {
 					e.printStackTrace();
-					System.out.println("¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª´´½¨ExcelÊı¾İÁĞ±íÊ±³ö´í¡£method:setDataRow,message£º"+e.getMessage());
+					System.out.println("â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”åˆ›å»ºExcelæ•°æ®åˆ—è¡¨æ—¶å‡ºé”™ã€‚method:setDataRow,messageï¼š"+e.getMessage());
 				}
 			}
 		}
 		
-		System.out.println("-------------------------Ìî³äExcelÊı¾İ³É¹¦..........");
+		System.out.println("-------------------------å¡«å……Excelæ•°æ®æˆåŠŸ..........");
 	}
 	
 	/**
-	 * Ìî³äExcelÄÚÈİ
+	 * å¡«å……Excelå†…å®¹
 	 * @author chenssy 
-	 * @date 2014Äê6ÔÂ19ÈÕ ÏÂÎç6:00:35
+	 * @date 2014å¹´6æœˆ19æ—¥ ä¸‹åˆ6:00:35
 	 * @param book
 	 * @param sheet
 	 * @param header
@@ -688,21 +688,21 @@ public class ExcelExportHelper {
 	@SuppressWarnings("rawtypes")
 	private void setExcelContentData(HSSFWorkbook book, HSSFSheet sheet, String[] header, String[] properties,
 			List<Object> excelList) {
-		//ÉèÖÃÁĞÍ·ÑùÊ½(¾ÓÖĞ¡¢±ä´Ö¡¢À¶É«)
+		//è®¾ç½®åˆ—å¤´æ ·å¼(å±…ä¸­ã€å˜ç²—ã€è“è‰²)
 		HSSFCellStyle headerStyle = book.createCellStyle();
 		setHeaderStyle(headerStyle, book);
 
-		// ÉèÖÃµ¥Ôª¸ñÑùÊ½
+		// è®¾ç½®å•å…ƒæ ¼æ ·å¼
 		HSSFCellStyle cellStyle = book.createCellStyle();
 		setCellStyle(cellStyle, book);
 
-		// ´´½¨Í·²¿
+		// åˆ›å»ºå¤´éƒ¨
 		HSSFRow row = createHeader(sheet, headerStyle, header);
 
-		// »­Í¼µÄ¶¥¼¶¹ÜÀíÆ÷£¬Ò»¸ösheetÖ»ÄÜ»ñÈ¡Ò»¸ö£¨Ò»¶¨Òª×¢ÒâÕâµã£©
+		// ç”»å›¾çš„é¡¶çº§ç®¡ç†å™¨ï¼Œä¸€ä¸ªsheetåªèƒ½è·å–ä¸€ä¸ªï¼ˆä¸€å®šè¦æ³¨æ„è¿™ç‚¹ï¼‰
 		HSSFPatriarch patriarch = sheet.createDrawingPatriarch();
 
-		/* ÎªÁË±ÜÃâµü´ú¹ı³ÌÖĞ²úÉú¹ı¶àµÄĞÂ¶ÔÏó£¬ÕâÀï½«Ñ­»·ÄÚ²¿±äÁ¿È«²¿ÒÆ³öÀ´ */
+		/* ä¸ºäº†é¿å…è¿­ä»£è¿‡ç¨‹ä¸­äº§ç”Ÿè¿‡å¤šçš„æ–°å¯¹è±¡ï¼Œè¿™é‡Œå°†å¾ªç¯å†…éƒ¨å˜é‡å…¨éƒ¨ç§»å‡ºæ¥ */
 		int index = 0;
 		Object t = null;
 		HSSFCell cell = null;
@@ -710,49 +710,49 @@ public class ExcelExportHelper {
 		Class clazz = null;
 		PropertyDescriptor pd = null;
 		Method getMethod = null;
-		// ±éÀú¼¯ºÏÊı¾İ£¬²úÉúÊı¾İĞĞ
+		// éå†é›†åˆæ•°æ®ï¼Œäº§ç”Ÿæ•°æ®è¡Œ
 		Iterator<Object> it = excelList.iterator();
-		maxWidth = new int[header.length];   //³õÊ¼»¯µ¥Ôª¸ñ¿í¶È
+		maxWidth = new int[header.length];   //åˆå§‹åŒ–å•å…ƒæ ¼å®½åº¦
 		while (it.hasNext()) {
 			index++;
 			row = sheet.createRow(index);
-			// ÉèÖÃÊı¾İÁĞ
+			// è®¾ç½®æ•°æ®åˆ—
 			t = it.next();
 			for(int i = 0 ; i < header.length ; i++){
 				cell = row.createCell(i);
 				cell.setCellStyle(cellStyle);
-				o = null;    //Ã¿Ò»¸öµ¥Ôª¸ñ¶¼ĞèÒª½«OÉèÖÃÎªnull
+				o = null;    //æ¯ä¸€ä¸ªå•å…ƒæ ¼éƒ½éœ€è¦å°†Oè®¾ç½®ä¸ºnull
 				try {
 					clazz = t.getClass();
 					pd = new PropertyDescriptor(properties[i],clazz);
-					getMethod = pd.getReadMethod();   // »ñµÃget·½·¨
+					getMethod = pd.getReadMethod();   // è·å¾—getæ–¹æ³•
 					if (pd != null) {  
-			           o  = getMethod.invoke(t);   //Ö´ĞĞget·½·¨·µ»ØÒ»¸öObject  
+			           o  = getMethod.invoke(t);   //æ‰§è¡Œgetæ–¹æ³•è¿”å›ä¸€ä¸ªObject  
 			        }  
 					setCellData(row, index, i, o, cell, sheet, patriarch, book);
 				} catch (IntrospectionException e) {
 					e.printStackTrace();
-					System.out.println("¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª´´½¨ExcelÊı¾İÁĞ±íÊ±³ö´í¡£method:setDataRow,message£º"+e.getMessage());
+					System.out.println("â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”åˆ›å»ºExcelæ•°æ®åˆ—è¡¨æ—¶å‡ºé”™ã€‚method:setDataRow,messageï¼š"+e.getMessage());
 				} catch (IllegalAccessException e) {
 					e.printStackTrace();
-					System.out.println("¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª´´½¨ExcelÊı¾İÁĞ±íÊ±³ö´í¡£method:setDataRow,message£º"+e.getMessage());
+					System.out.println("â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”åˆ›å»ºExcelæ•°æ®åˆ—è¡¨æ—¶å‡ºé”™ã€‚method:setDataRow,messageï¼š"+e.getMessage());
 				} catch (IllegalArgumentException e) {
 					e.printStackTrace();
-					System.out.println("¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª´´½¨ExcelÊı¾İÁĞ±íÊ±³ö´í¡£method:setDataRow,message£º"+e.getMessage());
+					System.out.println("â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”åˆ›å»ºExcelæ•°æ®åˆ—è¡¨æ—¶å‡ºé”™ã€‚method:setDataRow,messageï¼š"+e.getMessage());
 				} catch (InvocationTargetException e) {
 					e.printStackTrace();
-					System.out.println("¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª´´½¨ExcelÊı¾İÁĞ±íÊ±³ö´í¡£method:setDataRow,message£º"+e.getMessage());
+					System.out.println("â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”åˆ›å»ºExcelæ•°æ®åˆ—è¡¨æ—¶å‡ºé”™ã€‚method:setDataRow,messageï¼š"+e.getMessage());
 				}
 			}
 		}
 
-		System.out.println("¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ªÌî³äExcelÊı¾İ³É¹¦..........");
+		System.out.println("â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”å¡«å……Excelæ•°æ®æˆåŠŸ..........");
 	}
 	
 	/**
-	 * ÉèÖÃsheetµÄtitle£¬ÈôÎª¿ÕÔòÎªyyyyMMddHH24mmss
+	 * è®¾ç½®sheetçš„titleï¼Œè‹¥ä¸ºç©ºåˆ™ä¸ºyyyyMMddHH24mmss
 	 * @author chenssy 
-	 * @date 2014Äê6ÔÂ16ÈÕ ÏÂÎç1:46:06
+	 * @date 2014å¹´6æœˆ16æ—¥ ä¸‹åˆ1:46:06
 	 * @param sheetTitle 
 	 * @return
 	 * @version 1.0
@@ -771,40 +771,40 @@ public class ExcelExportHelper {
 	}
 	
 	/**
-	 * ÉèÖÃExcelÍ¼Æ¬µÄ¸ñÊ½£º×ÖÌå¾ÓÖĞ¡¢±ä´Ö¡¢À¶É«¡¢12ºÅ
+	 * è®¾ç½®Excelå›¾ç‰‡çš„æ ¼å¼ï¼šå­—ä½“å±…ä¸­ã€å˜ç²—ã€è“è‰²ã€12å·
 	 * @author chenssy 
-	 * @date 2014Äê6ÔÂ16ÈÕ ÏÂÎç8:46:49
+	 * @date 2014å¹´6æœˆ16æ—¥ ä¸‹åˆ8:46:49
 	 * @param headerStyle
-	 * 				Í·²¿ÑùÊ½
+	 * 				å¤´éƒ¨æ ·å¼
 	 * @param book
-	 * 		  		Éú²úµÄexcel book 	 HSSFWorkbook¶ÔÏó	
+	 * 		  		ç”Ÿäº§çš„excel book 	 HSSFWorkbookå¯¹è±¡	
 	 * @version 1.0
 	 */
 	private void setHeaderStyle(HSSFCellStyle headerStyle,HSSFWorkbook book) {
-		headerStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);   //Ë®Æ½¾ÓÖĞ
-		headerStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);//´¹Ö±¾ÓÖĞ 
-		//ÉèÖÃ×ÖÌå
+		headerStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);   //æ°´å¹³å±…ä¸­
+		headerStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);//å‚ç›´å±…ä¸­ 
+		//è®¾ç½®å­—ä½“
 		HSSFFont font = book.createFont();
-		font.setFontHeightInPoints((short) 12);     //×ÖºÅ£º12ºÅ
-		font.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);   //±ä´Ö
-		font.setColor(HSSFColor.BLUE.index);   //À¶É«
+		font.setFontHeightInPoints((short) 12);     //å­—å·ï¼š12å·
+		font.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);   //å˜ç²—
+		font.setColor(HSSFColor.BLUE.index);   //è“è‰²
 		
 		headerStyle.setFont(font);
 	}
 	
 	/**
-	 * ÉèÖÃµ¥Ôª¸ñÑùÊ½
+	 * è®¾ç½®å•å…ƒæ ¼æ ·å¼
 	 * @author chenssy 
-	 * @date 2014Äê6ÔÂ17ÈÕ ÉÏÎç11:00:53
+	 * @date 2014å¹´6æœˆ17æ—¥ ä¸Šåˆ11:00:53
 	 * @param cellStyle
-	 * 			µ¥Ôª¸ñÑùÊ½
+	 * 			å•å…ƒæ ¼æ ·å¼
 	 * @param book
-	 * 			book HSSFWorkbook¶ÔÏó
+	 * 			book HSSFWorkbookå¯¹è±¡
 	 * @version 1.0
 	 */
 	private void setCellStyle(HSSFCellStyle cellStyle, HSSFWorkbook book) {
-		cellStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);   //Ë®Æ½¾ÓÖĞ
-		cellStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);//´¹Ö±¾ÓÖĞ 
+		cellStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);   //æ°´å¹³å±…ä¸­
+		cellStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);//å‚ç›´å±…ä¸­ 
 		
 		HSSFFont font = book.createFont();
 		font.setFontHeightInPoints((short)12);
@@ -813,23 +813,23 @@ public class ExcelExportHelper {
 	}
 	
 	/**
-	 * ¸ù¾İÍ·²¿ÑùÊ½¡¢Í·²¿Êı¾İ´´½¨ExcelÍ·²¿
+	 * æ ¹æ®å¤´éƒ¨æ ·å¼ã€å¤´éƒ¨æ•°æ®åˆ›å»ºExcelå¤´éƒ¨
 	 * @author chenssy 
-	 * @date 2014Äê6ÔÂ17ÈÕ ÉÏÎç11:37:28
+	 * @date 2014å¹´6æœˆ17æ—¥ ä¸Šåˆ11:37:28
 	 * @param sheet 
 	 * 				sheet
 	 * @param headerStyle 
-	 * 				Í·²¿ÑùÊ½
+	 * 				å¤´éƒ¨æ ·å¼
 	 * @param header 
-	 * 				Í·²¿Êı¾İ
-	 * @return ÉèÖÃÍê³ÉµÄÍ·²¿Row
+	 * 				å¤´éƒ¨æ•°æ®
+	 * @return è®¾ç½®å®Œæˆçš„å¤´éƒ¨Row
 	 * @version 1.0
 	 */
 	private HSSFRow createHeader(HSSFSheet sheet,HSSFCellStyle headerStyle,
 			String[] header) {
 		HSSFRow headRow = sheet.createRow(0);
-		headRow.setHeightInPoints((short)(20));   //ÉèÖÃÍ·²¿¸ß¶È
-		//Ìí¼ÓÊı¾İ
+		headRow.setHeightInPoints((short)(20));   //è®¾ç½®å¤´éƒ¨é«˜åº¦
+		//æ·»åŠ æ•°æ®
 		HSSFCell cell = null;
 		for(int i = 0 ; i < header.length ; i++){
 			cell = headRow.createCell(i);
@@ -842,44 +842,44 @@ public class ExcelExportHelper {
 	}
 	
 	/**
-	 * ÉèÖÃµ¥Ôª¸ñÊı¾İ
+	 * è®¾ç½®å•å…ƒæ ¼æ•°æ®
 	 * @author chenssy 
-	 * @date 2014Äê6ÔÂ17ÈÕ ÉÏÎç11:48:14
+	 * @date 2014å¹´6æœˆ17æ—¥ ä¸Šåˆ11:48:14
 	 * @param row  
-	 * 				Ö¸¶¨ĞĞ
+	 * 				æŒ‡å®šè¡Œ
 	 * @param index 
 	 * @param i 
-	 * 				ĞĞÊı
+	 * 				è¡Œæ•°
 	 * @param value 
-	 * 				µ¥Ôª¸ñÖµ cellValue
+	 * 				å•å…ƒæ ¼å€¼ cellValue
 	 * @param cell 
-	 * 				µ¥Ôª¸ñ HSSFCell¶ÔÏó
+	 * 				å•å…ƒæ ¼ HSSFCellå¯¹è±¡
 	 * @param sheet 
-	 * 				sheet HSSFSheet¶ÔÏó
+	 * 				sheet HSSFSheetå¯¹è±¡
 	 * @param patriarch  
-	 * 				¶¥¼¶»­°å ÓÃÓÚÊµÏÖÍ»ÆÆ
+	 * 				é¡¶çº§ç”»æ¿ ç”¨äºå®ç°çªç ´
 	 * @param book 
-	 * 			Excel HSSFWorkbook¶ÔÏó
+	 * 			Excel HSSFWorkbookå¯¹è±¡
 	 * @version 1.0
 	 */
 	private void setCellData(HSSFRow row, int index ,int i ,Object value,HSSFCell cell,HSSFSheet sheet,HSSFPatriarch patriarch,HSSFWorkbook book) {
 		String textValue = null; 
-		if (value instanceof Date) {    //ÎªÈÕÆÚÉèÖÃÊ±¼ä¸ñÊ½
+		if (value instanceof Date) {    //ä¸ºæ—¥æœŸè®¾ç½®æ—¶é—´æ ¼å¼
 			Date date = (Date) value;
 			SimpleDateFormat sdf = new SimpleDateFormat(DATE_PATTERN);
 			textValue = sdf.format(date);  
 		}
-		if(value instanceof byte[]){   //byteÎªÍ¼Æ¬
-			//ÉèÖÃÍ¼Æ¬µ¥Ôª¸ñ¿í¶È¡¢¸ß¶È
+		if(value instanceof byte[]){   //byteä¸ºå›¾ç‰‡
+			//è®¾ç½®å›¾ç‰‡å•å…ƒæ ¼å®½åº¦ã€é«˜åº¦
 			row.setHeightInPoints((short)(IMAGE_HEIGHT * 10));
 			sheet.setColumnWidth(i, IMAGE_WIDTH * 256);
 		    HSSFClientAnchor anchor = new HSSFClientAnchor(0, 0, 1023, 255,(short) i, index, (short) i, index);   
 	        anchor.setAnchorType(3);   
-	        //²åÈëÍ¼Æ¬  
+	        //æ’å…¥å›¾ç‰‡  
 	        byte[] bsValue = (byte[]) value;
 	        patriarch.createPicture(anchor, book.addPicture(bsValue, HSSFWorkbook.PICTURE_TYPE_JPEG)); 
 		}
-		else{   //ÆäÓàÈ«²¿µ±×ö×Ö·û´¦Àí
+		else{   //å…¶ä½™å…¨éƒ¨å½“åšå­—ç¬¦å¤„ç†
 			if(value != null){
 				textValue = String.valueOf(value);
 			}
@@ -887,17 +887,17 @@ public class ExcelExportHelper {
 				textValue = "";
 			}
 		}
-		// Èç¹û²»ÊÇÍ¼Æ¬Êı¾İ£¬¾ÍÀûÓÃÕıÔò±í´ïÊ½ÅĞ¶ÏtextValueÊÇ·ñÈ«²¿ÓÉÊı×Ö×é³É
+		// å¦‚æœä¸æ˜¯å›¾ç‰‡æ•°æ®ï¼Œå°±åˆ©ç”¨æ­£åˆ™è¡¨è¾¾å¼åˆ¤æ–­textValueæ˜¯å¦å…¨éƒ¨ç”±æ•°å­—ç»„æˆ
 		if (textValue != null) {
 			Pattern p = Pattern.compile("^//d+(//.//d+)?$");
 			Matcher matcher = p.matcher(textValue);
 			
-			//ÉèÖÃµ¥Ôª¸ñ¿í¶È£¬ÊÇÎÄ×ÖÄÜ¹»È«²¿ÏÔÊ¾
+			//è®¾ç½®å•å…ƒæ ¼å®½åº¦ï¼Œæ˜¯æ–‡å­—èƒ½å¤Ÿå…¨éƒ¨æ˜¾ç¤º
 			setCellMaxWidth(textValue,i);
-			sheet.setColumnWidth(i, maxWidth[i]);    //ÉèÖÃµ¥Ôª¸ñ¿í¶È
-			row.setHeightInPoints((short)(20));   //ÉèÖÃµ¥Ôª¸ñ¸ß¶È
+			sheet.setColumnWidth(i, maxWidth[i]);    //è®¾ç½®å•å…ƒæ ¼å®½åº¦
+			row.setHeightInPoints((short)(20));   //è®¾ç½®å•å…ƒæ ¼é«˜åº¦
 			if (matcher.matches()) {
-				// ÊÇÊı×Öµ±×÷double´¦Àí
+				// æ˜¯æ•°å­—å½“ä½œdoubleå¤„ç†
 				cell.setCellValue(Double.parseDouble(textValue));
 			} else {
 				cell.setCellValue(textValue);
@@ -906,20 +906,20 @@ public class ExcelExportHelper {
 	}
 
 	/**
-	 * »ñÈ¡ÎÄ¼şÃû£¬ÈôÎª¿Õ£¬Ôò¹æÔòÎª£ºyyyyMMddHH24mmss+6Î»Ëæ»úÊı
+	 * è·å–æ–‡ä»¶åï¼Œè‹¥ä¸ºç©ºï¼Œåˆ™è§„åˆ™ä¸ºï¼šyyyyMMddHH24mmss+6ä½éšæœºæ•°
 	 * @author chenssy 
-	 * @date 2014Äê6ÔÂ17ÈÕ ÏÂÎç5:44:27
+	 * @date 2014å¹´6æœˆ17æ—¥ ä¸‹åˆ5:44:27
 	 * @param fileName
-	 * 				ÎÄ¼şÃû
+	 * 				æ–‡ä»¶å
 	 * @return
 	 * @version 1.0
 	 */
 	private String getFileName(String fileName) {
 		if(fileName == null || "".equals(fileName)){
-			//ÈÕÆÚ
+			//æ—¥æœŸ
 			Date date = new Date();
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHH24mmss");
-			//Ëæ»úÊı
+			//éšæœºæ•°
 			Random random = new Random();
 			fileName = sdf.format(date) + String.valueOf(Math.abs(random.nextInt() * 1000000));
 		}
@@ -927,11 +927,11 @@ public class ExcelExportHelper {
 	}
 	
 	/**
-	 * ¸ù¾İ×ÖÊıÀ´»ñÈ¡µ¥Ôª¸ñ´óĞ¡,²¢¸üĞÂµ±Ç°ÁĞµÄ×î´ó¿í¶È
+	 * æ ¹æ®å­—æ•°æ¥è·å–å•å…ƒæ ¼å¤§å°,å¹¶æ›´æ–°å½“å‰åˆ—çš„æœ€å¤§å®½åº¦
 	 * @author chenssy 
-	 * @date 2014Äê6ÔÂ17ÈÕ ÏÂÎç7:35:52
+	 * @date 2014å¹´6æœˆ17æ—¥ ä¸‹åˆ7:35:52
 	 * @param textValue 
-	 * @param Ö¸¶¨ÁĞ
+	 * @param æŒ‡å®šåˆ—
 	 * @return
 	 * @version 1.0
 	 */
@@ -944,30 +944,30 @@ public class ExcelExportHelper {
 	}
 	
 	/**
-	 * ½«Éú³ÉµÄExcel±£´æµ½Ö¸¶¨Â·¾¶ÏÂ
+	 * å°†ç”Ÿæˆçš„Excelä¿å­˜åˆ°æŒ‡å®šè·¯å¾„ä¸‹
 	 * @author chenssy 
-	 * @date 2014Äê6ÔÂ19ÈÕ ÏÂÎç6:10:17
+	 * @date 2014å¹´6æœˆ19æ—¥ ä¸‹åˆ6:10:17
 	 * @param book 
-	 * 			Éú³ÉµÄExcel HSSFWorkbook¶ÔÏó
+	 * 			ç”Ÿæˆçš„Excel HSSFWorkbookå¯¹è±¡
 	 * @param filePath 
-	 * 			ĞèÒª±£´æµÄÂ·¾¢
+	 * 			éœ€è¦ä¿å­˜çš„è·¯åŠ²
 	 * @param fileName 
-	 * 			ExcelÎÄ¼şÃû
+	 * 			Excelæ–‡ä»¶å
 	 * @version 1.0
 	 */
 	private void saveExcel(HSSFWorkbook book, String filePath, String fileName) {
-		//¼ì²â±£´æÂ·¾¢ÊÇ·ñ´æÔÚ£¬²»´æÔÚÔòĞÂ½¨
+		//æ£€æµ‹ä¿å­˜è·¯åŠ²æ˜¯å¦å­˜åœ¨ï¼Œä¸å­˜åœ¨åˆ™æ–°å»º
 		checkFilePathIsExist(filePath);
-		//½«Excel±£´æÖÁÖ¸¶¨Ä¿Â¼ÏÂ
+		//å°†Excelä¿å­˜è‡³æŒ‡å®šç›®å½•ä¸‹
 		fileName = getFileName(fileName);
 		FileOutputStream out = null;
 		try {
 			out = new FileOutputStream(filePath + "\\" + fileName + ".xls");
 			book.write(out); 
-			System.out.println("¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª±£´æExcelÎÄ¼ş³É¹¦£¬±£´æÂ·¾¶£º" + filePath + "\\" + fileName + ".xls");
+			System.out.println("â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”ä¿å­˜Excelæ–‡ä»¶æˆåŠŸï¼Œä¿å­˜è·¯å¾„ï¼š" + filePath + "\\" + fileName + ".xls");
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª±£´æExcelÎÄ¼şÊ§°Ü¡£exportExcelForListAndSave,message£º"+e.getMessage());
+			System.out.println("â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”ä¿å­˜Excelæ–‡ä»¶å¤±è´¥ã€‚exportExcelForListAndSave,messageï¼š"+e.getMessage());
 		}finally{
 			if(out != null){
 				try {
@@ -980,27 +980,27 @@ public class ExcelExportHelper {
 	}
 
 	/**
-	 * ½«Éú³ÉµÄExcel´ò°ü²¢±£´æµ½Ö¸¶¨Â·¾¶ÏÂ
+	 * å°†ç”Ÿæˆçš„Excelæ‰“åŒ…å¹¶ä¿å­˜åˆ°æŒ‡å®šè·¯å¾„ä¸‹
 	 * @author chenssy 
-	 * @date 2014Äê6ÔÂ19ÈÕ ÏÂÎç6:18:09
+	 * @date 2014å¹´6æœˆ19æ—¥ ä¸‹åˆ6:18:09
 	 * @param book 
-	 * 			Éú³ÉµÄExcel HSSFWorkbook list¼¯ºÏ
+	 * 			ç”Ÿæˆçš„Excel HSSFWorkbook listé›†åˆ
 	 * @param filePath 
-	 * 			±£´æÂ·¾¢
+	 * 			ä¿å­˜è·¯åŠ²
 	 * @param zipName 
-	 * 			zip ÎÄ¼şÃû
+	 * 			zip æ–‡ä»¶å
 	 * @param excelName 
-	 * 			ExcelÎÄ¼şÃû
+	 * 			Excelæ–‡ä»¶å
 	 * @version 1.0
 	 */
 	private void zipExcelAndSave(List<HSSFWorkbook> books,String filePath,String zipName,String excelName){
-		//¼ì²â±£´æÂ·¾¶ÊÇ·ñ´æÔÚ£¬Èô²»´æÔÚÔòĞÂ½¨
+		//æ£€æµ‹ä¿å­˜è·¯å¾„æ˜¯å¦å­˜åœ¨ï¼Œè‹¥ä¸å­˜åœ¨åˆ™æ–°å»º
 		checkFilePathIsExist(filePath);
 		
 		zipName = getFileName(zipName);
 		excelName = getFileName(excelName);
 		
-		//½«Excel´ò°ü²¢±£´æÖÁÖ¸¶¨Ä¿Â¼ÏÂ
+		//å°†Excelæ‰“åŒ…å¹¶ä¿å­˜è‡³æŒ‡å®šç›®å½•ä¸‹
 		FileOutputStream out = null;
 		ZipOutputStream zip = null;
 		try {
@@ -1015,13 +1015,13 @@ public class ExcelExportHelper {
 				zip.putNextEntry(entry);
 				book.write(zip);
 			}
-			System.out.println("¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª±£´æExcelÎÄ¼ş³É¹¦£¬±£´æÂ·¾¶£º" + filePath + "\\" + zipName + ".xls");
+			System.out.println("â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”ä¿å­˜Excelæ–‡ä»¶æˆåŠŸï¼Œä¿å­˜è·¯å¾„ï¼š" + filePath + "\\" + zipName + ".xls");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-			System.out.println("¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª±£´æExcelÎÄ¼şÊ§°Ü¡£method:exportExcelForBigDataAndSave,message£º" + e.getMessage());
+			System.out.println("â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”ä¿å­˜Excelæ–‡ä»¶å¤±è´¥ã€‚method:exportExcelForBigDataAndSave,messageï¼š" + e.getMessage());
 		} catch (IOException e) {
 			e.printStackTrace();
-			System.out.println("¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª±£´æExcelÎÄ¼şÊ§°Ü¡£method:exportExcelForBigDataAndSave,message£º" + e.getMessage());
+			System.out.println("â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”ä¿å­˜Excelæ–‡ä»¶å¤±è´¥ã€‚method:exportExcelForBigDataAndSave,messageï¼š" + e.getMessage());
 		} finally {
 			if (zip != null) {
 				try {
@@ -1044,11 +1044,11 @@ public class ExcelExportHelper {
 	}
 	
 	/**
-	 * ¼ì²â±£´æÂ·¾¶ÊÇ·ñ´æÔÚ£¬²»´æÔÚÔòĞÂ½¨
+	 * æ£€æµ‹ä¿å­˜è·¯å¾„æ˜¯å¦å­˜åœ¨ï¼Œä¸å­˜åœ¨åˆ™æ–°å»º
 	 * @author chenssy 
-	 * @date 2014Äê6ÔÂ18ÈÕ ÏÂÎç1:05:17
+	 * @date 2014å¹´6æœˆ18æ—¥ ä¸‹åˆ1:05:17
 	 * @param filePath  
-	 * 				ÎÄ¼şÂ·¾¶
+	 * 				æ–‡ä»¶è·¯å¾„
 	 * @version 1.0
 	 */
 	private void checkFilePathIsExist(String filePath) {

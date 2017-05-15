@@ -22,17 +22,17 @@ public class MatrixToImageWriterEx {
 	private static final MatrixToLogoImageConfig DEFAULT_CONFIG = new MatrixToLogoImageConfig();
 	
 	/**
-	 * ¸ù¾İÄÚÈİÉú³É¶şÎ¬ÂëÊı¾İ
-	 * @param content ¶şÎ¬ÂëÎÄ×ÖÄÚÈİ[ÎªÁËĞÅÏ¢°²È«ĞÔ£¬Ò»°ã¶¼ÒªÏÈ½øĞĞÊı¾İ¼ÓÃÜ]
-	 * @param width ¶şÎ¬ÂëÕÕÆ¬¿í¶È
-	 * @param height ¶şÎ¬ÂëÕÕÆ¬¸ß¶È
+	 * æ ¹æ®å†…å®¹ç”ŸæˆäºŒç»´ç æ•°æ®
+	 * @param content äºŒç»´ç æ–‡å­—å†…å®¹[ä¸ºäº†ä¿¡æ¯å®‰å…¨æ€§ï¼Œä¸€èˆ¬éƒ½è¦å…ˆè¿›è¡Œæ•°æ®åŠ å¯†]
+	 * @param width äºŒç»´ç ç…§ç‰‡å®½åº¦
+	 * @param height äºŒç»´ç ç…§ç‰‡é«˜åº¦
 	 * @return
 	 */
 	public static BitMatrix createQRCode(String content, int width, int height){
 		Hashtable<EncodeHintType, Object> hints = new Hashtable<EncodeHintType, Object>();   
-		//ÉèÖÃ×Ö·û±àÂë
+		//è®¾ç½®å­—ç¬¦ç¼–ç 
         hints.put(EncodeHintType.CHARACTER_SET, "utf-8");  
-        // Ö¸¶¨¾À´íµÈ¼¶
+        // æŒ‡å®šçº é”™ç­‰çº§
 		hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
 		hints.put(EncodeHintType.MARGIN, 1);
         BitMatrix matrix = null;  
@@ -46,51 +46,51 @@ public class MatrixToImageWriterEx {
 	}
 
 	/**
-	 * Ğ´Èë¶şÎ¬Âë¡¢ÒÔ¼°½«ÕÕÆ¬logoĞ´Èë¶şÎ¬ÂëÖĞ
-	 * @param matrix ÒªĞ´ÈëµÄ¶şÎ¬Âë
-	 * @param format ¶şÎ¬ÂëÕÕÆ¬¸ñÊ½
-	 * @param imagePath ¶şÎ¬ÂëÕÕÆ¬±£´æÂ·¾¶
-	 * @param logoPath logoÂ·¾¶
+	 * å†™å…¥äºŒç»´ç ã€ä»¥åŠå°†ç…§ç‰‡logoå†™å…¥äºŒç»´ç ä¸­
+	 * @param matrix è¦å†™å…¥çš„äºŒç»´ç 
+	 * @param format äºŒç»´ç ç…§ç‰‡æ ¼å¼
+	 * @param imagePath äºŒç»´ç ç…§ç‰‡ä¿å­˜è·¯å¾„
+	 * @param logoPath logoè·¯å¾„
 	 * @throws java.io.IOException
 	 */
 	public static void writeToFile(BitMatrix matrix, String format, String imagePath, String logoPath) throws IOException {
 		MatrixToImageWriter.writeToFile(matrix, format, new File(imagePath), new MatrixToImageConfig());
 		
-		//Ìí¼ÓlogoÍ¼Æ¬, ´Ë´¦Ò»¶¨ĞèÒªÖØĞÂ½øĞĞ¶ÁÈ¡£¬¶ø²»ÄÜÖ±½ÓÊ¹ÓÃ¶şÎ¬ÂëµÄBufferedImage ¶ÔÏó
+		//æ·»åŠ logoå›¾ç‰‡, æ­¤å¤„ä¸€å®šéœ€è¦é‡æ–°è¿›è¡Œè¯»å–ï¼Œè€Œä¸èƒ½ç›´æ¥ä½¿ç”¨äºŒç»´ç çš„BufferedImage å¯¹è±¡
 		BufferedImage img = ImageIO.read(new File(imagePath));
 		MatrixToImageWriterEx.overlapImage(img, format, imagePath, logoPath, DEFAULT_CONFIG);
 	}
 	
 	/**
-	 * Ğ´Èë¶şÎ¬Âë¡¢ÒÔ¼°½«ÕÕÆ¬logoĞ´Èë¶şÎ¬ÂëÖĞ
-	 * @param matrix ÒªĞ´ÈëµÄ¶şÎ¬Âë
-	 * @param format ¶şÎ¬ÂëÕÕÆ¬¸ñÊ½
-	 * @param imagePath ¶şÎ¬ÂëÕÕÆ¬±£´æÂ·¾¶
-	 * @param logoPath logoÂ·¾¶
-						 * @param logoConfig logoÅäÖÃ¶ÔÏó
+	 * å†™å…¥äºŒç»´ç ã€ä»¥åŠå°†ç…§ç‰‡logoå†™å…¥äºŒç»´ç ä¸­
+	 * @param matrix è¦å†™å…¥çš„äºŒç»´ç 
+	 * @param format äºŒç»´ç ç…§ç‰‡æ ¼å¼
+	 * @param imagePath äºŒç»´ç ç…§ç‰‡ä¿å­˜è·¯å¾„
+	 * @param logoPath logoè·¯å¾„
+						 * @param logoConfig logoé…ç½®å¯¹è±¡
 						 * @throws java.io.IOException
 	 */
 	public static void writeToFile(BitMatrix matrix, String format, String imagePath, String logoPath, MatrixToLogoImageConfig logoConfig) throws IOException {
 		MatrixToImageWriter.writeToFile(matrix, format, new File(imagePath), new MatrixToImageConfig());
 		
-		//Ìí¼ÓlogoÍ¼Æ¬, ´Ë´¦Ò»¶¨ĞèÒªÖØĞÂ½øĞĞ¶ÁÈ¡£¬¶ø²»ÄÜÖ±½ÓÊ¹ÓÃ¶şÎ¬ÂëµÄBufferedImage ¶ÔÏó
+		//æ·»åŠ logoå›¾ç‰‡, æ­¤å¤„ä¸€å®šéœ€è¦é‡æ–°è¿›è¡Œè¯»å–ï¼Œè€Œä¸èƒ½ç›´æ¥ä½¿ç”¨äºŒç»´ç çš„BufferedImage å¯¹è±¡
 		BufferedImage img = ImageIO.read(new File(imagePath));
 		MatrixToImageWriterEx.overlapImage(img, format, imagePath, logoPath, logoConfig);
 	}
 
 	/**
-	 * ½«ÕÕÆ¬logoÌí¼Óµ½¶şÎ¬ÂëÖĞ¼ä
-	 * @param image Éú³ÉµÄ¶şÎ¬ÂëÕÕÆ¬¶ÔÏó
-	 * @param imagePath ÕÕÆ¬±£´æÂ·¾¶
-	 * @param logoPath logoÕÕÆ¬Â·¾¶
-	 * @param formate ÕÕÆ¬¸ñÊ½
+	 * å°†ç…§ç‰‡logoæ·»åŠ åˆ°äºŒç»´ç ä¸­é—´
+	 * @param image ç”Ÿæˆçš„äºŒç»´ç ç…§ç‰‡å¯¹è±¡
+	 * @param imagePath ç…§ç‰‡ä¿å­˜è·¯å¾„
+	 * @param logoPath logoç…§ç‰‡è·¯å¾„
+	 * @param formate ç…§ç‰‡æ ¼å¼
 	 */
 	public static void overlapImage(BufferedImage image, String formate, String imagePath, String logoPath, MatrixToLogoImageConfig logoConfig) {
 		try {
-			//½«logoĞ´Èë¶şÎ¬ÂëÖĞ
+			//å°†logoå†™å…¥äºŒç»´ç ä¸­
 			drawImage(logoPath, image, logoConfig);
 			
-			//Ğ´ÈëlogoÕÕÆ¬µ½¶şÎ¬Âë
+			//å†™å…¥logoç…§ç‰‡åˆ°äºŒç»´ç 
 			ImageIO.write(image, formate, new File(imagePath));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -98,48 +98,48 @@ public class MatrixToImageWriterEx {
 	}
 	
 	/**
-	 * ½«ÕÕÆ¬Ìí¼Óµ½¶şÎ¬ÂëÖĞ¼ä£¬²¢Éú³ÉÁ÷
+	 * å°†ç…§ç‰‡æ·»åŠ åˆ°äºŒç»´ç ä¸­é—´ï¼Œå¹¶ç”Ÿæˆæµ
 	 *
-	 * @param matrix ÒªĞ´ÈëµÄ¶şÎ¬Âë
-	 * @param formate ÕÕÆ¬¸ñÊ½
-	 * @param logoPath	ÒªĞ´ÈëÕÕÆ¬µÄÂ·¾¶
-	 * @param logoConfig logoÅäÖÃ¶ÔÏó  ¿ÉÒÔÎªnull£¬Îª null Ä¬ÈÏ DEFAULT_CONFIG
+	 * @param matrix è¦å†™å…¥çš„äºŒç»´ç 
+	 * @param formate ç…§ç‰‡æ ¼å¼
+	 * @param logoPath	è¦å†™å…¥ç…§ç‰‡çš„è·¯å¾„
+	 * @param logoConfig logoé…ç½®å¯¹è±¡  å¯ä»¥ä¸ºnullï¼Œä¸º null é»˜è®¤ DEFAULT_CONFIG
 	 * @throws java.io.IOException
 	 */
 	public static void overlapImage(BitMatrix matrix,String formate,String logoPath,MatrixToLogoImageConfig logoConfig,OutputStream out) throws IOException{
-		//½«matrix×ª»»ÎªbufferImage
+		//å°†matrixè½¬æ¢ä¸ºbufferImage
 		BufferedImage image = MatrixToImageWriter.toBufferedImage(matrix);
 		
-		//½«logoÕÕÆ¬»æÖÆµ½¶şÎ¬ÂëÖĞ¼ä
+		//å°†logoç…§ç‰‡ç»˜åˆ¶åˆ°äºŒç»´ç ä¸­é—´
 		drawImage(logoPath, image, logoConfig);
 		
-		//Êä³ö
+		//è¾“å‡º
 		ImageIO.write(image, formate, out);
 	}
 	
 	/**
-	 * ½«ÕÕÆ¬Ìí¼Óµ½¶şÎ¬ÂëÖĞ¼ä£¬²¢Éú³ÉÁ÷
+	 * å°†ç…§ç‰‡æ·»åŠ åˆ°äºŒç»´ç ä¸­é—´ï¼Œå¹¶ç”Ÿæˆæµ
 	 *
-	 * @param image ÒªĞ´ÈëµÄ¶şÎ¬Âë
-	 * @param formate ÕÕÆ¬¸ñÊ½
-	 * @param logoPath	ÒªĞ´ÈëÕÕÆ¬µÄÂ·¾¶
-	 * @param logoConfig logoÅäÖÃ¶ÔÏó  ¿ÉÒÔÎªnull£¬Îª null Ä¬ÈÏ DEFAULT_CONFIG
+	 * @param image è¦å†™å…¥çš„äºŒç»´ç 
+	 * @param formate ç…§ç‰‡æ ¼å¼
+	 * @param logoPath	è¦å†™å…¥ç…§ç‰‡çš„è·¯å¾„
+	 * @param logoConfig logoé…ç½®å¯¹è±¡  å¯ä»¥ä¸ºnullï¼Œä¸º null é»˜è®¤ DEFAULT_CONFIG
 	 * @throws java.io.IOException
 	 */
 	public static void overlapImage(BufferedImage image,String formate,String logoPath,MatrixToLogoImageConfig logoConfig,OutputStream out) throws IOException{
-		//½«logoÕÕÆ¬»æÖÆµ½¶şÎ¬ÂëÖĞ¼ä
+		//å°†logoç…§ç‰‡ç»˜åˆ¶åˆ°äºŒç»´ç ä¸­é—´
 		drawImage(logoPath, image, logoConfig);
 		
-		//Êä³ö
+		//è¾“å‡º
 		ImageIO.write(image, formate, out);
 	}
 	
 	/**
-	 * ½«logoÌí¼Óµ½¶şÎ¬ÂëÖĞ¼ä
+	 * å°†logoæ·»åŠ åˆ°äºŒç»´ç ä¸­é—´
 	 *
-	 * @param logoPath	logoÂ·¾¶
-	 * @param image	ĞèÒª»æÖÆµÄ¶şÎ¬ÂëÍ¼Æ¬
-	 * @param logoConfig	ÅäÖÃ²ÎÊı
+	 * @param logoPath	logoè·¯å¾„
+	 * @param image	éœ€è¦ç»˜åˆ¶çš„äºŒç»´ç å›¾ç‰‡
+	 * @param logoConfig	é…ç½®å‚æ•°
 	 * @throws java.io.IOException
 	 */
 	private static void drawImage(String logoPath,BufferedImage image,MatrixToLogoImageConfig logoConfig) throws IOException{
@@ -152,25 +152,25 @@ public class MatrixToImageWriterEx {
 			logo.setRGB(0, 0, BufferedImage.TYPE_INT_BGR);
 			Graphics2D g = image.createGraphics();
 			
-			//¿¼ÂÇµ½logoÕÕÆ¬Ìùµ½¶şÎ¬ÂëÖĞ£¬½¨Òé´óĞ¡²»Òª³¬¹ı¶şÎ¬ÂëµÄ1/5;
+			//è€ƒè™‘åˆ°logoç…§ç‰‡è´´åˆ°äºŒç»´ç ä¸­ï¼Œå»ºè®®å¤§å°ä¸è¦è¶…è¿‡äºŒç»´ç çš„1/5;
 			int width = image.getWidth() / logoConfig.getLogoPart();
 			int height = image.getHeight() / logoConfig.getLogoPart();
 			
-			//logoÆğÊ¼Î»ÖÃ£¬´ËÄ¿µÄÊÇÎªlogo¾ÓÖĞÏÔÊ¾
+			//logoèµ·å§‹ä½ç½®ï¼Œæ­¤ç›®çš„æ˜¯ä¸ºlogoå±…ä¸­æ˜¾ç¤º
 			int x = (image.getWidth() - width) / 2;
 			int y = (image.getHeight() - height) / 2;
 			
-			//»æÖÆÍ¼
+			//ç»˜åˆ¶å›¾
 			g.drawImage(logo, x, y, width, height, null);
 			
-			//¸ølogo»­±ß¿ò
-			//¹¹ÔìÒ»¸ö¾ßÓĞÖ¸¶¨ÏßÌõ¿í¶ÈÒÔ¼° cap ºÍ join ·ç¸ñµÄÄ¬ÈÏÖµµÄÊµĞÄ BasicStroke
+			//ç»™logoç”»è¾¹æ¡†
+			//æ„é€ ä¸€ä¸ªå…·æœ‰æŒ‡å®šçº¿æ¡å®½åº¦ä»¥åŠ cap å’Œ join é£æ ¼çš„é»˜è®¤å€¼çš„å®å¿ƒ BasicStroke
 //		g.setStroke(new BasicStroke(logoConfig.getBorder()));
 //		g.setColor(logoConfig.getBorderColor());
 //		g.drawRect(x, y, width, height);
 			
 			g.dispose();
-		} catch (Exception e) {   //²¶×½Òì³£ºó²»×öÈÎºÎ´¦Àí£¬·ÀÖ¹Í¼Æ¬Â·¾¶´íÎó¶øµ¼ÖÂ¶şÎ¬ÂëÉú³ÉÊ§°Ü
+		} catch (Exception e) {   //æ•æ‰å¼‚å¸¸åä¸åšä»»ä½•å¤„ç†ï¼Œé˜²æ­¢å›¾ç‰‡è·¯å¾„é”™è¯¯è€Œå¯¼è‡´äºŒç»´ç ç”Ÿæˆå¤±è´¥
 			
 		}
 	}

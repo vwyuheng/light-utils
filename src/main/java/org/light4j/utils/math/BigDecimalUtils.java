@@ -5,28 +5,28 @@ import java.math.BigDecimal;
 import org.light4j.utils.base.ValidateHelper;
 
 /**
- *  Ìá¹©¾«È·µÄ¼Ó¼õ³Ë³ıÔËËã
+ *  æä¾›ç²¾ç¡®çš„åŠ å‡ä¹˜é™¤è¿ç®—
  *  
  * @author longjiazuo
  */
 public class BigDecimalUtils {
 	
 	/**
-	 * Ä¬ÈÏ±£ÁôÎ»£º2
+	 * é»˜è®¤ä¿ç•™ä½ï¼š2
 	 */
 	private static int 	DEFAULT_SCALE = 2;
 	
 	/**
-	 * Ä¬ÈÏËÄÉáÎåÈë¹æÔòÎª£ºÏòÉÏÉáÈë
+	 * é»˜è®¤å››èˆäº”å…¥è§„åˆ™ä¸ºï¼šå‘ä¸Šèˆå…¥
 	 */
 	private static int DEFAULT_ROUND = BigDecimal.ROUND_HALF_UP;
 	
 	/**
 	 * 
-	 * ¼Ó·¨ÔËËã
+	 * åŠ æ³•è¿ç®—
 	 *
-	 * @param v1	¼ÓÊı
-	 * @param v2	±»¼ÓÊı
+	 * @param v1	åŠ æ•°
+	 * @param v2	è¢«åŠ æ•°
 	 * @return
 	 */
 	public static String add(String v1,String v2){    
@@ -36,15 +36,15 @@ public class BigDecimalUtils {
     }    
 	
 	/**
-	 * ³ı·¨ÔËËã<br>
-	 * µ±·¢Éú³ı²»¾¡µÄÇé¿öÊ±£¬ÓÉscale²ÎÊıÖ¸¶¨¾«¶È£¬ÒÔºóµÄÊı×ÖËÄÉáÎåÈë¡£
+	 * é™¤æ³•è¿ç®—<br>
+	 * å½“å‘ç”Ÿé™¤ä¸å°½çš„æƒ…å†µæ—¶ï¼Œç”±scaleå‚æ•°æŒ‡å®šç²¾åº¦ï¼Œä»¥åçš„æ•°å­—å››èˆäº”å…¥ã€‚
 	 *
 	 * @param v1
-	 * 			³ıÊı
+	 * 			é™¤æ•°
 	 * @param v2
-	 * 			±»³ıÊı
+	 * 			è¢«é™¤æ•°
 	 * @param scale
-	 * 			¾«È·¾«¶È
+	 * 			ç²¾ç¡®ç²¾åº¦
 	 * @return
 	 */
 	public static String div(String v1, String v2, int scale, int round) {
@@ -67,15 +67,15 @@ public class BigDecimalUtils {
 	}
 	
 	/**
-	 * ±È½ÏÁ½¸öÊı<br>
+	 * æ¯”è¾ƒä¸¤ä¸ªæ•°<br>
 	 * v1 > v2 return 1<br>
 	 * v1 = v2 return 0<br>
 	 * v1 < v2 return -1
 	 *
 	 * @param v1
-	 * 			±È½ÏÊı
+	 * 			æ¯”è¾ƒæ•°
 	 * @param v2
-	 * 			±»±È½ÏÊı
+	 * 			è¢«æ¯”è¾ƒæ•°
 	 * @return
 	 */
 	public static int compareTo(String v1,String v2){    
@@ -85,7 +85,7 @@ public class BigDecimalUtils {
     }   
 	
 	/**
-	 * ·µ»Ø½ÏĞ¡Êı
+	 * è¿”å›è¾ƒå°æ•°
 	 *
 	 * @param v1
 	 * @param v2
@@ -98,7 +98,7 @@ public class BigDecimalUtils {
     }   
 	
 	/**
-	 * ·µ»Ø½Ï´óÊı
+	 * è¿”å›è¾ƒå¤§æ•°
 	 *
 	 * @param v1
 	 * @param v2
@@ -111,7 +111,7 @@ public class BigDecimalUtils {
     }   
 	
 	/**
-	 * ´¦ÀíBigDecimalÊı¾İ£¬±£ÁôscaleÎ»Ğ¡Êı
+	 * å¤„ç†BigDecimalæ•°æ®ï¼Œä¿ç•™scaleä½å°æ•°
 	 *
 	 * @param value
 	 * @param scale
@@ -125,10 +125,10 @@ public class BigDecimalUtils {
 	}
 	
 	/**
-	 * ½«object×ª»»ÎªBigdecimal
+	 * å°†objectè½¬æ¢ä¸ºBigdecimal
 	 * 
 	 * @param value
-	 * 				´ı×ª»»µÄÊıÖµ
+	 * 				å¾…è½¬æ¢çš„æ•°å€¼
 	 * @return
 	 */
 	public static BigDecimal getBigDecimal(Object value){
@@ -154,7 +154,7 @@ public class BigDecimalUtils {
 	
 	
 	/**
-	 * ½«object×ª»»ÎªBigdecimal,ÈôobjectÎª¿Õ£¬Ôò·µ»ØresultValue
+	 * å°†objectè½¬æ¢ä¸ºBigdecimal,è‹¥objectä¸ºç©ºï¼Œåˆ™è¿”å›resultValue
 	 * 
 	 * @param value
 	 * @return
@@ -170,7 +170,7 @@ public class BigDecimalUtils {
 	}
 	
 	/**
-	 * ½«BigDecimal ×ª»»³ÉLong
+	 * å°†BigDecimal è½¬æ¢æˆLong
 	 *
 	 * @param value
 	 * @return
@@ -183,7 +183,7 @@ public class BigDecimalUtils {
 	}
 	
 	/**
-	 * ½«BigDecimal ×ª»»³Éinteger
+	 * å°†BigDecimal è½¬æ¢æˆinteger
 	 *
 	 * @param value
 	 * @return

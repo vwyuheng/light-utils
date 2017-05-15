@@ -3,11 +3,11 @@ package org.light4j.utils.QRCode;
 import java.awt.Color;
 
 public class MatrixToLogoImageConfig {
-	//logo默认边框颜色
+	//logo榛樿杈规棰滆壊
 	public static final Color DEFAULT_BORDERCOLOR = Color.RED;
-	//logo默认边框宽度
+	//logo榛樿杈规瀹藉害
 	public static final int DEFAULT_BORDER = 2;
-	//logo大小默认为照片的1/5
+	//logo澶у皬榛樿涓虹収鐗囩殑1/5
 	public static final int DEFAULT_LOGOPART = 5;
 
 	private final int border = DEFAULT_BORDER;

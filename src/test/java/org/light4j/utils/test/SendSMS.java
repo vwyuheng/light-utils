@@ -4,14 +4,14 @@ import java.util.Map;
 
 public class SendSMS {
 	/**
-	 * ÏòÖ¸¶¨ÊÖ»úºÅ·¢ËÍ¶ÌĞÅ
+	 * å‘æŒ‡å®šæ‰‹æœºå·å‘é€çŸ­ä¿¡
 	 * @param phone
 	 * @param content
 	 */
 	public void send(Map<String, String> taskParam){
-		/**»ñÈ¡ÊÖ»úºÅºÍ·¢ËÍµÄÄÚÈİ**/
+		/**è·å–æ‰‹æœºå·å’Œå‘é€çš„å†…å®¹**/
 		String phone = taskParam.get("phone");
 		String content = taskParam.get("content");
-		System.out.println("ÏòÊÖ»úºÅ:" + phone + "·¢ËÍ¶ÌĞÅ,ÄÚÈİÊÇ:" + content);
+		System.out.println("å‘æ‰‹æœºå·:" + phone + "å‘é€çŸ­ä¿¡,å†…å®¹æ˜¯:" + content);
 	}
 }

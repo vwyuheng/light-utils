@@ -5,15 +5,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * ×Ö·û´®¹¤¾ßÀà£¬¶Ô×Ö·û´®½øĞĞ³£¹æµÄ´¦Àí
+ * å­—ç¬¦ä¸²å·¥å…·ç±»ï¼Œå¯¹å­—ç¬¦ä¸²è¿›è¡Œå¸¸è§„çš„å¤„ç†
  * 
  * @author longjiazuo
  */
 public class StringUtils {
 	
 	/**
-	 * ¼ì²é×Ö·û´®ÊÇ·ñÎª¿Õ
-	 * @param str ×Ö·û´®
+	 * æ£€æŸ¥å­—ç¬¦ä¸²æ˜¯å¦ä¸ºç©º
+	 * @param str å­—ç¬¦ä¸²
 	 * @return
 	 */
 	public static boolean isEmpty(String str) {
@@ -27,8 +27,8 @@ public class StringUtils {
 	}
 	
 	/**
-	 * ¼ì²é×Ö·û´®ÊÇ·ñÎª·Ç¿Õ
-	 * @param str ×Ö·û´®
+	 * æ£€æŸ¥å­—ç¬¦ä¸²æ˜¯å¦ä¸ºéç©º
+	 * @param str å­—ç¬¦ä¸²
 	 * @return
 	 */
 	public static boolean isNotEmpty(String str) {
@@ -36,9 +36,9 @@ public class StringUtils {
 	}
 	
 	 /**
-	  * °Ñ×Ö·û´®°´·Ö¸ô·û×ª»»ÎªÊı×é
-	  * @param str  ×Ö·û´®
-	  * @param expr ·Ö¸ô·û
+	  * æŠŠå­—ç¬¦ä¸²æŒ‰åˆ†éš”ç¬¦è½¬æ¢ä¸ºæ•°ç»„
+	  * @param str  å­—ç¬¦ä¸²
+	  * @param expr åˆ†éš”ç¬¦
 	  * @return
 	  */
 	 public static String[] stringToArray(String str, String expr){
@@ -46,7 +46,7 @@ public class StringUtils {
 	 }
 	
 	 /**
-	  * ½«Êı×é°´ÕÕ¸ø¶¨µÄ·Ö¸ô×ª»¯³É×Ö·û´®
+	  * å°†æ•°ç»„æŒ‰ç…§ç»™å®šçš„åˆ†éš”è½¬åŒ–æˆå­—ç¬¦ä¸²
 	  * @param arr
 	  * @param expr
 	  * @return
@@ -66,7 +66,7 @@ public class StringUtils {
 	 
 	 
 	 /**
-	  * ½«¼¯ºÏ°´ÕÕ¸ø¶¨µÄ·Ö¸ô×ª»¯³É×Ö·û´®
+	  * å°†é›†åˆæŒ‰ç…§ç»™å®šçš„åˆ†éš”è½¬åŒ–æˆå­—ç¬¦ä¸²
 	  * @param arr
 	  * @param expr
 	  * @return
@@ -85,22 +85,22 @@ public class StringUtils {
 	 }
 	 
 	/**
-	 * ½«°ë½ÇµÄ·ûºÅ×ª»»³ÉÈ«½Ç·ûºÅ.(¼´Ó¢ÎÄ×Ö·û×ªÖĞÎÄ×Ö·û)
+	 * å°†åŠè§’çš„ç¬¦å·è½¬æ¢æˆå…¨è§’ç¬¦å·.(å³è‹±æ–‡å­—ç¬¦è½¬ä¸­æ–‡å­—ç¬¦)
 	 *
 	 * @param str
-	 * 			Òª×ª»»µÄ×Ö·û
+	 * 			è¦è½¬æ¢çš„å­—ç¬¦
 	 * @return
 	 */
 	public static String changeToFull(String str) {
         String source = "1234567890!@#$%^&*()abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_=+\\|[];:'\",<.>/?";
-        String[] decode = { "£±", "£²", "£³", "£´", "£µ", "£¶", "£·", "£¸", "£¹", "£°",
-                "£¡", "£À", "££", "¡ç", "£¥", "¦ä", "£¦", "£ª", "£¨", "£©", "£á", "£â",
-                "£ã", "£ä", "£å", "£æ", "£ç", "£è", "£é", "£ê", "£ë", "£ì", "£í", "£î",
-                "£ï", "£ğ", "£ñ", "£ò", "£ó", "£ô", "£õ", "£ö", "£÷", "£ø", "£ù", "£ú",
-                "£Á", "£Â", "£Ã", "£Ä", "£Å", "£Æ", "£Ç", "£È", "£É", "£Ê", "£Ë", "£Ì",
-                "£Í", "£Î", "£Ï", "£Ğ", "£Ñ", "£Ò", "£Ó", "£Ô", "£Õ", "£Ö", "£×", "£Ø",
-                "£Ù", "£Ú", "£­", "£ß", "£½", "£«", "£Ü", "£ü", "¡¾", "¡¿", "£»", "£º",
-                "'", "\"", "£¬", "¡´", "¡£", "¡µ", "£¯", "£¿" };
+        String[] decode = { "ï¼‘", "ï¼’", "ï¼“", "ï¼”", "ï¼•", "ï¼–", "ï¼—", "ï¼˜", "ï¼™", "ï¼",
+                "ï¼", "ï¼ ", "ï¼ƒ", "ï¼„", "ï¼…", "ï¸¿", "ï¼†", "ï¼Š", "ï¼ˆ", "ï¼‰", "ï½", "ï½‚",
+                "ï½ƒ", "ï½„", "ï½…", "ï½†", "ï½‡", "ï½ˆ", "ï½‰", "ï½Š", "ï½‹", "ï½Œ", "ï½", "ï½",
+                "ï½", "ï½", "ï½‘", "ï½’", "ï½“", "ï½”", "ï½•", "ï½–", "ï½—", "ï½˜", "ï½™", "ï½š",
+                "ï¼¡", "ï¼¢", "ï¼£", "ï¼¤", "ï¼¥", "ï¼¦", "ï¼§", "ï¼¨", "ï¼©", "ï¼ª", "ï¼«", "ï¼¬",
+                "ï¼­", "ï¼®", "ï¼¯", "ï¼°", "ï¼±", "ï¼²", "ï¼³", "ï¼´", "ï¼µ", "ï¼¶", "ï¼·", "ï¼¸",
+                "ï¼¹", "ï¼º", "ï¼", "ï¼¿", "ï¼", "ï¼‹", "ï¼¼", "ï½œ", "ã€", "ã€‘", "ï¼›", "ï¼š",
+                "'", "\"", "ï¼Œ", "ã€ˆ", "ã€‚", "ã€‰", "ï¼", "ï¼Ÿ" };
         String result = "";
         for (int i = 0; i < str.length(); i++) {
             int pos = source.indexOf(str.charAt(i));
@@ -114,12 +114,12 @@ public class StringUtils {
     }
 	
 	/**
-	 *  ½«×Ö·û×ª»»Îª±àÂëÎªUnicode£¬¸ñÊ½ Îª'\u0020'<br>
+	 *  å°†å­—ç¬¦è½¬æ¢ä¸ºç¼–ç ä¸ºUnicodeï¼Œæ ¼å¼ ä¸º'\u0020'<br>
 	 * 		  unicodeEscaped(' ') = "\u0020"<br>
 	 * 		  unicodeEscaped('A') = "\u0041"
 	 *
 	 * @param ch
-	 * 			´ı×ª»»µÄchar ×Ö·û
+	 * 			å¾…è½¬æ¢çš„char å­—ç¬¦
 	 * @return
 	 */
 	public static String unicodeEscaped(char ch) {
@@ -134,12 +134,12 @@ public class StringUtils {
 	}
 	
 	/**
-	 * ½øĞĞtoString²Ù×÷£¬ÈôÎª¿Õ£¬·µ»ØÄ¬ÈÏÖµ
+	 * è¿›è¡ŒtoStringæ“ä½œï¼Œè‹¥ä¸ºç©ºï¼Œè¿”å›é»˜è®¤å€¼
 	 *
 	 * @param object
-	 * 				Òª½øĞĞtoString²Ù×÷µÄ¶ÔÏó
+	 * 				è¦è¿›è¡ŒtoStringæ“ä½œçš„å¯¹è±¡
 	 * @param nullStr
-	 * 				·µ»ØµÄÄ¬ÈÏÖµ
+	 * 				è¿”å›çš„é»˜è®¤å€¼
 	 * @return
 	 */
 	public static String toString(Object object,String nullStr){
@@ -147,14 +147,14 @@ public class StringUtils {
 	}
 	
 	/**
-	 * ½«×Ö·û´®ÖØ¸´N´Î£¬null¡¢""²»ÔÚÑ­»·´ÎÊıÀïÃæ <br>
-	 * 		 µ±value == null || value == "" return value;<br>
-	 * 		 µ±count <= 1 ·µ»Ø  value
+	 * å°†å­—ç¬¦ä¸²é‡å¤Næ¬¡ï¼Œnullã€""ä¸åœ¨å¾ªç¯æ¬¡æ•°é‡Œé¢ <br>
+	 * 		 å½“value == null || value == "" return value;<br>
+	 * 		 å½“count <= 1 è¿”å›  value
 	 *
 	 * @param value
-	 * 				ĞèÒªÑ­»·µÄ×Ö·û´®
+	 * 				éœ€è¦å¾ªç¯çš„å­—ç¬¦ä¸²
 	 * @param count
-	 * 				Ñ­»·µÄ´ÎÊı
+	 * 				å¾ªç¯çš„æ¬¡æ•°
 	 * @return
 	 */
 	public static String repeatString(String value,int count){
@@ -163,7 +163,7 @@ public class StringUtils {
 		}
 		
 		int length = value.length();
-		if(length == 1){          //³¤¶ÈÎª1£¬´æÔÚ×Ö·û
+		if(length == 1){          //é•¿åº¦ä¸º1ï¼Œå­˜åœ¨å­—ç¬¦
 			return repeatChar(value.charAt(0), count);
 		}
 		
@@ -191,12 +191,12 @@ public class StringUtils {
 	}
 	
 	/**
-	 * ½«Ä³¸ö×Ö·ûÖØ¸´N´Î
+	 * å°†æŸä¸ªå­—ç¬¦é‡å¤Næ¬¡
 	 *
 	 * @param ch
-	 * 			ĞèÒªÑ­»·µÄ×Ö·û
+	 * 			éœ€è¦å¾ªç¯çš„å­—ç¬¦
 	 * @param count
-	 * 			Ñ­»·µÄ´ÎÊı
+	 * 			å¾ªç¯çš„æ¬¡æ•°
 	 * @return
 	 */
 	public static String repeatChar(char ch, int count) {
@@ -208,10 +208,10 @@ public class StringUtils {
 	}
 
 	/**
-	 * ÅĞ¶Ï×Ö·û´®ÊÇ·ñÈ«²¿¶¼ÎªĞ¡Ğ´
+	 * åˆ¤æ–­å­—ç¬¦ä¸²æ˜¯å¦å…¨éƒ¨éƒ½ä¸ºå°å†™
 	 * 
 	 * @param value
-	 * 				´ıÅĞ¶ÏµÄ×Ö·û´®
+	 * 				å¾…åˆ¤æ–­çš„å­—ç¬¦ä¸²
 	 * @return
 	 */
 	public static boolean isAllLowerCase(String value){
@@ -227,10 +227,10 @@ public class StringUtils {
 	}
 	
 	/**
-	 * ÅĞ¶Ï×Ö·û´®ÊÇ·ñÈ«²¿´óĞ´
+	 * åˆ¤æ–­å­—ç¬¦ä¸²æ˜¯å¦å…¨éƒ¨å¤§å†™
 	 *
 	 * @param value
-	 * 				´ıÅĞ¶ÏµÄ×Ö·û´®
+	 * 				å¾…åˆ¤æ–­çš„å­—ç¬¦ä¸²
 	 * @return
 	 */
 	public static boolean isAllUpperCase(String value){
@@ -246,10 +246,10 @@ public class StringUtils {
 	}
 	
 	/**
-	 * ·´×ª×Ö·û´®
+	 * åè½¬å­—ç¬¦ä¸²
 	 *
 	 * @param value
-	 * 				´ı·´×ªµÄ×Ö·û´®
+	 * 				å¾…åè½¬çš„å­—ç¬¦ä¸²
 	 * @return
 	 */
 	public static String reverse(String value){
@@ -260,7 +260,7 @@ public class StringUtils {
 	}
 	
 	/**
-	 * @desc:½ØÈ¡×Ö·û´®£¬Ö§³ÖÖĞÓ¢ÎÄ»ìÂÒ£¬ÆäÖĞÖĞÎÄµ±×öÁ½Î»´¦Àí
+	 * @desc:æˆªå–å­—ç¬¦ä¸²ï¼Œæ”¯æŒä¸­è‹±æ–‡æ··ä¹±ï¼Œå…¶ä¸­ä¸­æ–‡å½“åšä¸¤ä½å¤„ç†
 	 *
 	 * @param resourceString
 	 * @param length
@@ -282,7 +282,7 @@ public class StringUtils {
 		boolean isHaveDot = false;
 
 		for (int i = 0; i < resourceString.length(); i++) {
-			if (chr[i] >= 0xa1){// 0xa1ºº×Ö×îĞ¡Î»¿ªÊ¼
+			if (chr[i] >= 0xa1){// 0xa1æ±‰å­—æœ€å°ä½å¼€å§‹
 				strNum = strNum + 2;
 				strGBKNum++;
 			} else {
@@ -315,33 +315,33 @@ public class StringUtils {
 	}
 	
 	/**
-	 * ¹ıÂËhtml±êÇ©£¬°üÀ¨script¡¢style¡¢html¡¢¿Õ¸ñ¡¢»Ø³µ±êÇ©
+	 * è¿‡æ»¤htmlæ ‡ç­¾ï¼ŒåŒ…æ‹¬scriptã€styleã€htmlã€ç©ºæ ¼ã€å›è½¦æ ‡ç­¾
 	 *
 	 * @param htmlStr
 	 * @return
 	 */
 	public static String delHTMLTag(String htmlStr){
-		String regEx_script = "<script[^>]*?>[\\s\\S]*?<\\/script>"; // ¶¨ÒåscriptµÄÕıÔò±í´ïÊ½  
-	    String regEx_style = "<style[^>]*?>[\\s\\S]*?<\\/style>"; // ¶¨ÒåstyleµÄÕıÔò±í´ïÊ½  
-	    String regEx_html = "<[^>]+>"; // ¶¨ÒåHTML±êÇ©µÄÕıÔò±í´ïÊ½  
-	    String regEx_space = "\\s*|\t|\r|\n";//¶¨Òå¿Õ¸ñ»Ø³µ»»ĞĞ·û 
+		String regEx_script = "<script[^>]*?>[\\s\\S]*?<\\/script>"; // å®šä¹‰scriptçš„æ­£åˆ™è¡¨è¾¾å¼  
+	    String regEx_style = "<style[^>]*?>[\\s\\S]*?<\\/style>"; // å®šä¹‰styleçš„æ­£åˆ™è¡¨è¾¾å¼  
+	    String regEx_html = "<[^>]+>"; // å®šä¹‰HTMLæ ‡ç­¾çš„æ­£åˆ™è¡¨è¾¾å¼  
+	    String regEx_space = "\\s*|\t|\r|\n";//å®šä¹‰ç©ºæ ¼å›è½¦æ¢è¡Œç¬¦ 
 	    
 	    Pattern p_script = Pattern.compile(regEx_script, Pattern.CASE_INSENSITIVE);  
         Matcher m_script = p_script.matcher(htmlStr);  
-        htmlStr = m_script.replaceAll(""); // ¹ıÂËscript±êÇ©  
+        htmlStr = m_script.replaceAll(""); // è¿‡æ»¤scriptæ ‡ç­¾  
   
         Pattern p_style = Pattern.compile(regEx_style, Pattern.CASE_INSENSITIVE);  
         Matcher m_style = p_style.matcher(htmlStr);  
-        htmlStr = m_style.replaceAll(""); // ¹ıÂËstyle±êÇ©  
+        htmlStr = m_style.replaceAll(""); // è¿‡æ»¤styleæ ‡ç­¾  
   
         Pattern p_html = Pattern.compile(regEx_html, Pattern.CASE_INSENSITIVE);  
         Matcher m_html = p_html.matcher(htmlStr);  
-        htmlStr = m_html.replaceAll(""); // ¹ıÂËhtml±êÇ©  
+        htmlStr = m_html.replaceAll(""); // è¿‡æ»¤htmlæ ‡ç­¾  
   
         Pattern p_space = Pattern.compile(regEx_space, Pattern.CASE_INSENSITIVE);  
         Matcher m_space = p_space.matcher(htmlStr);  
-        htmlStr = m_space.replaceAll(""); // ¹ıÂË¿Õ¸ñ»Ø³µ±êÇ©  
+        htmlStr = m_space.replaceAll(""); // è¿‡æ»¤ç©ºæ ¼å›è½¦æ ‡ç­¾  
         
-        return htmlStr.trim(); // ·µ»ØÎÄ±¾×Ö·û´®
+        return htmlStr.trim(); // è¿”å›æ–‡æœ¬å­—ç¬¦ä¸²
 	}
 }

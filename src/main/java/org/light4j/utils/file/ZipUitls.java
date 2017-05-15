@@ -10,31 +10,31 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 /**
- * ÎÄ¼şÑ¹Ëõ¡¢½âÑ¹¹¤¾ßÀà¡£ÎÄ¼şÑ¹Ëõ¸ñÊ½Îªzip
+ * æ–‡ä»¶å‹ç¼©ã€è§£å‹å·¥å…·ç±»ã€‚æ–‡ä»¶å‹ç¼©æ ¼å¼ä¸ºzip
  * 
  * @author longjiazuo
  */
 public class ZipUitls {
-	/** ÎÄ¼şºó×ºÃû */
+	/** æ–‡ä»¶åç¼€å */
 	private static final String ZIP_FILE_SUFFIX = ".zip";
 	
 	/**
-	 * Ñ¹ËõÎÄ¼ş
+	 * å‹ç¼©æ–‡ä»¶
 	 *
 	 * @param resourcePath
-	 * 						Ô´ÎÄ¼ş
+	 * 						æºæ–‡ä»¶
 	 * @param targetPath
-	 * 						Ä¿µÄÎÄ¼ş,±£´æÎÄ¼şÂ·¾¶
+	 * 						ç›®çš„æ–‡ä»¶,ä¿å­˜æ–‡ä»¶è·¯å¾„
 	 */
 	public static void zipFile(String resourcePath,String targetPath){
 		File resourcesFile = new File(resourcePath); 
 		File targetFile = new File(targetPath);
 		
-		//Ä¿µÄÎÄ¼ş²»´æÔÚ£¬ÔòĞÂ½¨
+		//ç›®çš„æ–‡ä»¶ä¸å­˜åœ¨ï¼Œåˆ™æ–°å»º
 		if(!targetFile.exists()){
 			targetFile.mkdirs();
 		}
-		//ÎÄ¼şÃû
+		//æ–‡ä»¶å
 		String targetName = resourcesFile.getName() + ZIP_FILE_SUFFIX;
 		
 		ZipOutputStream out = null;
@@ -65,29 +65,29 @@ public class ZipUitls {
 	private static void compressedFile(ZipOutputStream out, File file, String dir) {
 		FileInputStream fis = null;
 		try {
-			if (file.isDirectory()) {	//ÎÄ¼ş¼Ğ
-				// µÃµ½ÎÄ¼şÁĞ±íĞÅÏ¢
+			if (file.isDirectory()) {	//æ–‡ä»¶å¤¹
+				// å¾—åˆ°æ–‡ä»¶åˆ—è¡¨ä¿¡æ¯
 				File[] files = file.listFiles();
-				// ½«ÎÄ¼ş¼ĞÌí¼Óµ½ÏÂÒ»¼¶´ò°üÄ¿Â¼
+				// å°†æ–‡ä»¶å¤¹æ·»åŠ åˆ°ä¸‹ä¸€çº§æ‰“åŒ…ç›®å½•
 				out.putNextEntry(new ZipEntry(dir + "/"));
 
 				dir = dir.length() == 0 ? "" : dir + "/";
 
-				// Ñ­»·½«ÎÄ¼ş¼ĞÖĞµÄÎÄ¼ş´ò°ü
+				// å¾ªç¯å°†æ–‡ä»¶å¤¹ä¸­çš„æ–‡ä»¶æ‰“åŒ…
 				for (int i = 0; i < files.length; i++) {
-					compressedFile(out, files[i], dir + files[i].getName()); // µİ¹é´¦Àí
+					compressedFile(out, files[i], dir + files[i].getName()); // é€’å½’å¤„ç†
 				}
-			} else { 	//Èç¹ûÊÇÎÄ¼şÔò´ò°ü´¦Àí
+			} else { 	//å¦‚æœæ˜¯æ–‡ä»¶åˆ™æ‰“åŒ…å¤„ç†
 				fis = new FileInputStream(file);
 
 				out.putNextEntry(new ZipEntry(dir));
-				// ½øĞĞĞ´²Ù×÷
+				// è¿›è¡Œå†™æ“ä½œ
 				int j = 0;
 				byte[] buffer = new byte[1024];
 				while ((j = fis.read(buffer)) > 0) {
 					out.write(buffer, 0, j);
 				}
-				// ¹Ø±ÕÊäÈëÁ÷
+				// å…³é—­è¾“å…¥æµ
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

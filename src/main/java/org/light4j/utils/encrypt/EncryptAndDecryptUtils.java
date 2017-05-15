@@ -2,18 +2,18 @@ package org.light4j.utils.encrypt;
 
 
 /**
- * ¼Ó½âÃÜ¹¤¾ßÀà<br>
- * ¹¤¾ßÀà°üÀ¨£ºMD5¼ÓÃÜ¡¢SHA¼ÓÃÜ¡¢Base64¼Ó½âÃÜ¡¢DES¼Ó½âÃÜ¡¢AES¼Ó½âÃÜ<br>
+ * åŠ è§£å¯†å·¥å…·ç±»<br>
+ * å·¥å…·ç±»åŒ…æ‹¬ï¼šMD5åŠ å¯†ã€SHAåŠ å¯†ã€Base64åŠ è§£å¯†ã€DESåŠ è§£å¯†ã€AESåŠ è§£å¯†<br>
  * 
  * @author longjiazuo
  */
 public class EncryptAndDecryptUtils {
 	
 	/**
-	 * MD5 ¼ÓÃÜ
+	 * MD5 åŠ å¯†
 	 * 
 	 * @param value
-	 * 				´ı¼ÓÃÜ×Ö·û
+	 * 				å¾…åŠ å¯†å­—ç¬¦
 	 * @return
 	 */
 	public static String md5Encrypt(String value){
@@ -25,11 +25,11 @@ public class EncryptAndDecryptUtils {
 	}
 	
 	/**
-	 * SHA¼ÓÃÜ
+	 * SHAåŠ å¯†
 	 * 
 	 * @param value		
-	 * 					´ı¼ÓÃÜ×Ö·û
-	 * @return	ÃÜÎÄ
+	 * 					å¾…åŠ å¯†å­—ç¬¦
+	 * @return	å¯†æ–‡
 	 */
 	public static String shaEncrypt(String value){
 		String result = null;
@@ -40,10 +40,10 @@ public class EncryptAndDecryptUtils {
 	}
 	
 	/**
-	 * BASE64 ¼ÓÃÜ
+	 * BASE64 åŠ å¯†
 	 * 
 	 * @param value
-	 * 				´ı¼ÓÃÜ×Ö·û´®
+	 * 				å¾…åŠ å¯†å­—ç¬¦ä¸²
 	 * @return
 	 */
 	public static String base64Encrypt(String value){
@@ -56,10 +56,10 @@ public class EncryptAndDecryptUtils {
 	}
 	
 	/**
-	 * BASE64 ½âÃÜ
+	 * BASE64 è§£å¯†
 	 * 
 	 * @param value
-	 * 				´ı½âÃÜ×Ö·û´®
+	 * 				å¾…è§£å¯†å­—ç¬¦ä¸²
 	 * @return
 	 */
 	public static String base64Decrypt(String value){
@@ -76,14 +76,14 @@ public class EncryptAndDecryptUtils {
 	}
 	
 	/**
-	 * DES¼ÓÃÜ<br>
+	 * DESåŠ å¯†<br>
 	 * 
 	 * @param value
-	 * 				´ı¼ÓÃÜ×Ö·û
+	 * 				å¾…åŠ å¯†å­—ç¬¦
 	 * @param key	
-	 * 				ÈôkeyÎª¿Õ£¬ÔòÊ¹ÓÃÄ¬ÈÏkey
+	 * 				è‹¥keyä¸ºç©ºï¼Œåˆ™ä½¿ç”¨é»˜è®¤key
 	 * @return
-	 * 			¼ÓÃÜ³É¹¦·µ»ØÃÜÎÄ£¬·ñÔò·µ»Ønull
+	 * 			åŠ å¯†æˆåŠŸè¿”å›å¯†æ–‡ï¼Œå¦åˆ™è¿”å›null
 	 */
 	public static String desEncrypt(String value,String key){
 		key = key == null ? DESUtils.KEY : key;
@@ -100,12 +100,12 @@ public class EncryptAndDecryptUtils {
 	}
 	
 	/**
-	 * DES½âÃÜ
+	 * DESè§£å¯†
 	 * 
 	 * @param value
-	 * 				´ı½âÃÜ×Ö·û
+	 * 				å¾…è§£å¯†å­—ç¬¦
 	 * @param key	
-	 * 				ÈôkeyÎª¿Õ£¬ÔòÊ¹ÓÃÄ¬ÈÏkey
+	 * 				è‹¥keyä¸ºç©ºï¼Œåˆ™ä½¿ç”¨é»˜è®¤key
 	 * @return
 	 * @return
 	 */
@@ -124,12 +124,12 @@ public class EncryptAndDecryptUtils {
 	}
 	
 	/**
-	 * AES¼ÓÃÜ
+	 * AESåŠ å¯†
 	 *
 	 * @param value
-	 * 					´ı¼ÓÃÜÄÚÈİ
+	 * 					å¾…åŠ å¯†å†…å®¹
 	 * @param key
-	 * 					ÃØÔ¿
+	 * 					ç§˜é’¥
 	 * @return
 	 */
 	public static String aesEncrypt(String value,String key ){
@@ -147,12 +147,12 @@ public class EncryptAndDecryptUtils {
 	}
 	
 	/**
-	 * AES½âÃÜ
+	 * AESè§£å¯†
 	 * 
 	 * @param value
-	 * 				´ı½âÃÜÄÚÈİ
+	 * 				å¾…è§£å¯†å†…å®¹
 	 * @param key
-	 * 				ÃØÔ¿
+	 * 				ç§˜é’¥
 	 * @return
 	 */
 	public static String aesDecrypt(String value , String key){

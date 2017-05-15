@@ -8,15 +8,15 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 /**
- * ¸ù¾İÊ±¼äÉú³ÉÎ¨Ò»ĞòÁĞID<br>
- * Ê±¼ä¾«È·µ½Ãë£¬ID×î´óÖµÎª99999ÇÒÑ­»·Ê¹ÓÃ
+ * æ ¹æ®æ—¶é—´ç”Ÿæˆå”¯ä¸€åºåˆ—ID<br>
+ * æ—¶é—´ç²¾ç¡®åˆ°ç§’ï¼ŒIDæœ€å¤§å€¼ä¸º99999ä¸”å¾ªç¯ä½¿ç”¨
  * 
  * @author longjiazuo
  */
 public class GenerateSequenceUtil {
 	private static final FieldPosition HELPER_POSITION = new FieldPosition(0);
 	
-	/** Ê±¼ä£º¾«È·µ½Ãë */
+	/** æ—¶é—´ï¼šç²¾ç¡®åˆ°ç§’ */
 	private final static Format dateFormat = new SimpleDateFormat("YYYYMMddHHmmss");
 	
 	private final static NumberFormat numberFormat = new DecimalFormat("00000");
