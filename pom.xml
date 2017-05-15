@@ -4,7 +4,7 @@
 	<groupId>org.light4j</groupId>
 	<artifactId>light-utils</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0.0</version>
+	<version>1.0</version>
 	<name>light-utils</name>
 	<description>light-util is a tool collection by Java</description>
 	<url>http://blog.longjiazuo.com</url>
@@ -123,15 +123,6 @@
 								</goals>
 							</execution>
 						</executions>
-					</plugin>
-					<!-- Tomcat -->
-					<plugin>
-						<groupId>org.apache.tomcat.maven</groupId>
-						<artifactId>tomcat7-maven-plugin</artifactId>
-						<version>2.2</version>
-						<configuration>
-							<path>/${project.artifactId}</path>
-						</configuration>
 					</plugin>
 					<!-- GPG -->
 					<plugin>
