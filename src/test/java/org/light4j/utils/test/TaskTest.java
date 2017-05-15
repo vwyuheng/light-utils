@@ -11,11 +11,11 @@ import org.light4j.utils.task.TaskUtils;
 public class TaskTest {
 
 	/**
-	 * ²âÊÔ¶àÈÎÎñ¶ÓÁĞ
+	 * æµ‹è¯•å¤šä»»åŠ¡é˜Ÿåˆ—
 	 * @param args
 	 */
 	public static void main(String[] args){
-		/**ÉèÖÃÈÎÎñÁĞ±í**/
+		/**è®¾ç½®ä»»åŠ¡åˆ—è¡¨**/
 		List<TaskEntity> taskList = new ArrayList<TaskEntity>();
 		TaskEntity task = null;
 		Map<String, String> taskParam = null;
@@ -25,11 +25,11 @@ public class TaskTest {
 			task.setTaskMethod("send");
 			taskParam = new HashMap<String,String>();
 			taskParam.put("phone", "15201392949" + i);
-			taskParam.put("content", "²âÊÔÄÚÈİ" + i);
+			taskParam.put("content", "æµ‹è¯•å†…å®¹" + i);
 			task.setTaskParam(taskParam);
 			taskList.add(task);
 		}
-		/**½«ÈÎÎñÌí¼Óµ½¶ÓÁĞ**/
+		/**å°†ä»»åŠ¡æ·»åŠ åˆ°é˜Ÿåˆ—**/
 		TaskUtils.addTaskList(taskList);
 	}
 }

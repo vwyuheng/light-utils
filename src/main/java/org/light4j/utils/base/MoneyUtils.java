@@ -4,46 +4,46 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 /**
- * ½ğÇ®´¦Àí¹¤¾ßÀà
+ * é‡‘é’±å¤„ç†å·¥å…·ç±»
  * 
  * @author longjiazuo
  */
 public class MoneyUtils {
 	
 	/**
-	 * ººÓïÖĞÊı×Ö´óĞ´
+	 * æ±‰è¯­ä¸­æ•°å­—å¤§å†™
 	 */
-	 private static final String[] CN_UPPER_NUMBER = {"Áã","Ò¼","·¡","Èş","ËÁ","Îé","Â½","Æâ","°Æ","¾Á" };
+	 private static final String[] CN_UPPER_NUMBER = {"é›¶","å£¹","è´°","å","è‚†","ä¼","é™†","æŸ’","æŒ","ç–" };
 	 
 	 /**
-	  * ººÓïÖĞ»õ±Òµ¥Î»´óĞ´
+	  * æ±‰è¯­ä¸­è´§å¸å•ä½å¤§å†™
 	  */
-	 private static final String[] CN_UPPER_MONETRAY_UNIT = { "·Ö", "½Ç", "Ôª","Ê°", "°Û", "Çª", "Íò", "Ê°", 
-		 													  "°Û", "Çª", "ÒÚ", "Ê°", "°Û", "Çª", "Õ×", "Ê°",
-		 													  "°Û", "Çª" };
+	 private static final String[] CN_UPPER_MONETRAY_UNIT = { "åˆ†", "è§’", "å…ƒ","æ‹¾", "ä½°", "ä»Ÿ", "ä¸‡", "æ‹¾", 
+		 													  "ä½°", "ä»Ÿ", "äº¿", "æ‹¾", "ä½°", "ä»Ÿ", "å…†", "æ‹¾",
+		 													  "ä½°", "ä»Ÿ" };
 	 /**
-	  * ÌØÊâ×Ö·û£ºÕû
+	  * ç‰¹æ®Šå­—ç¬¦ï¼šæ•´
 	  */
 	 private static final String CN_FULL = "";
 	 
 	 /**
-	  * ÌØÊâ×Ö·û£º¸º
+	  * ç‰¹æ®Šå­—ç¬¦ï¼šè´Ÿ
 	  */
-	 private static final String CN_NEGATIVE = "¸º";
+	 private static final String CN_NEGATIVE = "è´Ÿ";
 	 /**
-	  * ÁãÔªÕû
+	  * é›¶å…ƒæ•´
 	  */
-	 private static final String CN_ZEOR_FULL = "ÁãÔªÕû";
+	 private static final String CN_ZEOR_FULL = "é›¶å…ƒæ•´";
 	 
 	 /**
-	  * ½ğ¶îµÄ¾«¶È£¬Ä¬ÈÏÖµÎª2
+	  * é‡‘é¢çš„ç²¾åº¦ï¼Œé»˜è®¤å€¼ä¸º2
 	  */
 	 private static final int MONEY_PRECISION = 2;
 	 
 	 /**
-	  * ÈËÃñ±Ò×ª»»Îª´óĞ´,¸ñÊ½Îª£ºxÍòxÇ§x°ÙxÊ®xÔªx½Çx·Ö
+	  * äººæ°‘å¸è½¬æ¢ä¸ºå¤§å†™,æ ¼å¼ä¸ºï¼šxä¸‡xåƒxç™¾xåxå…ƒxè§’xåˆ†
 	  * 
-	  * @param numberOfMoney ´«ÈëµÄ½ğ¶î
+	  * @param numberOfMoney ä¼ å…¥çš„é‡‘é¢
 	  * @return
 	  */
 	 public static String number2CNMontray(String numberOfMoney) {
@@ -52,27 +52,27 @@ public class MoneyUtils {
 	 
 
 	/**
-	 * ÈËÃñ±Ò×ª»»Îª´óĞ´,¸ñÊ½Îª£ºxÍòxÇ§x°ÙxÊ®xÔªx½Çx·Ö
+	 * äººæ°‘å¸è½¬æ¢ä¸ºå¤§å†™,æ ¼å¼ä¸ºï¼šxä¸‡xåƒxç™¾xåxå…ƒxè§’xåˆ†
 	 * 
 	 * @param numberOfMoney
-	 * 					´«ÈëµÄ½ğ¶î
+	 * 					ä¼ å…¥çš„é‡‘é¢
 	 * @return
 	 */
 	public static String number2CNMontray(BigDecimal numberOfMoney) {
 		StringBuffer sb = new StringBuffer();
         int signum = numberOfMoney.signum();
-        // ÁãÔªÕûµÄÇé¿ö
+        // é›¶å…ƒæ•´çš„æƒ…å†µ
         if (signum == 0) {
             return CN_ZEOR_FULL;
         }
-        //ÕâÀï»á½øĞĞ½ğ¶îµÄËÄÉáÎåÈë
+        //è¿™é‡Œä¼šè¿›è¡Œé‡‘é¢çš„å››èˆäº”å…¥
         long number = numberOfMoney.movePointRight(MONEY_PRECISION).setScale(0, 4).abs().longValue();
-        // µÃµ½Ğ¡ÊıµãºóÁ½Î»Öµ
+        // å¾—åˆ°å°æ•°ç‚¹åä¸¤ä½å€¼
         long scale = number % 100;
         int numUnit = 0;
         int numIndex = 0;
         boolean getZero = false;
-        // ÅĞ¶Ï×îºóÁ½Î»Êı£¬Ò»¹²ÓĞËÄÖĞÇé¿ö£º00 = 0, 01 = 1, 10, 11
+        // åˆ¤æ–­æœ€åä¸¤ä½æ•°ï¼Œä¸€å…±æœ‰å››ä¸­æƒ…å†µï¼š00 = 0, 01 = 1, 10, 11
         if (!(scale > 0)) {
             numIndex = 2;
             number = number / 100;
@@ -88,7 +88,7 @@ public class MoneyUtils {
             if (number <= 0) {
                 break;
             }
-            // Ã¿´Î»ñÈ¡µ½×îºóÒ»¸öÊı
+            // æ¯æ¬¡è·å–åˆ°æœ€åä¸€ä¸ªæ•°
             numUnit = (int) (number % 10);
             if (numUnit > 0) {
                 if ((numIndex == 9) && (zeroSize >= 3)) {
@@ -115,15 +115,15 @@ public class MoneyUtils {
                 }
                 getZero = true;
             }
-            // ÈÃnumberÃ¿´Î¶¼È¥µô×îºóÒ»¸öÊı
+            // è®©numberæ¯æ¬¡éƒ½å»æ‰æœ€åä¸€ä¸ªæ•°
             number = number / 10;
             ++numIndex;
         }
-        // Èç¹ûsignum == -1£¬ÔòËµÃ÷ÊäÈëµÄÊı×ÖÎª¸ºÊı£¬¾ÍÔÚ×îÇ°Ãæ×·¼ÓÌØÊâ×Ö·û£º¸º
+        // å¦‚æœsignum == -1ï¼Œåˆ™è¯´æ˜è¾“å…¥çš„æ•°å­—ä¸ºè´Ÿæ•°ï¼Œå°±åœ¨æœ€å‰é¢è¿½åŠ ç‰¹æ®Šå­—ç¬¦ï¼šè´Ÿ
         if (signum == -1) {
             sb.insert(0, CN_NEGATIVE);
         }
-        // ÊäÈëµÄÊı×ÖĞ¡ÊıµãºóÁ½Î»Îª"00"µÄÇé¿ö£¬ÔòÒªÔÚ×îºó×·¼ÓÌØÊâ×Ö·û£ºÕû
+        // è¾“å…¥çš„æ•°å­—å°æ•°ç‚¹åä¸¤ä½ä¸º"00"çš„æƒ…å†µï¼Œåˆ™è¦åœ¨æœ€åè¿½åŠ ç‰¹æ®Šå­—ç¬¦ï¼šæ•´
         if (!(scale > 0)) {
             sb.append(CN_FULL);
         }
@@ -131,10 +131,10 @@ public class MoneyUtils {
 	}
 	
 	/**
-	 * ½«ÈËÃñ±Ò×ª»»Îª»á¼Æ¸ñÊ½½ğ¶î(xxxx,xxxx,xxxx.xx),±£ÁôÁ½Î»Ğ¡Êı
+	 * å°†äººæ°‘å¸è½¬æ¢ä¸ºä¼šè®¡æ ¼å¼é‡‘é¢(xxxx,xxxx,xxxx.xx),ä¿ç•™ä¸¤ä½å°æ•°
 	 * 
 	 * @param money
-	 * 				´ı×ª»»µÄ½ğ¶î
+	 * 				å¾…è½¬æ¢çš„é‡‘é¢
 	 * @return
 	 */
 	public static String accountantMoney(BigDecimal money){
@@ -142,14 +142,14 @@ public class MoneyUtils {
 	}
 	
 	/**
-	 * ¸ñÊ½»¯½ğ¶î£¬ÏÔÊ¾ÎªxxxÍòÔª£¬xxx°ÙÍò,xxxÒÚ
+	 * æ ¼å¼åŒ–é‡‘é¢ï¼Œæ˜¾ç¤ºä¸ºxxxä¸‡å…ƒï¼Œxxxç™¾ä¸‡,xxxäº¿
 	 *
 	 * @param money 
-	 * 				´ı´¦ÀíµÄ½ğ¶î
+	 * 				å¾…å¤„ç†çš„é‡‘é¢
 	 * @param scale  
-	 * 				Ğ¡Êıµãºó±£ÁôµÄÎ»Êı
+	 * 				å°æ•°ç‚¹åä¿ç•™çš„ä½æ•°
 	 * @param divisor 
-	 * 				¸ñÊ½»¯Öµ£¨10:Ê®Ôª¡¢100:°ÙÔª,1000Ç§Ôª£¬10000ÍòÔª......£©
+	 * 				æ ¼å¼åŒ–å€¼ï¼ˆ10:åå…ƒã€100:ç™¾å…ƒ,1000åƒå…ƒï¼Œ10000ä¸‡å…ƒ......ï¼‰
 	 * @return
 	 */
 	public static String getFormatMoney(BigDecimal money,int scale,double divisor){
@@ -157,14 +157,14 @@ public class MoneyUtils {
 	}
 	
 	/**
-	 * »ñÈ¡»á¼Æ¸ñÊ½µÄÈËÃñ±Ò(¸ñÊ½Îª:xxxx,xxxx,xxxx.xx)
+	 * è·å–ä¼šè®¡æ ¼å¼çš„äººæ°‘å¸(æ ¼å¼ä¸º:xxxx,xxxx,xxxx.xx)
 	 *
 	 * @param money 
-	 * 				´ı´¦ÀíµÄ½ğ¶î
+	 * 				å¾…å¤„ç†çš„é‡‘é¢
 	 * @param scale 
-	 * 				Ğ¡Êıµãºó±£ÁôµÄÎ»Êı
+	 * 				å°æ•°ç‚¹åä¿ç•™çš„ä½æ•°
 	 * @param divisor 
-	 * 				¸ñÊ½»¯Öµ£¨10:Ê®Ôª¡¢100:°ÙÔª,1000Ç§Ôª£¬10000ÍòÔª......£©
+	 * 				æ ¼å¼åŒ–å€¼ï¼ˆ10:åå…ƒã€100:ç™¾å…ƒ,1000åƒå…ƒï¼Œ10000ä¸‡å…ƒ......ï¼‰
 	 * @return
 	 */
 	public static String getAccountantMoney(BigDecimal money, int scale, double divisor){  
@@ -172,44 +172,44 @@ public class MoneyUtils {
     }  
 	
 	/**
-	 * ½«ÈËÃñ±Ò×ª»»Îª»á¼Æ¸ñÊ½½ğ¶î(xxxx,xxxx,xxxx.xx)
+	 * å°†äººæ°‘å¸è½¬æ¢ä¸ºä¼šè®¡æ ¼å¼é‡‘é¢(xxxx,xxxx,xxxx.xx)
 	 *
 	 * @param money 
-	 * 				´ı´¦ÀíµÄ½ğ¶î
+	 * 				å¾…å¤„ç†çš„é‡‘é¢
 	 * @param scale 
-	 * 				Ğ¡Êıµãºó±£ÁôµÄÎ»Êı
+	 * 				å°æ•°ç‚¹åä¿ç•™çš„ä½æ•°
 	 * @param divisor 
-	 * 				¸ñÊ½»¯Öµ
+	 * 				æ ¼å¼åŒ–å€¼
 	 * @return
 	 */
 	private static String accountantMoney(BigDecimal money,int scale,double divisor){
 		String disposeMoneyStr = formatMoney(money, scale, divisor);  
-        //Ğ¡Êıµã´¦Àí  
+        //å°æ•°ç‚¹å¤„ç†  
         int dotPosition = disposeMoneyStr.indexOf(".");  
-        String exceptDotMoeny = null;//Ğ¡ÊıµãÖ®Ç°µÄ×Ö·û´®  
-        String dotMeony = null;//Ğ¡ÊıµãÖ®ºóµÄ×Ö·û´®  
+        String exceptDotMoeny = null;//å°æ•°ç‚¹ä¹‹å‰çš„å­—ç¬¦ä¸²  
+        String dotMeony = null;//å°æ•°ç‚¹ä¹‹åçš„å­—ç¬¦ä¸²  
         if(dotPosition > 0){  
             exceptDotMoeny = disposeMoneyStr.substring(0,dotPosition);  
             dotMeony = disposeMoneyStr.substring(dotPosition);  
         }else{  
             exceptDotMoeny = disposeMoneyStr;  
         }  
-        //¸ºÊı´¦Àí  
+        //è´Ÿæ•°å¤„ç†  
         int negativePosition = exceptDotMoeny.indexOf("-");  
         if(negativePosition == 0){  
             exceptDotMoeny = exceptDotMoeny.substring(1);  
         }  
         StringBuffer reverseExceptDotMoney = new StringBuffer(exceptDotMoeny);  
-        reverseExceptDotMoney.reverse();//×Ö·û´®µ¹×ª  
+        reverseExceptDotMoney.reverse();//å­—ç¬¦ä¸²å€’è½¬  
         char[] moneyChar = reverseExceptDotMoney.toString().toCharArray();  
-        StringBuffer returnMeony = new StringBuffer();//·µ»ØÖµ  
+        StringBuffer returnMeony = new StringBuffer();//è¿”å›å€¼  
         for(int i = 0; i < moneyChar.length; i++){  
             if(i != 0 && i % 3 == 0){  
-                returnMeony.append(",");//Ã¿¸ô3Î»¼Ó','  
+                returnMeony.append(",");//æ¯éš”3ä½åŠ ','  
             }  
             returnMeony.append(moneyChar[i]);  
         }  
-        returnMeony.reverse();//×Ö·û´®µ¹×ª  
+        returnMeony.reverse();//å­—ç¬¦ä¸²å€’è½¬  
         if(dotPosition > 0){  
             returnMeony.append(dotMeony);  
         }  
@@ -221,14 +221,14 @@ public class MoneyUtils {
 	}
 	
 	/**
-	 * ¸ñÊ½»¯½ğ¶î£¬ÏÔÊ¾ÎªxxxÍòÔª£¬xxx°ÙÍò,xxxÒÚ
+	 * æ ¼å¼åŒ–é‡‘é¢ï¼Œæ˜¾ç¤ºä¸ºxxxä¸‡å…ƒï¼Œxxxç™¾ä¸‡,xxxäº¿
 	 *
 	 * @param money 
-	 * 				´ı´¦ÀíµÄ½ğ¶î
+	 * 				å¾…å¤„ç†çš„é‡‘é¢
 	 * @param scale  
-	 * 				Ğ¡Êıµãºó±£ÁôµÄÎ»Êı
+	 * 				å°æ•°ç‚¹åä¿ç•™çš„ä½æ•°
 	 * @param divisor 
-	 * 				¸ñÊ½»¯Öµ
+	 * 				æ ¼å¼åŒ–å€¼
 	 * @return
 	 */
 	private static String formatMoney(BigDecimal money,int scale,double divisor){
@@ -248,34 +248,34 @@ public class MoneyUtils {
 		String cell = "";
 		switch(len){
 			case 1:
-				cell = "Ôª";
+				cell = "å…ƒ";
 				break;
 			case 2:
-				cell = "Ê®Ôª";
+				cell = "åå…ƒ";
 				break;
 			case 3:
-				cell = "°ÙÔª";
+				cell = "ç™¾å…ƒ";
 				break;
 			case 4:
-				cell = "Ç§Ôª";
+				cell = "åƒå…ƒ";
 				break;
 			case 5:
-				cell = "ÍòÔª";
+				cell = "ä¸‡å…ƒ";
 				break;
 			case 6:
-				cell = "Ê®ÍòÔª";
+				cell = "åä¸‡å…ƒ";
 				break;
 			case 7:
-				cell = "°ÙÍòÔª";
+				cell = "ç™¾ä¸‡å…ƒ";
 				break;
 			case 8:
-				cell = "Ç§ÍòÔª";
+				cell = "åƒä¸‡å…ƒ";
 				break;
 			case 9:
-				cell = "ÒÚÔª";
+				cell = "äº¿å…ƒ";
 				break;
 			case 10:
-				cell = "Ê®ÒÚÔª";
+				cell = "åäº¿å…ƒ";
 				break;
 		}
 		return cell;

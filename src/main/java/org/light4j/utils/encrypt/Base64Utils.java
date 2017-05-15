@@ -1,7 +1,7 @@
 package org.light4j.utils.encrypt;
 
 /**
- * BASE64加解密工具类
+ * BASE64鍔犺В瀵嗗伐鍏风被
  * 
  * @author longjiazuo
  */
@@ -25,7 +25,7 @@ class Base64Utils {
 			-1, -1 };
 
 	/**
-	 * BASE64加密
+	 * BASE64鍔犲瘑
 	 * 
 	 * @param data
 	 * @return
@@ -64,7 +64,7 @@ class Base64Utils {
 	}
 
 	/**
-	 * Base64 解密
+	 * Base64 瑙ｅ瘑
 	 * 
 	 * @param str
 	 * @return

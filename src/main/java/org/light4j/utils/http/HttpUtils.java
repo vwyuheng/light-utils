@@ -10,44 +10,44 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 
 /**
- * HTTP POSTºÍGET´¦Àí¹¤¾ßÀà
+ * HTTP POSTå’ŒGETå¤„ç†å·¥å…·ç±»
  * 
  * @author longjiazuo
  */
 public class HttpUtils {
 	
 	/**
-     * ÏòÖ¸¶¨URL·¢ËÍGET·½·¨µÄÇëÇó
-     * @param url ·¢ËÍÇëÇóµÄURL
-     * @param param ÇëÇó²ÎÊı
-     * @return URL Ëù´ú±íÔ¶³Ì×ÊÔ´µÄÏìÓ¦½á¹û
+     * å‘æŒ‡å®šURLå‘é€GETæ–¹æ³•çš„è¯·æ±‚
+     * @param url å‘é€è¯·æ±‚çš„URL
+     * @param param è¯·æ±‚å‚æ•°
+     * @return URL æ‰€ä»£è¡¨è¿œç¨‹èµ„æºçš„å“åº”ç»“æœ
      */
     public static String sendGet(String url, HashMap<String,String> params) {
         String result = "";
         BufferedReader in = null;
         try {
-        	/**×é×°²ÎÊı**/
+        	/**ç»„è£…å‚æ•°**/
         	String param = parseParams(params);
             String urlNameString = url + "?" + param;
             URL realUrl = new URL(urlNameString);
-            /**´ò¿ªºÍURLÖ®¼äµÄÁ¬½Ó**/
+            /**æ‰“å¼€å’ŒURLä¹‹é—´çš„è¿æ¥**/
             URLConnection connection = realUrl.openConnection();
-            /**ÉèÖÃÍ¨ÓÃµÄÇëÇóÊôĞÔ**/
+            /**è®¾ç½®é€šç”¨çš„è¯·æ±‚å±æ€§**/
             connection.setRequestProperty("accept", "*/*");
             connection.setRequestProperty("connection", "Keep-Alive");
             connection.setRequestProperty("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
-            /**½¨Á¢Êµ¼ÊµÄÁ¬½Ó**/
+            /**å»ºç«‹å®é™…çš„è¿æ¥**/
             connection.connect();
-            /**¶¨Òå BufferedReaderÊäÈëÁ÷À´¶ÁÈ¡URLµÄÏìÓ¦**/
+            /**å®šä¹‰ BufferedReaderè¾“å…¥æµæ¥è¯»å–URLçš„å“åº”**/
             in = new BufferedReader(new InputStreamReader(connection.getInputStream(),"UTF-8"));
             String line;
             while ((line = in.readLine()) != null) {
                 result += line;
             }
         } catch (Exception e) {
-            System.out.println("·¢ËÍGETÇëÇó³öÏÖÒì³££¡" + e);
+            System.out.println("å‘é€GETè¯·æ±‚å‡ºç°å¼‚å¸¸ï¼" + e);
             e.printStackTrace();
-        } finally {/**Ê¹ÓÃfinally¿éÀ´¹Ø±ÕÊäÈëÁ÷**/
+        } finally {/**ä½¿ç”¨finallyå—æ¥å…³é—­è¾“å…¥æµ**/
             try {
                 if(in != null) { in.close(); }
             } catch (Exception e2) {
@@ -58,10 +58,10 @@ public class HttpUtils {
     }
 
     /**
-     * ÏòÖ¸¶¨ URL ·¢ËÍPOST·½·¨µÄÇëÇó
-     * @param url ·¢ËÍÇëÇóµÄ URL
-     * @param param ÇëÇó²ÎÊı
-     * @return Ëù´ú±íÔ¶³Ì×ÊÔ´µÄÏìÓ¦½á¹û
+     * å‘æŒ‡å®š URL å‘é€POSTæ–¹æ³•çš„è¯·æ±‚
+     * @param url å‘é€è¯·æ±‚çš„ URL
+     * @param param è¯·æ±‚å‚æ•°
+     * @return æ‰€ä»£è¡¨è¿œç¨‹èµ„æºçš„å“åº”ç»“æœ
      */
     public static String sendPost(String url, HashMap<String,String> params) {
         PrintWriter out = null;
@@ -69,32 +69,32 @@ public class HttpUtils {
         String result = "";
         try {
             URL realUrl = new URL(url);
-            /**´ò¿ªºÍURLÖ®¼äµÄÁ¬½Ó**/
+            /**æ‰“å¼€å’ŒURLä¹‹é—´çš„è¿æ¥**/
             URLConnection conn = realUrl.openConnection();
-            /**ÉèÖÃÍ¨ÓÃµÄÇëÇóÊôĞÔ**/
+            /**è®¾ç½®é€šç”¨çš„è¯·æ±‚å±æ€§**/
             conn.setRequestProperty("accept", "*/*");
             conn.setRequestProperty("connection", "Keep-Alive");
             conn.setRequestProperty("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
-            /**·¢ËÍPOSTÇëÇó±ØĞëÉèÖÃÈçÏÂÁ½ĞĞ**/
+            /**å‘é€POSTè¯·æ±‚å¿…é¡»è®¾ç½®å¦‚ä¸‹ä¸¤è¡Œ**/
             conn.setDoOutput(true);
             conn.setDoInput(true);
-            /**»ñÈ¡URLConnection¶ÔÏó¶ÔÓ¦µÄÊä³öÁ÷**/
+            /**è·å–URLConnectionå¯¹è±¡å¯¹åº”çš„è¾“å‡ºæµ**/
             out = new PrintWriter(conn.getOutputStream());
-            /**·¢ËÍÇëÇó²ÎÊı**/
+            /**å‘é€è¯·æ±‚å‚æ•°**/
             String param = parseParams(params);
             out.print(param);
-            /**flushÊä³öÁ÷µÄ»º³å**/
+            /**flushè¾“å‡ºæµçš„ç¼“å†²**/
             out.flush();
-            /**¶¨ÒåBufferedReaderÊäÈëÁ÷À´¶ÁÈ¡URLµÄÏìÓ¦**/
+            /**å®šä¹‰BufferedReaderè¾“å…¥æµæ¥è¯»å–URLçš„å“åº”**/
             in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             String line;
             while ((line = in.readLine()) != null) {
                 result += line;
             }
         } catch (Exception e) {
-            System.out.println("·¢ËÍ POST ÇëÇó³öÏÖÒì³££¡"+e);
+            System.out.println("å‘é€ POST è¯·æ±‚å‡ºç°å¼‚å¸¸ï¼"+e);
             e.printStackTrace();
-        } finally{ /**Ê¹ÓÃfinally¿éÀ´¹Ø±ÕÊä³öÁ÷¡¢ÊäÈëÁ÷**/
+        } finally{ /**ä½¿ç”¨finallyå—æ¥å…³é—­è¾“å‡ºæµã€è¾“å…¥æµ**/
             try{
                 if(out!=null){   out.close();}
                 if(in!=null){ in.close(); }
@@ -106,7 +106,7 @@ public class HttpUtils {
     }   
     
     /**
-     * ½«HashMap²ÎÊı×é×°³É×Ö·û´®
+     * å°†HashMapå‚æ•°ç»„è£…æˆå­—ç¬¦ä¸²
      * @param map
      * @return
      */

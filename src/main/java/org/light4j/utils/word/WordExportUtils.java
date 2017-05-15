@@ -3,8 +3,8 @@ package org.light4j.utils.word;
 import java.util.Vector;
 
 /**
- *  @desc:wordµ¼Èë¹¤¾ßÀà<br>
- * 		ÐèÒª¶ÔWordÖÐµÄÍ¼Æ¬¡¢ÑùÊ½¡¢ÎÄ×Ö¡¢±í¸ñ½øÐÐ´¦Àí£¬Í¬Ê±ÓÉÓÚPOI¶ÔWordµÄ´¦ÀíÄÜÁ¦ÓÐÏÞ£¬ËùÒÔ²ÉÓÃJadoc´¦Àí
+ *  @desc:wordå¯¼å…¥å·¥å…·ç±»<br>
+ * 		éœ€è¦å¯¹Wordä¸­çš„å›¾ç‰‡ã€æ ·å¼ã€æ–‡å­—ã€è¡¨æ ¼è¿›è¡Œå¤„ç†ï¼ŒåŒæ—¶ç”±äºŽPOIå¯¹Wordçš„å¤„ç†èƒ½åŠ›æœ‰é™ï¼Œæ‰€ä»¥é‡‡ç”¨Jadocå¤„ç†
  * 
  * @author longjiazuo
  */

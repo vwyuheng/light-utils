@@ -9,33 +9,33 @@ import java.io.Serializable;
 import java.util.Collection;
 
 /**
- * ¿ËÂ¡¹¤¾ßÀà£¬½øĞĞÉî¿ËÂ¡,°üÀ¨¶ÔÏó¡¢¼¯ºÏ
+ * å…‹éš†å·¥å…·ç±»ï¼Œè¿›è¡Œæ·±å…‹éš†,åŒ…æ‹¬å¯¹è±¡ã€é›†åˆ
  * 
  * @Author:longjiazuo
  */
 public class CloneUtils {
 
 	/**
-	 * ²ÉÓÃ¶ÔÏóµÄĞòÁĞ»¯Íê³É¶ÔÏóµÄÉî¿ËÂ¡
+	 * é‡‡ç”¨å¯¹è±¡çš„åºåˆ—åŒ–å®Œæˆå¯¹è±¡çš„æ·±å…‹éš†
 	 *
 	 * @param obj
-	 * 			´ı¿ËÂ¡µÄ¶ÔÏó
+	 * 			å¾…å…‹éš†çš„å¯¹è±¡
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
 	public static <T extends Serializable> T cloneObject(T obj) {
 		T cloneObj = null;
 		try {
-			// Ğ´Èë×Ö½ÚÁ÷
+			// å†™å…¥å­—èŠ‚æµ
 			ByteArrayOutputStream out = new ByteArrayOutputStream();
 			ObjectOutputStream obs = new ObjectOutputStream(out);
 			obs.writeObject(obj);
 			obs.close();
 
-			// ·ÖÅäÄÚ´æ£¬Ğ´ÈëÔ­Ê¼¶ÔÏó£¬Éú³ÉĞÂ¶ÔÏó
+			// åˆ†é…å†…å­˜ï¼Œå†™å…¥åŸå§‹å¯¹è±¡ï¼Œç”Ÿæˆæ–°å¯¹è±¡
 			ByteArrayInputStream ios = new ByteArrayInputStream(out.toByteArray());
 			ObjectInputStream ois = new ObjectInputStream(ios);
-			// ·µ»ØÉú³ÉµÄĞÂ¶ÔÏó
+			// è¿”å›ç”Ÿæˆçš„æ–°å¯¹è±¡
 			cloneObj = (T) ois.readObject();
 			ois.close();
 		} catch (Exception e) {
@@ -45,9 +45,9 @@ public class CloneUtils {
 	}
 	
 	/**
-	 * ÀûÓÃĞòÁĞ»¯Íê³É¼¯ºÏµÄÉî¿ËÂ¡
+	 * åˆ©ç”¨åºåˆ—åŒ–å®Œæˆé›†åˆçš„æ·±å…‹éš†
 	 * @param collection
-	 * 					´ı¿ËÂ¡µÄ¼¯ºÏ
+	 * 					å¾…å…‹éš†çš„é›†åˆ
 	 * @return
 	 * @throws ClassNotFoundException
 	 * @throws java.io.IOException

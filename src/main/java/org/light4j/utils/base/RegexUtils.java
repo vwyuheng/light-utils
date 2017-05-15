@@ -4,14 +4,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * ÕıÔò±í´ïÊ½¹¤¾ßÀà£¬ÑéÖ¤Êı¾İÊÇ·ñ·ûºÏ¹æ·¶
+ * æ­£åˆ™è¡¨è¾¾å¼å·¥å…·ç±»ï¼ŒéªŒè¯æ•°æ®æ˜¯å¦ç¬¦åˆè§„èŒƒ
  * 
  * @author longjiazuo
  */
 public class RegexUtils {
 	
 	/**
-	 * ÅĞ¶Ï×Ö·û´®ÊÇ·ñ·ûºÏÕıÔò±í´ïÊ½
+	 * åˆ¤æ–­å­—ç¬¦ä¸²æ˜¯å¦ç¬¦åˆæ­£åˆ™è¡¨è¾¾å¼
 	 * 
 	 * @param str
 	 * @param regex
@@ -25,11 +25,11 @@ public class RegexUtils {
 	}
 	
 	/**
-	 * ÅĞ¶ÏÊäÈëµÄ×Ö·û´®ÊÇ·ñ·ûºÏEmail¸ñÊ½.
+	 * åˆ¤æ–­è¾“å…¥çš„å­—ç¬¦ä¸²æ˜¯å¦ç¬¦åˆEmailæ ¼å¼.
 	 *
 	 * @param email
-	 * 				´«ÈëµÄ×Ö·û´®
-	 * @return ·ûºÏEmail¸ñÊ½·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	 * 				ä¼ å…¥çš„å­—ç¬¦ä¸²
+	 * @return ç¬¦åˆEmailæ ¼å¼è¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	 */
 	public static boolean isEmail(String email) {
 		if (email == null || email.length() < 1 || email.length() > 256) {
@@ -40,10 +40,10 @@ public class RegexUtils {
 	}
 	
 	/**
-	 * ÅĞ¶ÏÊäÈëµÄ×Ö·û´®ÊÇ·ñÎª´¿ºº×Ö
+	 * åˆ¤æ–­è¾“å…¥çš„å­—ç¬¦ä¸²æ˜¯å¦ä¸ºçº¯æ±‰å­—
 	 *
 	 * @param value
-	 * 				´«ÈëµÄ×Ö·û´®
+	 * 				ä¼ å…¥çš„å­—ç¬¦ä¸²
 	 * @return
 	 */
 	public static boolean isChinese(String value) {
@@ -52,10 +52,10 @@ public class RegexUtils {
 	}
 	
 	/**
-	 * ÅĞ¶ÏÊÇ·ñÎª¸¡µãÊı£¬°üÀ¨doubleºÍfloat
+	 * åˆ¤æ–­æ˜¯å¦ä¸ºæµ®ç‚¹æ•°ï¼ŒåŒ…æ‹¬doubleå’Œfloat
 	 *
 	 * @param value
-	 * 			´«ÈëµÄ×Ö·û´®
+	 * 			ä¼ å…¥çš„å­—ç¬¦ä¸²
 	 * @return
 	 */
 	public static boolean isDouble(String value) {
@@ -64,10 +64,10 @@ public class RegexUtils {
 	}
 	
 	/**
-	 * ÅĞ¶ÏÊÇ·ñÎªÕûÊı
+	 * åˆ¤æ–­æ˜¯å¦ä¸ºæ•´æ•°
 	 * 
 	 * @param value
-	 * 			´«ÈëµÄ×Ö·û´®
+	 * 			ä¼ å…¥çš„å­—ç¬¦ä¸²
 	 * @return
 	 */
 	public static boolean isInteger(String value) {

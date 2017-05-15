@@ -22,28 +22,28 @@ import org.light4j.utils.date.DateFormatUtils;
 import org.light4j.utils.date.DateUtils;
 
 /**
- * ½âÎöExcel£¬Ö§³Ö2003¡¢2007
+ * è§£æExcelï¼Œæ”¯æŒ2003ã€2007
  * 
  * @author longjiazuo
  */
 public class ExcelReadHelper {
 	
 	/**
-	 * ½âÎöExcel Ö§³Ö2003¡¢2007<br>
-	 * ÀûÓÃ·´Éä¼¼ÊõÍê³Épropertisµ½obj¶ÔÏóµÄÓ³Éä£¬²¢½«Ïà¶ÔÓ¦µÄÖµÀûÓÃÏà¶ÔÓ¦setter·½·¨ÉèÖÃµ½obj¶ÔÏóÖĞ×îºóaddµ½list¼¯ºÏÖĞ<br>
-	 * properties¡¢objĞèÒª·ûºÏÈçÏÂ¹æÔò£º<br>
-	 * 1¡¢obj¶ÔÏó±ØĞë´æÔÚÄ¬ÈÏ¹¹Ôìº¯Êı£¬ÇÒÊôĞÔĞè´æÔÚsetter·½·¨<br>
-	 * 2¡¢propertiesÖĞµÄÖµ±ØĞëÊÇÔÚobjÖĞ´æÔÚµÄÊôĞÔ£¬ÇÒobjÖĞ±ØĞë´æÔÚÕâĞ©ÊôĞÔµÄsetter·½·¨¡£<br>
-	 * 3¡¢propertiesÖĞÖµµÃË³ĞòÒªÓëExcelÖĞÁĞÏàÏàÓ¦£¬·ñÔòÖµ»áÉèÖÃ´í£º<br>
-	 * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;excel:±àºÅ    ĞÕÃû         ÄêÁä       ĞÔ±ğ<br>
+	 * è§£æExcel æ”¯æŒ2003ã€2007<br>
+	 * åˆ©ç”¨åå°„æŠ€æœ¯å®Œæˆpropertisåˆ°objå¯¹è±¡çš„æ˜ å°„ï¼Œå¹¶å°†ç›¸å¯¹åº”çš„å€¼åˆ©ç”¨ç›¸å¯¹åº”setteræ–¹æ³•è®¾ç½®åˆ°objå¯¹è±¡ä¸­æœ€åaddåˆ°listé›†åˆä¸­<br>
+	 * propertiesã€objéœ€è¦ç¬¦åˆå¦‚ä¸‹è§„åˆ™ï¼š<br>
+	 * 1ã€objå¯¹è±¡å¿…é¡»å­˜åœ¨é»˜è®¤æ„é€ å‡½æ•°ï¼Œä¸”å±æ€§éœ€å­˜åœ¨setteræ–¹æ³•<br>
+	 * 2ã€propertiesä¸­çš„å€¼å¿…é¡»æ˜¯åœ¨objä¸­å­˜åœ¨çš„å±æ€§ï¼Œä¸”objä¸­å¿…é¡»å­˜åœ¨è¿™äº›å±æ€§çš„setteræ–¹æ³•ã€‚<br>
+	 * 3ã€propertiesä¸­å€¼å¾—é¡ºåºè¦ä¸Excelä¸­åˆ—ç›¸ç›¸åº”ï¼Œå¦åˆ™å€¼ä¼šè®¾ç½®é”™ï¼š<br>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;excel:ç¼–å·    å§“å         å¹´é¾„       æ€§åˆ«<br>
 	 * properties:id  name  age  sex<br>
 	 * 
 	 * @param file
-	 * 				´ı½âÎöµÄExcelÎÄ¼ş
+	 * 				å¾…è§£æçš„Excelæ–‡ä»¶
 	 * @param properties
-	 * 				ÓëExcelÏà¶ÔÓ¦µÄÊôĞÔ
+	 * 				ä¸Excelç›¸å¯¹åº”çš„å±æ€§
 	 * @param obj
-	 * 				·´Éä¶ÔÏóµÄClass
+	 * 				åå°„å¯¹è±¡çš„Class
 	 * @return
 	 * @throws Exception 
 	 */
@@ -51,30 +51,30 @@ public class ExcelReadHelper {
 	public static List<Object> excelRead(File file,String[] properties,Class obj) throws Exception{
 		Workbook book = null;
 		try {
-			book = new XSSFWorkbook(new FileInputStream(file));     //½âÎö2003
+			book = new XSSFWorkbook(new FileInputStream(file));     //è§£æ2003
 		} catch (Exception e) { 
-			book = new HSSFWorkbook(new FileInputStream(file));      //½âÎö2007
+			book = new HSSFWorkbook(new FileInputStream(file));      //è§£æ2007
 		}
 		
 		return getExcelContent(book,properties,obj);    
 	}
 
 	/**
-	 * ½âÎöExcel Ö§³Ö2003¡¢2007<br>
-	 * ÀûÓÃ·´Éä¼¼ÊõÍê³Épropertisµ½obj¶ÔÏóµÄÓ³Éä£¬²¢½«Ïà¶ÔÓ¦µÄÖµÀûÓÃÏà¶ÔÓ¦setter·½·¨ÉèÖÃµ½obj¶ÔÏóÖĞ×îºóaddµ½list¼¯ºÏÖĞ<br>
-	 * properties¡¢objĞèÒª·ûºÏÈçÏÂ¹æÔò£º<br>
-	 * 1¡¢obj¶ÔÏó±ØĞë´æÔÚÄ¬ÈÏ¹¹Ôìº¯Êı£¬ÇÒÊôĞÔĞè´æÔÚsetter·½·¨<br>
-	 * 2¡¢propertiesÖĞµÄÖµ±ØĞëÊÇÔÚobjÖĞ´æÔÚµÄÊôĞÔ£¬ÇÒobjÖĞ±ØĞë´æÔÚÕâĞ©ÊôĞÔµÄsetter·½·¨¡£<br>
-	 * 3¡¢propertiesÖĞÖµµÃË³ĞòÒªÓëExcelÖĞÁĞÏàÏàÓ¦£¬·ñÔòÖµ»áÉèÖÃ´í£º<br>
-	 * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;excel£º±àºÅ    ĞÕÃû         ÄêÁä       ĞÔ±ğ<br>
-	 * properties£ºid  name  age  sex<br>
+	 * è§£æExcel æ”¯æŒ2003ã€2007<br>
+	 * åˆ©ç”¨åå°„æŠ€æœ¯å®Œæˆpropertisåˆ°objå¯¹è±¡çš„æ˜ å°„ï¼Œå¹¶å°†ç›¸å¯¹åº”çš„å€¼åˆ©ç”¨ç›¸å¯¹åº”setteræ–¹æ³•è®¾ç½®åˆ°objå¯¹è±¡ä¸­æœ€åaddåˆ°listé›†åˆä¸­<br>
+	 * propertiesã€objéœ€è¦ç¬¦åˆå¦‚ä¸‹è§„åˆ™ï¼š<br>
+	 * 1ã€objå¯¹è±¡å¿…é¡»å­˜åœ¨é»˜è®¤æ„é€ å‡½æ•°ï¼Œä¸”å±æ€§éœ€å­˜åœ¨setteræ–¹æ³•<br>
+	 * 2ã€propertiesä¸­çš„å€¼å¿…é¡»æ˜¯åœ¨objä¸­å­˜åœ¨çš„å±æ€§ï¼Œä¸”objä¸­å¿…é¡»å­˜åœ¨è¿™äº›å±æ€§çš„setteræ–¹æ³•ã€‚<br>
+	 * 3ã€propertiesä¸­å€¼å¾—é¡ºåºè¦ä¸Excelä¸­åˆ—ç›¸ç›¸åº”ï¼Œå¦åˆ™å€¼ä¼šè®¾ç½®é”™ï¼š<br>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;excelï¼šç¼–å·    å§“å         å¹´é¾„       æ€§åˆ«<br>
+	 * propertiesï¼šid  name  age  sex<br>
 	 * 
 	 * @param file
-	 * 				´ı½âÎöµÄExcelÎÄ¼şµÄÂ·¾¶
+	 * 				å¾…è§£æçš„Excelæ–‡ä»¶çš„è·¯å¾„
 	 * @param properties
-	 * 				ÓëExcelÏà¶ÔÓ¦µÄÊôĞÔ
+	 * 				ä¸Excelç›¸å¯¹åº”çš„å±æ€§
 	 * @param obj
-	 * 				·´Éä¶ÔÏóµÄClass
+	 * 				åå°„å¯¹è±¡çš„Class
 	 * @return
 	 * @throws Exception 
 	 */
@@ -82,36 +82,36 @@ public class ExcelReadHelper {
 	public static List<Object> excelRead(String filePath,String[] properties,Class obj) throws Exception{
 		File file = new File(filePath);
 		if(!file.exists()){
-			throw new Exception("Ö¸¶¨µÄÎÄ¼ş²»´æÔÚ");
+			throw new Exception("æŒ‡å®šçš„æ–‡ä»¶ä¸å­˜åœ¨");
 		}
 		return excelRead(file, properties, obj);
 	}
 	
 	/**
-	 * ¸ù¾İparams¡¢object½âÎöExcel£¬²¢ÇÒ¹¹½¨list¼¯ºÏ
+	 * æ ¹æ®paramsã€objectè§£æExcelï¼Œå¹¶ä¸”æ„å»ºlisté›†åˆ
 	 *
 	 * @param book
-	 * 				WorkBook¶ÔÏó£¬Ëû´ú±íÁË´ı½«½âÎöµÄExcelÎÄ¼ş
+	 * 				WorkBookå¯¹è±¡ï¼Œä»–ä»£è¡¨äº†å¾…å°†è§£æçš„Excelæ–‡ä»¶
 	 * @param properties
-	 * 				ĞèÒª²Î¿¼ObjectµÄÊôĞÔ
+	 * 				éœ€è¦å‚è€ƒObjectçš„å±æ€§
 	 * @param object
-	 * 				¹¹½¨µÄObject¶ÔÏó£¬Ã¿Ò»¸örow¶¼Ïàµ±ÓÚÒ»¸öobject¶ÔÏó
+	 * 				æ„å»ºçš„Objectå¯¹è±¡ï¼Œæ¯ä¸€ä¸ªrowéƒ½ç›¸å½“äºä¸€ä¸ªobjectå¯¹è±¡
 	 * @return
 	 * @throws Exception 
 	 */
 	@SuppressWarnings("rawtypes")
 	private static List<Object> getExcelContent(Workbook book, String[] properties,
 			Class obj) throws Exception {
-		List<Object> resultList = new ArrayList<Object>();        //³õÊ¼»¯½á¹û½â
+		List<Object> resultList = new ArrayList<Object>();        //åˆå§‹åŒ–ç»“æœè§£
 		Map<String, Method> methodMap = getObjectSetterMethod(obj);  
 		Map<String, Field> fieldMap = getObjectField(obj);
 		for(int numSheet = 0 ; numSheet < book.getNumberOfSheets(); numSheet++){
 			Sheet sheet = book.getSheetAt(numSheet);
-			if(sheet == null){   //½÷·ÀÖĞ¼ä¿ÕÒ»ĞĞ
+			if(sheet == null){   //è°¨é˜²ä¸­é—´ç©ºä¸€è¡Œ
 				continue;
 			}
 			
-			for(int numRow = 1 ; numRow < sheet.getLastRowNum() ; numRow++){   //Ò»¸örow¾ÍÏàµ±ÓÚÒ»¸öObject
+			for(int numRow = 1 ; numRow < sheet.getLastRowNum() ; numRow++){   //ä¸€ä¸ªrowå°±ç›¸å½“äºä¸€ä¸ªObject
 				Row row = sheet.getRow(numRow);
 				if(row == null){
 					continue;
@@ -123,16 +123,16 @@ public class ExcelReadHelper {
 	}
 
 	/**
-	 * »ñÈ¡rowµÄÊı¾İ£¬ÀûÓÃ·´Éä»úÖÆ¹¹½¨Object¶ÔÏó
+	 * è·å–rowçš„æ•°æ®ï¼Œåˆ©ç”¨åå°„æœºåˆ¶æ„å»ºObjectå¯¹è±¡
 	 *
 	 * @param row
-	 * 				row¶ÔÏó
+	 * 				rowå¯¹è±¡
 	 * @param properties
-	 * 				Object²Î¿¼µÄÊôĞÔ
+	 * 				Objectå‚è€ƒçš„å±æ€§
 	 * @param methodMap 
-	 * 				object¶ÔÏóµÄsetter·½·¨Ó³Éä
+	 * 				objectå¯¹è±¡çš„setteræ–¹æ³•æ˜ å°„
 	 * @param fieldMap
-	 * 				object¶ÔÏóµÄÊôĞÔÓ³Éä
+	 * 				objectå¯¹è±¡çš„å±æ€§æ˜ å°„
 	 * @return
 	 * @throws Exception 
 	 */
@@ -147,24 +147,24 @@ public class ExcelReadHelper {
 			}
 			String cellValue = getValue(cell);
 			String property = properties[numCell].toLowerCase();
-			Field field = fieldMap.get(property);    //¸ÃpropertyÔÚobject¶ÔÏóÖĞ¶ÔÓ¦µÄÊôĞÔ
-			Method method = methodMap.get(property);  //¸ÃpropertyÔÚobject¶ÔÏóÖĞ¶ÔÓ¦µÄsetter·½·¨
+			Field field = fieldMap.get(property);    //è¯¥propertyåœ¨objectå¯¹è±¡ä¸­å¯¹åº”çš„å±æ€§
+			Method method = methodMap.get(property);  //è¯¥propertyåœ¨objectå¯¹è±¡ä¸­å¯¹åº”çš„setteræ–¹æ³•
 			setObjectPropertyValue(object,field,method,cellValue);
 		}
 		return object;
 	}
 	
 	/**
-	 * ¸ù¾İÖ¸¶¨ÊôĞÔµÄµÄsetter·½·¨¸øobject¶ÔÏóÉèÖÃÖµ
+	 * æ ¹æ®æŒ‡å®šå±æ€§çš„çš„setteræ–¹æ³•ç»™objectå¯¹è±¡è®¾ç½®å€¼
 	 *
 	 * @param obj
-	 * 			object¶ÔÏó
+	 * 			objectå¯¹è±¡
 	 * @param field
-	 * 				object¶ÔÏóµÄÊôĞÔ
+	 * 				objectå¯¹è±¡çš„å±æ€§
 	 * @param method
-	 * 				object¶ÔÏóÊôĞÔµÄÏà¶ÔÓ¦µÄ·½·¨
+	 * 				objectå¯¹è±¡å±æ€§çš„ç›¸å¯¹åº”çš„æ–¹æ³•
 	 * @param value
-	 * 				ĞèÒªÉèÖÃµÄÖµ	
+	 * 				éœ€è¦è®¾ç½®çš„å€¼	
 	 * @throws Exception 
 	 */
 	private static void setObjectPropertyValue(Object obj, Field field,
@@ -187,11 +187,11 @@ public class ExcelReadHelper {
 			if (value.length() > 0)
 				oo[0] = new BigDecimal(value);
 		} else if ("java.util.Date".equals(type)  || "Date".equals(type)) {
-			if (value.length() > 0){//µ±³¤¶ÈÎª19(yyyy-MM-dd HH24:mm:ss)»òÕßÎª14(yyyyMMddHH24mmss)Ê±Date¸ñÊ½×ª»»ÎªyyyyMMddHH24mmss
+			if (value.length() > 0){//å½“é•¿åº¦ä¸º19(yyyy-MM-dd HH24:mm:ss)æˆ–è€…ä¸º14(yyyyMMddHH24mmss)æ—¶Dateæ ¼å¼è½¬æ¢ä¸ºyyyyMMddHH24mmss
 				if(value.length() == 19 || value.length() == 14){    
 					oo[0] = DateUtils.string2Date(value, "yyyyMMddHH24mmss");
 				}
-				else{     //ÆäÓàÈ«²¿×ª»»ÎªyyyyMMdd¸ñÊ½
+				else{     //å…¶ä½™å…¨éƒ¨è½¬æ¢ä¸ºyyyyMMddæ ¼å¼
 					oo[0] = DateUtils.string2Date(value, "yyyyMMdd");
 				}
 			}
@@ -225,26 +225,26 @@ public class ExcelReadHelper {
     }  
 
 	/**
-	 * »ñÈ¡object¶ÔÏóËùÓĞÊôĞÔµÄSetter·½·¨£¬²¢¹¹½¨map¶ÔÏó£¬½á¹¹ÎªMap<'field','method'>
+	 * è·å–objectå¯¹è±¡æ‰€æœ‰å±æ€§çš„Setteræ–¹æ³•ï¼Œå¹¶æ„å»ºmapå¯¹è±¡ï¼Œç»“æ„ä¸ºMap<'field','method'>
 	 *
 	 * @param object
-	 * 				object¶ÔÏó
+	 * 				objectå¯¹è±¡
 	 * @return
 	 */
 	@SuppressWarnings("rawtypes")
 	private static Map<String, Method> getObjectSetterMethod(Class object) {
-		Field[] fields = object.getDeclaredFields();       //»ñÈ¡object¶ÔÏóµÄËùÓĞÊôĞÔ
-        Method[] methods = object.getDeclaredMethods();    //»ñÈ¡object¶ÔÏóµÄËùÓĞ·½·¨
+		Field[] fields = object.getDeclaredFields();       //è·å–objectå¯¹è±¡çš„æ‰€æœ‰å±æ€§
+        Method[] methods = object.getDeclaredMethods();    //è·å–objectå¯¹è±¡çš„æ‰€æœ‰æ–¹æ³•
         Map<String, Method> methodMap = new HashMap<String, Method>();
         for(Field field : fields){
         	String attri = field.getName();   
             for(Method method : methods){   
                 String meth = method.getName(); 
-                //Æ¥Åäset·½·¨ 
+                //åŒ¹é…setæ–¹æ³• 
                 if(meth != null && "set".equals(meth.substring(0, 3)) && 
                    Modifier.isPublic(method.getModifiers()) && 
                    ("set"+Character.toUpperCase(attri.charAt(0))+attri.substring(1)).equals(meth)){   
-                     methodMap.put(attri.toLowerCase(), method);       //½«Æ¥ÅäµÄsetter·½·¨¼ÓÈëmap¶ÔÏóÖĞ
+                     methodMap.put(attri.toLowerCase(), method);       //å°†åŒ¹é…çš„setteræ–¹æ³•åŠ å…¥mapå¯¹è±¡ä¸­
                           break;   
                     }   
                 }   
@@ -254,15 +254,15 @@ public class ExcelReadHelper {
 	}
 	
 	/**
-	 * »ñÈ¡object¶ÔÏóµÄËùÓĞÊôĞÔ£¬²¢¹¹½¨map¶ÔÏó£¬¶ÔÏó½á¹ûÎªMap<'field','field'>
+	 * è·å–objectå¯¹è±¡çš„æ‰€æœ‰å±æ€§ï¼Œå¹¶æ„å»ºmapå¯¹è±¡ï¼Œå¯¹è±¡ç»“æœä¸ºMap<'field','field'>
 	 *
 	 * @param object
-	 * 				object¶ÔÏó	
+	 * 				objectå¯¹è±¡	
 	 * @return
 	 */
 	@SuppressWarnings("rawtypes")
 	private static Map<String, Field> getObjectField(Class object) {
-		Field[] fields = object.getDeclaredFields();       //»ñÈ¡object¶ÔÏóµÄËùÓĞÊôĞÔ
+		Field[] fields = object.getDeclaredFields();       //è·å–objectå¯¹è±¡çš„æ‰€æœ‰å±æ€§
 		Map<String, Field> fieldMap = new HashMap<String,Field>();
 		for(Field field : fields){
 			String attri = field.getName();   

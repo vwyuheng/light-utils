@@ -6,35 +6,35 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Ãú¸Ğ´Ê¹ıÂË¹¤¾ßÀà
+ * é“­æ„Ÿè¯è¿‡æ»¤å·¥å…·ç±»
  * 
  * @author longjiazuo
  */
 public class SensitivewordFilterUtil{
 	@SuppressWarnings("rawtypes")
 	private Map sensitiveWordMap = null;
-	public static int minMatchTYpe = 1;      //×îĞ¡Æ¥Åä¹æÔò
-	public static int maxMatchType = 2;      //×î´óÆ¥Åä¹æÔò
+	public static int minMatchTYpe = 1;      //æœ€å°åŒ¹é…è§„åˆ™
+	public static int maxMatchType = 2;      //æœ€å¤§åŒ¹é…è§„åˆ™
 	
 	/**
-	 * ¹¹Ôìº¯Êı£¬³õÊ¼»¯Ãô¸Ğ´Ê¿â
+	 * æ„é€ å‡½æ•°ï¼Œåˆå§‹åŒ–æ•æ„Ÿè¯åº“
 	 */
 	public SensitivewordFilterUtil(){
 		sensitiveWordMap = new SensitiveWordInit().initKeyWord();
 	}
 	
 	/**
-	 * ÅĞ¶ÏÎÄ×ÖÊÇ·ñ°üº¬Ãô¸Ğ×Ö·û
-	 * @param txt  ÎÄ×Ö
-	 * @param matchType  Æ¥Åä¹æÔò&nbsp;1£º×îĞ¡Æ¥Åä¹æÔò£¬2£º×î´óÆ¥Åä¹æÔò
-	 * @return Èô°üº¬·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	 * åˆ¤æ–­æ–‡å­—æ˜¯å¦åŒ…å«æ•æ„Ÿå­—ç¬¦
+	 * @param txt  æ–‡å­—
+	 * @param matchType  åŒ¹é…è§„åˆ™&nbsp;1ï¼šæœ€å°åŒ¹é…è§„åˆ™ï¼Œ2ï¼šæœ€å¤§åŒ¹é…è§„åˆ™
+	 * @return è‹¥åŒ…å«è¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	 * @version 1.0
 	 */
 	public boolean isContaintSensitiveWord(String txt,int matchType){
 		boolean flag = false;
 		for(int i = 0 ; i < txt.length() ; i++){
-			int matchFlag = this.CheckSensitiveWord(txt, i, matchType); //ÅĞ¶ÏÊÇ·ñ°üº¬Ãô¸Ğ×Ö·û
-			if(matchFlag > 0){    //´óÓÚ0´æÔÚ£¬·µ»Øtrue
+			int matchFlag = this.CheckSensitiveWord(txt, i, matchType); //åˆ¤æ–­æ˜¯å¦åŒ…å«æ•æ„Ÿå­—ç¬¦
+			if(matchFlag > 0){    //å¤§äº0å­˜åœ¨ï¼Œè¿”å›true
 				flag = true;
 			}
 		}
@@ -42,9 +42,9 @@ public class SensitivewordFilterUtil{
 	}
 	
 	/**
-	 * »ñÈ¡ÎÄ×ÖÖĞµÄÃô¸Ğ´Ê
-	 * @param txt ÎÄ×Ö
-	 * @param matchType Æ¥Åä¹æÔò&nbsp;1£º×îĞ¡Æ¥Åä¹æÔò£¬2£º×î´óÆ¥Åä¹æÔò
+	 * è·å–æ–‡å­—ä¸­çš„æ•æ„Ÿè¯
+	 * @param txt æ–‡å­—
+	 * @param matchType åŒ¹é…è§„åˆ™&nbsp;1ï¼šæœ€å°åŒ¹é…è§„åˆ™ï¼Œ2ï¼šæœ€å¤§åŒ¹é…è§„åˆ™
 	 * @return
 	 * @version 1.0
 	 */
@@ -52,10 +52,10 @@ public class SensitivewordFilterUtil{
 		Set<String> sensitiveWordList = new HashSet<String>();
 		
 		for(int i = 0 ; i < txt.length() ; i++){
-			int length = CheckSensitiveWord(txt, i, matchType);    //ÅĞ¶ÏÊÇ·ñ°üº¬Ãô¸Ğ×Ö·û
-			if(length > 0){    //´æÔÚ,¼ÓÈëlistÖĞ
+			int length = CheckSensitiveWord(txt, i, matchType);    //åˆ¤æ–­æ˜¯å¦åŒ…å«æ•æ„Ÿå­—ç¬¦
+			if(length > 0){    //å­˜åœ¨,åŠ å…¥listä¸­
 				sensitiveWordList.add(txt.substring(i, i+length));
-				i = i + length - 1;    //¼õ1µÄÔ­Òò£¬ÊÇÒòÎªfor»á×ÔÔö
+				i = i + length - 1;    //å‡1çš„åŸå› ï¼Œæ˜¯å› ä¸ºforä¼šè‡ªå¢
 			}
 		}
 		
@@ -63,15 +63,15 @@ public class SensitivewordFilterUtil{
 	}
 	
 	/**
-	 * Ìæ»»Ãô¸Ğ×Ö×Ö·û
+	 * æ›¿æ¢æ•æ„Ÿå­—å­—ç¬¦
 	 * @param txt
 	 * @param matchType
-	 * @param replaceChar Ìæ»»×Ö·û£¬Ä¬ÈÏ*
+	 * @param replaceChar æ›¿æ¢å­—ç¬¦ï¼Œé»˜è®¤*
 	 * @version 1.0
 	 */
 	public String replaceSensitiveWord(String txt,int matchType,String replaceChar){
 		String resultTxt = txt;
-		Set<String> set = getSensitiveWord(txt, matchType);     //»ñÈ¡ËùÓĞµÄÃô¸Ğ´Ê
+		Set<String> set = getSensitiveWord(txt, matchType);     //è·å–æ‰€æœ‰çš„æ•æ„Ÿè¯
 		Iterator<String> iterator = set.iterator();
 		String word = null;
 		String replaceString = null;
@@ -85,7 +85,7 @@ public class SensitivewordFilterUtil{
 	}
 	
 	/**
-	 * »ñÈ¡Ìæ»»×Ö·û´®
+	 * è·å–æ›¿æ¢å­—ç¬¦ä¸²
 	 * @param replaceChar
 	 * @param length
 	 * @return
@@ -101,36 +101,36 @@ public class SensitivewordFilterUtil{
 	}
 	
 	/**
-	 * ¼ì²éÎÄ×ÖÖĞÊÇ·ñ°üº¬Ãô¸Ğ×Ö·û£¬¼ì²é¹æÔòÈçÏÂ£º<br>
+	 * æ£€æŸ¥æ–‡å­—ä¸­æ˜¯å¦åŒ…å«æ•æ„Ÿå­—ç¬¦ï¼Œæ£€æŸ¥è§„åˆ™å¦‚ä¸‹ï¼š<br>
 	 * @param txt
 	 * @param beginIndex
 	 * @param matchType
-	 * @return£¬Èç¹û´æÔÚ£¬Ôò·µ»ØÃô¸Ğ´Ê×Ö·ûµÄ³¤¶È£¬²»´æÔÚ·µ»Ø0
+	 * @returnï¼Œå¦‚æœå­˜åœ¨ï¼Œåˆ™è¿”å›æ•æ„Ÿè¯å­—ç¬¦çš„é•¿åº¦ï¼Œä¸å­˜åœ¨è¿”å›0
 	 * @version 1.0
 	 */
 	@SuppressWarnings({ "rawtypes"})
 	public int CheckSensitiveWord(String txt,int beginIndex,int matchType){
-		boolean  flag = false;    //Ãô¸Ğ´Ê½áÊø±êÊ¶Î»£ºÓÃÓÚÃô¸Ğ´ÊÖ»ÓĞ1Î»µÄÇé¿ö
-		int matchFlag = 0;     //Æ¥Åä±êÊ¶ÊıÄ¬ÈÏÎª0
+		boolean  flag = false;    //æ•æ„Ÿè¯ç»“æŸæ ‡è¯†ä½ï¼šç”¨äºæ•æ„Ÿè¯åªæœ‰1ä½çš„æƒ…å†µ
+		int matchFlag = 0;     //åŒ¹é…æ ‡è¯†æ•°é»˜è®¤ä¸º0
 		char word = 0;
 		Map nowMap = sensitiveWordMap;
 		for(int i = beginIndex; i < txt.length() ; i++){
 			word = txt.charAt(i);
-			nowMap = (Map) nowMap.get(word);     //»ñÈ¡Ö¸¶¨key
-			if(nowMap != null){     //´æÔÚ£¬ÔòÅĞ¶ÏÊÇ·ñÎª×îºóÒ»¸ö
-				matchFlag++;     //ÕÒµ½ÏàÓ¦key£¬Æ¥Åä±êÊ¶+1 
-				if("1".equals(nowMap.get("isEnd"))){       //Èç¹ûÎª×îºóÒ»¸öÆ¥Åä¹æÔò,½áÊøÑ­»·£¬·µ»ØÆ¥Åä±êÊ¶Êı
-					flag = true;       //½áÊø±êÖ¾Î»Îªtrue   
-					if(SensitivewordFilterUtil.minMatchTYpe == matchType){    //×îĞ¡¹æÔò£¬Ö±½Ó·µ»Ø,×î´ó¹æÔò»¹Ğè¼ÌĞø²éÕÒ
+			nowMap = (Map) nowMap.get(word);     //è·å–æŒ‡å®škey
+			if(nowMap != null){     //å­˜åœ¨ï¼Œåˆ™åˆ¤æ–­æ˜¯å¦ä¸ºæœ€åä¸€ä¸ª
+				matchFlag++;     //æ‰¾åˆ°ç›¸åº”keyï¼ŒåŒ¹é…æ ‡è¯†+1 
+				if("1".equals(nowMap.get("isEnd"))){       //å¦‚æœä¸ºæœ€åä¸€ä¸ªåŒ¹é…è§„åˆ™,ç»“æŸå¾ªç¯ï¼Œè¿”å›åŒ¹é…æ ‡è¯†æ•°
+					flag = true;       //ç»“æŸæ ‡å¿—ä½ä¸ºtrue   
+					if(SensitivewordFilterUtil.minMatchTYpe == matchType){    //æœ€å°è§„åˆ™ï¼Œç›´æ¥è¿”å›,æœ€å¤§è§„åˆ™è¿˜éœ€ç»§ç»­æŸ¥æ‰¾
 						break;
 					}
 				}
 			}
-			else{     //²»´æÔÚ£¬Ö±½Ó·µ»Ø
+			else{     //ä¸å­˜åœ¨ï¼Œç›´æ¥è¿”å›
 				break;
 			}
 		}
-		if(matchFlag < 2 || !flag){        //³¤¶È±ØĞë´óÓÚµÈÓÚ1£¬Îª´Ê 
+		if(matchFlag < 2 || !flag){        //é•¿åº¦å¿…é¡»å¤§äºç­‰äº1ï¼Œä¸ºè¯ 
 			matchFlag = 0;
 		}
 		return matchFlag;

@@ -3,7 +3,7 @@ package org.light4j.utils.task;
 import java.util.List;
 
 /**
- * Java¶àÏß³Ì¡¢¶ÓÁĞÊµÏÖÈÎÎñµ÷¶È
+ * Javaå¤šçº¿ç¨‹ã€é˜Ÿåˆ—å®ç°ä»»åŠ¡è°ƒåº¦
  * 
  * @author longjiazuo
  */
@@ -11,7 +11,7 @@ public class TaskUtils {
 	
 	
     /**
-     * Ìí¼ÓÒì²½ÈÎÎñ(ÈÎÎñÁĞ±í)
+     * æ·»åŠ å¼‚æ­¥ä»»åŠ¡(ä»»åŠ¡åˆ—è¡¨)
      * @param taskList
      */
 	public static void addTaskList(List<TaskEntity> taskList){
@@ -19,7 +19,7 @@ public class TaskUtils {
 	}
 	
 	 /**
-     * Ìí¼ÓÒì²½ÈÎÎñ(µ¥¸öÈÎÎñ)
+     * æ·»åŠ å¼‚æ­¥ä»»åŠ¡(å•ä¸ªä»»åŠ¡)
      * @param taskList
      */
 	public static void addTask(TaskEntity task){

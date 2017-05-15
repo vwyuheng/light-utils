@@ -15,8 +15,8 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 /**
- * Í¼Ïñ´¦Àí<br>
- * ¶ÔÍ¼Æ¬½øĞĞÑ¹Ëõ¡¢Ë®Ó¡¡¢ÉìËõ±ä»»¡¢Í¸Ã÷´¦Àí¡¢¸ñÊ½×ª»»²Ù×÷
+ * å›¾åƒå¤„ç†<br>
+ * å¯¹å›¾ç‰‡è¿›è¡Œå‹ç¼©ã€æ°´å°ã€ä¼¸ç¼©å˜æ¢ã€é€æ˜å¤„ç†ã€æ ¼å¼è½¬æ¢æ“ä½œ
  * 
  * @author longjiazuo
  */
@@ -27,20 +27,20 @@ public class ImageUtil {
     
     /**
      * 
-     * Ìí¼ÓÍ¼Æ¬Ë®Ó¡²Ù×÷(ÎïÀí´æÅÌ,Ê¹ÓÃÄ¬ÈÏ¸ñÊ½)
+     * æ·»åŠ å›¾ç‰‡æ°´å°æ“ä½œ(ç‰©ç†å­˜ç›˜,ä½¿ç”¨é»˜è®¤æ ¼å¼)
      * 
      * @param imgPath
-     *            ´ı´¦ÀíÍ¼Æ¬
+     *            å¾…å¤„ç†å›¾ç‰‡
      * @param markPath
-     *            Ë®Ó¡Í¼Æ¬
+     *            æ°´å°å›¾ç‰‡
      * @param x
-     *            Ë®Ó¡Î»ÓÚÍ¼Æ¬×óÉÏ½ÇµÄ x ×ø±êÖµ
+     *            æ°´å°ä½äºå›¾ç‰‡å·¦ä¸Šè§’çš„ x åæ ‡å€¼
      * @param y
-     *            Ë®Ó¡Î»ÓÚÍ¼Æ¬×óÉÏ½ÇµÄ y ×ø±êÖµ
+     *            æ°´å°ä½äºå›¾ç‰‡å·¦ä¸Šè§’çš„ y åæ ‡å€¼
      * @param alpha
-     *            Ë®Ó¡Í¸Ã÷¶È 0.1f ~ 1.0f
+     *            æ°´å°é€æ˜åº¦ 0.1f ~ 1.0f
      * @param destPath
-     *                 ÎÄ¼ş´æ·ÅÂ·¾¶  
+     *                 æ–‡ä»¶å­˜æ”¾è·¯å¾„  
      * @throws Exception          
      * 
      */
@@ -49,29 +49,29 @@ public class ImageUtil {
                 BufferedImage bufferedImage = addWaterMark(imgPath, markPath, x, y, alpha);
                 ImageIO.write(bufferedImage, imageFormat(imgPath), new File(destPath));
             } catch (Exception e) {
-                throw new RuntimeException("Ìí¼ÓÍ¼Æ¬Ë®Ó¡Òì³£");
+                throw new RuntimeException("æ·»åŠ å›¾ç‰‡æ°´å°å¼‚å¸¸");
             }
      }
     
         
     /**
      * 
-     * Ìí¼ÓÍ¼Æ¬Ë®Ó¡²Ù×÷(ÎïÀí´æÅÌ,×Ô¶¨Òå¸ñÊ½)
+     * æ·»åŠ å›¾ç‰‡æ°´å°æ“ä½œ(ç‰©ç†å­˜ç›˜,è‡ªå®šä¹‰æ ¼å¼)
      * 
      * @param imgPath
-     *            ´ı´¦ÀíÍ¼Æ¬
+     *            å¾…å¤„ç†å›¾ç‰‡
      * @param markPath
-     *            Ë®Ó¡Í¼Æ¬
+     *            æ°´å°å›¾ç‰‡
      * @param x
-     *            Ë®Ó¡Î»ÓÚÍ¼Æ¬×óÉÏ½ÇµÄ x ×ø±êÖµ
+     *            æ°´å°ä½äºå›¾ç‰‡å·¦ä¸Šè§’çš„ x åæ ‡å€¼
      * @param y
-     *            Ë®Ó¡Î»ÓÚÍ¼Æ¬×óÉÏ½ÇµÄ y ×ø±êÖµ
+     *            æ°´å°ä½äºå›¾ç‰‡å·¦ä¸Šè§’çš„ y åæ ‡å€¼
      * @param alpha
-     *            Ë®Ó¡Í¸Ã÷¶È 0.1f ~ 1.0f
+     *            æ°´å°é€æ˜åº¦ 0.1f ~ 1.0f
      * @param format
-     *                 Ìí¼ÓË®Ó¡ºó´æ´¢µÄ¸ñÊ½
+     *                 æ·»åŠ æ°´å°åå­˜å‚¨çš„æ ¼å¼
      * @param destPath
-     *                 ÎÄ¼ş´æ·ÅÂ·¾¶  
+     *                 æ–‡ä»¶å­˜æ”¾è·¯å¾„  
      * @throws Exception          
      * 
      */
@@ -80,48 +80,48 @@ public class ImageUtil {
                 BufferedImage bufferedImage = addWaterMark(imgPath, markPath, x, y, alpha);
                 ImageIO.write(bufferedImage,format , new File(destPath));
             } catch (Exception e) {
-                throw new RuntimeException("Ìí¼ÓÍ¼Æ¬Ë®Ó¡Òì³£");
+                throw new RuntimeException("æ·»åŠ å›¾ç‰‡æ°´å°å¼‚å¸¸");
             }
      }
     
      
     /**
      * 
-     * Ìí¼ÓÍ¼Æ¬Ë®Ó¡²Ù×÷,·µ»ØBufferedImage¶ÔÏó
+     * æ·»åŠ å›¾ç‰‡æ°´å°æ“ä½œ,è¿”å›BufferedImageå¯¹è±¡
      * 
      * @param imgPath
-     *            ´ı´¦ÀíÍ¼Æ¬
+     *            å¾…å¤„ç†å›¾ç‰‡
      * @param markPath
-     *            Ë®Ó¡Í¼Æ¬
+     *            æ°´å°å›¾ç‰‡
      * @param x
-     *            Ë®Ó¡Î»ÓÚÍ¼Æ¬×óÉÏ½ÇµÄ x ×ø±êÖµ
+     *            æ°´å°ä½äºå›¾ç‰‡å·¦ä¸Šè§’çš„ x åæ ‡å€¼
      * @param y
-     *            Ë®Ó¡Î»ÓÚÍ¼Æ¬×óÉÏ½ÇµÄ y ×ø±êÖµ
+     *            æ°´å°ä½äºå›¾ç‰‡å·¦ä¸Šè§’çš„ y åæ ‡å€¼
      * @param alpha
-     *            Ë®Ó¡Í¸Ã÷¶È 0.1f ~ 1.0f
+     *            æ°´å°é€æ˜åº¦ 0.1f ~ 1.0f
      * @return
-     *                 ´¦ÀíºóµÄÍ¼Æ¬¶ÔÏó
+     *                 å¤„ç†åçš„å›¾ç‰‡å¯¹è±¡
      * @throws Exception          
      * 
      */
     public static BufferedImage addWaterMark(String imgPath, String markPath, int x, int y, float alpha) throws Exception{
         BufferedImage targetImage = null;
         try {
-                        // ¼ÓÔØ´ı´¦ÀíÍ¼Æ¬ÎÄ¼ş
+                        // åŠ è½½å¾…å¤„ç†å›¾ç‰‡æ–‡ä»¶
             Image img = ImageIO.read(new File(imgPath));
 
-                        //´´½¨Ä¿±êÍ¼ÏóÎÄ¼ş
+                        //åˆ›å»ºç›®æ ‡å›¾è±¡æ–‡ä»¶
             targetImage = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_RGB);
             Graphics2D g = targetImage.createGraphics();
             g.drawImage(img, 0, 0, null);
             
-                        // ¼ÓÔØË®Ó¡Í¼Æ¬ÎÄ¼ş
+                        // åŠ è½½æ°´å°å›¾ç‰‡æ–‡ä»¶
             Image markImg = ImageIO.read(new File(markPath));
             g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_ATOP, alpha));
             g.drawImage(markImg, x, y, null);
             g.dispose();
         } catch (Exception e) {
-            throw new RuntimeException("Ìí¼ÓÍ¼Æ¬Ë®Ó¡²Ù×÷Òì³£");
+            throw new RuntimeException("æ·»åŠ å›¾ç‰‡æ°´å°æ“ä½œå¼‚å¸¸");
         }
         return targetImage;
        
@@ -129,26 +129,26 @@ public class ImageUtil {
 
     /**
      * 
-     * Ìí¼ÓÎÄ×ÖË®Ó¡²Ù×÷(ÎïÀí´æÅÌ,Ê¹ÓÃÄ¬ÈÏ¸ñÊ½)
+     * æ·»åŠ æ–‡å­—æ°´å°æ“ä½œ(ç‰©ç†å­˜ç›˜,ä½¿ç”¨é»˜è®¤æ ¼å¼)
      * 
      * @param imgPath
-     *            ´ı´¦ÀíÍ¼Æ¬
+     *            å¾…å¤„ç†å›¾ç‰‡
      * @param text
-     *            Ë®Ó¡ÎÄ×Ö    
+     *            æ°´å°æ–‡å­—    
      * @param font
-     *            Ë®Ó¡×ÖÌåĞÅÏ¢    ²»Ğ´Ä¬ÈÏÖµÎªËÎÌå
+     *            æ°´å°å­—ä½“ä¿¡æ¯    ä¸å†™é»˜è®¤å€¼ä¸ºå®‹ä½“
      * @param color
-     *            Ë®Ó¡×ÖÌåÑÕÉ«
+     *            æ°´å°å­—ä½“é¢œè‰²
      * @param x
-     *            Ë®Ó¡Î»ÓÚÍ¼Æ¬×óÉÏ½ÇµÄ x ×ø±êÖµ
+     *            æ°´å°ä½äºå›¾ç‰‡å·¦ä¸Šè§’çš„ x åæ ‡å€¼
      * @param y
-     *            Ë®Ó¡Î»ÓÚÍ¼Æ¬×óÉÏ½ÇµÄ y ×ø±êÖµ
+     *            æ°´å°ä½äºå›¾ç‰‡å·¦ä¸Šè§’çš„ y åæ ‡å€¼
      * @param alpha
-     *            Ë®Ó¡Í¸Ã÷¶È 0.1f ~ 1.0f
+     *            æ°´å°é€æ˜åº¦ 0.1f ~ 1.0f
      * @param format
-     *                 Ìí¼ÓË®Ó¡ºó´æ´¢µÄ¸ñÊ½
+     *                 æ·»åŠ æ°´å°åå­˜å‚¨çš„æ ¼å¼
      * @param destPath
-     *                 ÎÄ¼ş´æ·ÅÂ·¾¶     
+     *                 æ–‡ä»¶å­˜æ”¾è·¯å¾„     
      * @throws Exception          
      */
     public static void addTextMark(String imgPath, String text, Font font, Color color, float x, float y, float alpha,String destPath) throws Exception{
@@ -156,32 +156,32 @@ public class ImageUtil {
             BufferedImage bufferedImage = addTextMark(imgPath, text, font, color, x, y, alpha);
             ImageIO.write(bufferedImage, imageFormat(imgPath), new File(destPath));
         } catch (Exception e) {
-            throw new RuntimeException("Í¼Æ¬Ìí¼ÓÎÄ×ÖË®Ó¡Òì³£");
+            throw new RuntimeException("å›¾ç‰‡æ·»åŠ æ–‡å­—æ°´å°å¼‚å¸¸");
         }
     }
     
     /**
      * 
-     * Ìí¼ÓÎÄ×ÖË®Ó¡²Ù×÷(ÎïÀí´æÅÌ,×Ô¶¨Òå¸ñÊ½)
+     * æ·»åŠ æ–‡å­—æ°´å°æ“ä½œ(ç‰©ç†å­˜ç›˜,è‡ªå®šä¹‰æ ¼å¼)
      * 
      * @param imgPath
-     *            ´ı´¦ÀíÍ¼Æ¬
+     *            å¾…å¤„ç†å›¾ç‰‡
      * @param text
-     *            Ë®Ó¡ÎÄ×Ö    
+     *            æ°´å°æ–‡å­—    
      * @param font
-     *            Ë®Ó¡×ÖÌåĞÅÏ¢    ²»Ğ´Ä¬ÈÏÖµÎªËÎÌå
+     *            æ°´å°å­—ä½“ä¿¡æ¯    ä¸å†™é»˜è®¤å€¼ä¸ºå®‹ä½“
      * @param color
-     *            Ë®Ó¡×ÖÌåÑÕÉ«
+     *            æ°´å°å­—ä½“é¢œè‰²
      * @param x
-     *            Ë®Ó¡Î»ÓÚÍ¼Æ¬×óÉÏ½ÇµÄ x ×ø±êÖµ
+     *            æ°´å°ä½äºå›¾ç‰‡å·¦ä¸Šè§’çš„ x åæ ‡å€¼
      * @param y
-     *            Ë®Ó¡Î»ÓÚÍ¼Æ¬×óÉÏ½ÇµÄ y ×ø±êÖµ
+     *            æ°´å°ä½äºå›¾ç‰‡å·¦ä¸Šè§’çš„ y åæ ‡å€¼
      * @param alpha
-     *            Ë®Ó¡Í¸Ã÷¶È 0.1f ~ 1.0f
+     *            æ°´å°é€æ˜åº¦ 0.1f ~ 1.0f
      * @param format
-     *                 Ìí¼ÓË®Ó¡ºó´æ´¢µÄ¸ñÊ½
+     *                 æ·»åŠ æ°´å°åå­˜å‚¨çš„æ ¼å¼
      * @param destPath
-     *                 ÎÄ¼ş´æ·ÅÂ·¾¶     
+     *                 æ–‡ä»¶å­˜æ”¾è·¯å¾„     
      * @throws Exception          
      */
     public static void addTextMark(String imgPath, String text, Font font, Color color, float x, float y, float alpha,String format,String destPath) throws Exception{
@@ -189,39 +189,39 @@ public class ImageUtil {
             BufferedImage bufferedImage = addTextMark(imgPath, text, font, color, x, y, alpha);
             ImageIO.write(bufferedImage, format, new File(destPath));
         } catch (Exception e) {
-            throw new RuntimeException("Í¼Æ¬Ìí¼ÓÎÄ×ÖË®Ó¡Òì³£");
+            throw new RuntimeException("å›¾ç‰‡æ·»åŠ æ–‡å­—æ°´å°å¼‚å¸¸");
         }
     }
     
     /**
      * 
-     * Ìí¼ÓÎÄ×ÖË®Ó¡²Ù×÷,·µ»ØBufferedImage¶ÔÏó
+     * æ·»åŠ æ–‡å­—æ°´å°æ“ä½œ,è¿”å›BufferedImageå¯¹è±¡
      * 
      * @param imgPath
-     *            ´ı´¦ÀíÍ¼Æ¬
+     *            å¾…å¤„ç†å›¾ç‰‡
      * @param text
-     *            Ë®Ó¡ÎÄ×Ö    
+     *            æ°´å°æ–‡å­—    
      * @param font
-     *            Ë®Ó¡×ÖÌåĞÅÏ¢    ²»Ğ´Ä¬ÈÏÖµÎªËÎÌå
+     *            æ°´å°å­—ä½“ä¿¡æ¯    ä¸å†™é»˜è®¤å€¼ä¸ºå®‹ä½“
      * @param color
-     *            Ë®Ó¡×ÖÌåÑÕÉ«
+     *            æ°´å°å­—ä½“é¢œè‰²
      * @param x
-     *            Ë®Ó¡Î»ÓÚÍ¼Æ¬×óÉÏ½ÇµÄ x ×ø±êÖµ
+     *            æ°´å°ä½äºå›¾ç‰‡å·¦ä¸Šè§’çš„ x åæ ‡å€¼
      * @param y
-     *            Ë®Ó¡Î»ÓÚÍ¼Æ¬×óÉÏ½ÇµÄ y ×ø±êÖµ
+     *            æ°´å°ä½äºå›¾ç‰‡å·¦ä¸Šè§’çš„ y åæ ‡å€¼
      * @param alpha
-     *            Ë®Ó¡Í¸Ã÷¶È 0.1f ~ 1.0f
+     *            æ°´å°é€æ˜åº¦ 0.1f ~ 1.0f
      * @return
-     *                 ´¦ÀíºóµÄÍ¼Æ¬¶ÔÏó
+     *                 å¤„ç†åçš„å›¾ç‰‡å¯¹è±¡
      * @throws Exception          
      */
 
     public static BufferedImage addTextMark(String imgPath, String text, Font font, Color color, float x, float y, float alpha) throws Exception{
         BufferedImage targetImage = null;
         try {
-            Font Dfont = (font == null) ? new Font("ËÎÌå", 20, 13) : font;    
+            Font Dfont = (font == null) ? new Font("å®‹ä½“", 20, 13) : font;    
             Image img = ImageIO.read(new File(imgPath));
-                        //´´½¨Ä¿±êÍ¼ÏñÎÄ¼ş
+                        //åˆ›å»ºç›®æ ‡å›¾åƒæ–‡ä»¶
             targetImage = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_RGB);
             Graphics2D g = targetImage.createGraphics();
             g.drawImage(img, 0, 0, null);
@@ -231,7 +231,7 @@ public class ImageUtil {
             g.drawString(text, x, y);
             g.dispose();
         } catch (Exception e) {
-            throw new RuntimeException("Ìí¼ÓÎÄ×ÖË®Ó¡²Ù×÷Òì³£");
+            throw new RuntimeException("æ·»åŠ æ–‡å­—æ°´å°æ“ä½œå¼‚å¸¸");
         }
         return targetImage;
     }
@@ -242,22 +242,22 @@ public class ImageUtil {
      * 
      * 
      * 
-     * Ñ¹ËõÍ¼Æ¬²Ù×÷(ÎÄ¼şÎïÀí´æÅÌ,Ê¹ÓÃÄ¬ÈÏ¸ñÊ½)
+     * å‹ç¼©å›¾ç‰‡æ“ä½œ(æ–‡ä»¶ç‰©ç†å­˜ç›˜,ä½¿ç”¨é»˜è®¤æ ¼å¼)
      * 
      * @param imgPath
-     *                 ´ı´¦ÀíÍ¼Æ¬
+     *                 å¾…å¤„ç†å›¾ç‰‡
      * @param quality
-     *                 Í¼Æ¬ÖÊÁ¿(0-1Ö®égµÄfloatÖµ)
+     *                 å›¾ç‰‡è´¨é‡(0-1ä¹‹é–“çš„floatå€¼)
      * @param width
-     *                 Êä³öÍ¼Æ¬µÄ¿í¶È    ÊäÈë¸ºÊı²ÎÊı±íÊ¾ÓÃÔ­À´Í¼Æ¬¿í
+     *                 è¾“å‡ºå›¾ç‰‡çš„å®½åº¦    è¾“å…¥è´Ÿæ•°å‚æ•°è¡¨ç¤ºç”¨åŸæ¥å›¾ç‰‡å®½
      * @param height
-     *                 Êä³öÍ¼Æ¬µÄ¸ß¶È    ÊäÈë¸ºÊı²ÎÊı±íÊ¾ÓÃÔ­À´Í¼Æ¬¸ß
+     *                 è¾“å‡ºå›¾ç‰‡çš„é«˜åº¦    è¾“å…¥è´Ÿæ•°å‚æ•°è¡¨ç¤ºç”¨åŸæ¥å›¾ç‰‡é«˜
      * @param autoSize
-     *                 ÊÇ·ñµÈ±ÈËõ·Å true±íÊ¾½øĞĞµÈ±ÈËõ·Å false±íÊ¾²»½øĞĞµÈ±ÈËõ·Å
+     *                 æ˜¯å¦ç­‰æ¯”ç¼©æ”¾ trueè¡¨ç¤ºè¿›è¡Œç­‰æ¯”ç¼©æ”¾ falseè¡¨ç¤ºä¸è¿›è¡Œç­‰æ¯”ç¼©æ”¾
      * @param format
-     *                 Ñ¹Ëõºó´æ´¢µÄ¸ñÊ½
+     *                 å‹ç¼©åå­˜å‚¨çš„æ ¼å¼
      * @param destPath
-     *                 ÎÄ¼ş´æ·ÅÂ·¾¶
+     *                 æ–‡ä»¶å­˜æ”¾è·¯å¾„
      * 
      * @throws Exception
      */
@@ -266,7 +266,7 @@ public class ImageUtil {
             BufferedImage bufferedImage = compressImage(imgPath, quality, width, height, autoSize);
             ImageIO.write(bufferedImage, imageFormat(imgPath), new File(destPath));
         } catch (Exception e) {
-            throw new RuntimeException("Í¼Æ¬Ñ¹ËõÒì³£");
+            throw new RuntimeException("å›¾ç‰‡å‹ç¼©å¼‚å¸¸");
         }
         
     }
@@ -274,22 +274,22 @@ public class ImageUtil {
     
     /**
      * 
-     * Ñ¹ËõÍ¼Æ¬²Ù×÷(ÎÄ¼şÎïÀí´æÅÌ,¿É×Ô¶¨Òå¸ñÊ½)
+     * å‹ç¼©å›¾ç‰‡æ“ä½œ(æ–‡ä»¶ç‰©ç†å­˜ç›˜,å¯è‡ªå®šä¹‰æ ¼å¼)
      * 
      * @param imgPath
-     *                 ´ı´¦ÀíÍ¼Æ¬
+     *                 å¾…å¤„ç†å›¾ç‰‡
      * @param quality
-     *                 Í¼Æ¬ÖÊÁ¿(0-1Ö®égµÄfloatÖµ)
+     *                 å›¾ç‰‡è´¨é‡(0-1ä¹‹é–“çš„floatå€¼)
      * @param width
-     *                 Êä³öÍ¼Æ¬µÄ¿í¶È    ÊäÈë¸ºÊı²ÎÊı±íÊ¾ÓÃÔ­À´Í¼Æ¬¿í
+     *                 è¾“å‡ºå›¾ç‰‡çš„å®½åº¦    è¾“å…¥è´Ÿæ•°å‚æ•°è¡¨ç¤ºç”¨åŸæ¥å›¾ç‰‡å®½
      * @param height
-     *                 Êä³öÍ¼Æ¬µÄ¸ß¶È    ÊäÈë¸ºÊı²ÎÊı±íÊ¾ÓÃÔ­À´Í¼Æ¬¸ß
+     *                 è¾“å‡ºå›¾ç‰‡çš„é«˜åº¦    è¾“å…¥è´Ÿæ•°å‚æ•°è¡¨ç¤ºç”¨åŸæ¥å›¾ç‰‡é«˜
      * @param autoSize
-     *                 ÊÇ·ñµÈ±ÈËõ·Å true±íÊ¾½øĞĞµÈ±ÈËõ·Å false±íÊ¾²»½øĞĞµÈ±ÈËõ·Å
+     *                 æ˜¯å¦ç­‰æ¯”ç¼©æ”¾ trueè¡¨ç¤ºè¿›è¡Œç­‰æ¯”ç¼©æ”¾ falseè¡¨ç¤ºä¸è¿›è¡Œç­‰æ¯”ç¼©æ”¾
      * @param format
-     *                 Ñ¹Ëõºó´æ´¢µÄ¸ñÊ½
+     *                 å‹ç¼©åå­˜å‚¨çš„æ ¼å¼
      * @param destPath
-     *                 ÎÄ¼ş´æ·ÅÂ·¾¶
+     *                 æ–‡ä»¶å­˜æ”¾è·¯å¾„
      * 
      * @throws Exception
      */
@@ -298,27 +298,27 @@ public class ImageUtil {
             BufferedImage bufferedImage = compressImage(imgPath, quality, width, height, autoSize);
             ImageIO.write(bufferedImage, format, new File(destPath));
         } catch (Exception e) {
-            throw new RuntimeException("Í¼Æ¬Ñ¹ËõÒì³£");
+            throw new RuntimeException("å›¾ç‰‡å‹ç¼©å¼‚å¸¸");
         }
     }
     
     
     /**
      * 
-     * Ñ¹ËõÍ¼Æ¬²Ù×÷,·µ»ØBufferedImage¶ÔÏó
+     * å‹ç¼©å›¾ç‰‡æ“ä½œ,è¿”å›BufferedImageå¯¹è±¡
      * 
      * @param imgPath
-     *                 ´ı´¦ÀíÍ¼Æ¬
+     *                 å¾…å¤„ç†å›¾ç‰‡
      * @param quality
-     *                 Í¼Æ¬ÖÊÁ¿(0-1Ö®égµÄfloatÖµ)
+     *                 å›¾ç‰‡è´¨é‡(0-1ä¹‹é–“çš„floatå€¼)
      * @param width
-     *                 Êä³öÍ¼Æ¬µÄ¿í¶È    ÊäÈë¸ºÊı²ÎÊı±íÊ¾ÓÃÔ­À´Í¼Æ¬¿í
+     *                 è¾“å‡ºå›¾ç‰‡çš„å®½åº¦    è¾“å…¥è´Ÿæ•°å‚æ•°è¡¨ç¤ºç”¨åŸæ¥å›¾ç‰‡å®½
      * @param height
-     *                 Êä³öÍ¼Æ¬µÄ¸ß¶È    ÊäÈë¸ºÊı²ÎÊı±íÊ¾ÓÃÔ­À´Í¼Æ¬¸ß
+     *                 è¾“å‡ºå›¾ç‰‡çš„é«˜åº¦    è¾“å…¥è´Ÿæ•°å‚æ•°è¡¨ç¤ºç”¨åŸæ¥å›¾ç‰‡é«˜
      * @param autoSize
-     *                 ÊÇ·ñµÈ±ÈËõ·Å true±íÊ¾½øĞĞµÈ±ÈËõ·Å false±íÊ¾²»½øĞĞµÈ±ÈËõ·Å
+     *                 æ˜¯å¦ç­‰æ¯”ç¼©æ”¾ trueè¡¨ç¤ºè¿›è¡Œç­‰æ¯”ç¼©æ”¾ falseè¡¨ç¤ºä¸è¿›è¡Œç­‰æ¯”ç¼©æ”¾
      * @return
-     *                 ´¦ÀíºóµÄÍ¼Æ¬¶ÔÏó
+     *                 å¤„ç†åçš„å›¾ç‰‡å¯¹è±¡
      * @throws Exception
      */
     public static BufferedImage compressImage(String imgPath,float quality,int width, int height, boolean autoSize)throws Exception{
@@ -328,28 +328,28 @@ public class ImageUtil {
         }
         try {
             Image img = ImageIO.read(new File(imgPath));
-                        //Èç¹ûÓÃ»§ÊäÈëµÄÍ¼Æ¬²ÎÊıºÏ·¨Ôò°´ÓÃ»§¶¨ÒåµÄ¸´ÖÆ,¸ºÖµ²ÎÊı±íÊ¾Ö´ĞĞÄ¬ÈÏÖµ
+                        //å¦‚æœç”¨æˆ·è¾“å…¥çš„å›¾ç‰‡å‚æ•°åˆæ³•åˆ™æŒ‰ç”¨æˆ·å®šä¹‰çš„å¤åˆ¶,è´Ÿå€¼å‚æ•°è¡¨ç¤ºæ‰§è¡Œé»˜è®¤å€¼
             int newwidth =( width > 0 ) ? width : img.getWidth(null);
-                        //Èç¹ûÓÃ»§ÊäÈëµÄÍ¼Æ¬²ÎÊıºÏ·¨Ôò°´ÓÃ»§¶¨ÒåµÄ¸´ÖÆ,¸ºÖµ²ÎÊı±íÊ¾Ö´ĞĞÄ¬ÈÏÖµ
+                        //å¦‚æœç”¨æˆ·è¾“å…¥çš„å›¾ç‰‡å‚æ•°åˆæ³•åˆ™æŒ‰ç”¨æˆ·å®šä¹‰çš„å¤åˆ¶,è´Ÿå€¼å‚æ•°è¡¨ç¤ºæ‰§è¡Œé»˜è®¤å€¼
             int newheight = ( height > 0 )? height: img.getHeight(null);    
-                        //Èç¹ûÊÇ×ÔÊÊÓ¦´óĞ¡Ôò½øĞĞ±ÈÀıËõ·Å
+                        //å¦‚æœæ˜¯è‡ªé€‚åº”å¤§å°åˆ™è¿›è¡Œæ¯”ä¾‹ç¼©æ”¾
             if(autoSize){                                                    
-                        // ÎªµÈ±ÈËõ·Å¼ÆËãÊä³öµÄÍ¼Æ¬¿í¶È¼°¸ß¶È
+                        // ä¸ºç­‰æ¯”ç¼©æ”¾è®¡ç®—è¾“å‡ºçš„å›¾ç‰‡å®½åº¦åŠé«˜åº¦
                 double Widthrate = ((double) img.getWidth(null)) / (double) width + 0.1;
                 double heightrate = ((double) img.getHeight(null))/ (double) height + 0.1;
                 double rate = Widthrate > heightrate ? Widthrate : heightrate;
                 newwidth = (int) (((double) img.getWidth(null)) / rate);
                 newheight = (int) (((double) img.getHeight(null)) / rate);
             }
-                        //´´½¨Ä¿±êÍ¼ÏñÎÄ¼ş
+                        //åˆ›å»ºç›®æ ‡å›¾åƒæ–‡ä»¶
             targetImage = new BufferedImage(newwidth,newheight,BufferedImage.TYPE_INT_RGB);
             Graphics2D g = targetImage.createGraphics();
             g.drawImage(img, 0, 0, newwidth, newheight, null);
-                        //Èç¹ûÌí¼ÓË®Ó¡»òÕßÎÄ×ÖÔò¼ÌĞøÏÂÃæ²Ù×÷,²»Ìí¼ÓµÄ»°Ö±½Ó·µ»ØÄ¿±êÎÄ¼ş----------------------
+                        //å¦‚æœæ·»åŠ æ°´å°æˆ–è€…æ–‡å­—åˆ™ç»§ç»­ä¸‹é¢æ“ä½œ,ä¸æ·»åŠ çš„è¯ç›´æ¥è¿”å›ç›®æ ‡æ–‡ä»¶----------------------
             g.dispose();
             
         } catch (Exception e) {
-            throw new RuntimeException("Í¼Æ¬Ñ¹Ëõ²Ù×÷Òì³£");
+            throw new RuntimeException("å›¾ç‰‡å‹ç¼©æ“ä½œå¼‚å¸¸");
         }
         return targetImage;
     }
@@ -357,12 +357,12 @@ public class ImageUtil {
     
   
     /**
-     * Í¼Æ¬ºÚ°×»¯²Ù×÷(ÎÄ¼şÎïÀí´æÅÌ,Ê¹ÓÃÄ¬ÈÏ¸ñÊ½)
+     * å›¾ç‰‡é»‘ç™½åŒ–æ“ä½œ(æ–‡ä»¶ç‰©ç†å­˜ç›˜,ä½¿ç”¨é»˜è®¤æ ¼å¼)
      * 
      * @param bufferedImage
-     *                 ´¦ÀíµÄÍ¼Æ¬¶ÔÏó
+     *                 å¤„ç†çš„å›¾ç‰‡å¯¹è±¡
      * @param destPath
-     *                 Ä¿±êÎÄ¼şµØÖ·
+     *                 ç›®æ ‡æ–‡ä»¶åœ°å€
      * @throws Exception  
      *
      */
@@ -372,14 +372,14 @@ public class ImageUtil {
     
     
     /**
-     * Í¼Æ¬ºÚ°×»¯²Ù×÷(ÎÄ¼şÎïÀí´æÅÌ,¿É×Ô¶¨Òå¸ñÊ½)
+     * å›¾ç‰‡é»‘ç™½åŒ–æ“ä½œ(æ–‡ä»¶ç‰©ç†å­˜ç›˜,å¯è‡ªå®šä¹‰æ ¼å¼)
      * 
      * @param bufferedImage
-     *                 ´¦ÀíµÄÍ¼Æ¬¶ÔÏó
+     *                 å¤„ç†çš„å›¾ç‰‡å¯¹è±¡
      * @param format
-     *                 Í¼Æ¬¸ñÊ½
+     *                 å›¾ç‰‡æ ¼å¼
      * @param destPath
-     *                 Ä¿±êÎÄ¼şµØÖ·
+     *                 ç›®æ ‡æ–‡ä»¶åœ°å€
      * @throws Exception 
      * 
      */
@@ -391,19 +391,19 @@ public class ImageUtil {
              bufferedImage = op.filter(bufferedImage, null);
              ImageIO.write(bufferedImage, format , new File(destPath));
         } catch (Exception e) {
-            throw new RuntimeException("Í¼Æ¬»Ò°×»¯Òì³£");
+            throw new RuntimeException("å›¾ç‰‡ç°ç™½åŒ–å¼‚å¸¸");
         }
     }
     
     
     
     /**
-     * Í¼Æ¬Í¸Ã÷»¯²Ù×÷(ÎÄ¼şÎïÀí´æÅÌ,Ê¹ÓÃÄ¬ÈÏ¸ñÊ½)
+     * å›¾ç‰‡é€æ˜åŒ–æ“ä½œ(æ–‡ä»¶ç‰©ç†å­˜ç›˜,ä½¿ç”¨é»˜è®¤æ ¼å¼)
      * 
      * @param imgPath
-     *                 Í¼Æ¬Â·¾¶
+     *                 å›¾ç‰‡è·¯å¾„
      * @param destPath
-     *                 Í¼Æ¬´æ·ÅÂ·¾¶
+     *                 å›¾ç‰‡å­˜æ”¾è·¯å¾„
      * @throws Exception
      */
     public static void imageLucency(String imgPath,String destPath)throws Exception{
@@ -411,20 +411,20 @@ public class ImageUtil {
             BufferedImage bufferedImage = imageLucency(imgPath);
             ImageIO.write(bufferedImage, imageFormat(imgPath), new File(destPath));
         } catch (Exception e) {
-            throw new RuntimeException("Í¼Æ¬Í¸Ã÷»¯Òì³£");
+            throw new RuntimeException("å›¾ç‰‡é€æ˜åŒ–å¼‚å¸¸");
         }
     }
     
     
     /**
-     * Í¼Æ¬Í¸Ã÷»¯²Ù×÷(ÎÄ¼şÎïÀí´æÅÌ,¿É×Ô¶¨Òå¸ñÊ½)
+     * å›¾ç‰‡é€æ˜åŒ–æ“ä½œ(æ–‡ä»¶ç‰©ç†å­˜ç›˜,å¯è‡ªå®šä¹‰æ ¼å¼)
      * 
      * @param imgPath
-     *                 Í¼Æ¬Â·¾¶
+     *                 å›¾ç‰‡è·¯å¾„
      * @param format
-     *                 Í¼Æ¬¸ñÊ½
+     *                 å›¾ç‰‡æ ¼å¼
      * @param destPath
-     *                 Í¼Æ¬´æ·ÅÂ·¾¶
+     *                 å›¾ç‰‡å­˜æ”¾è·¯å¾„
      * @throws Exception
      */
     public static void imageLucency(String imgPath,String format,String destPath)throws Exception{
@@ -432,53 +432,53 @@ public class ImageUtil {
             BufferedImage bufferedImage = imageLucency(imgPath);
             ImageIO.write(bufferedImage, format, new File(destPath));
         } catch (Exception e) {
-            throw new RuntimeException("Í¼Æ¬Í¸Ã÷»¯Òì³£");
+            throw new RuntimeException("å›¾ç‰‡é€æ˜åŒ–å¼‚å¸¸");
         }
     }
     
     /**
-     * Í¼Æ¬Í¸Ã÷»¯²Ù×÷·µ»ØBufferedImage¶ÔÏó
+     * å›¾ç‰‡é€æ˜åŒ–æ“ä½œè¿”å›BufferedImageå¯¹è±¡
      * 
      * @param imgPath
-     *                 Í¼Æ¬Â·¾¶
+     *                 å›¾ç‰‡è·¯å¾„
      * @return
-     *                 Í¸Ã÷»¯ºóµÄÍ¼Æ¬¶ÔÏó
+     *                 é€æ˜åŒ–åçš„å›¾ç‰‡å¯¹è±¡
      * @throws Exception 
      */
     public static BufferedImage imageLucency(String imgPath)throws Exception{
         BufferedImage targetImage = null;
         try {
-                        //¶ÁÈ¡Í¼Æ¬   
+                        //è¯»å–å›¾ç‰‡   
             BufferedImage img = ImageIO.read(new FileInputStream(imgPath));
-                        //Í¸Ã÷¶È
+                        //é€æ˜åº¦
             int alpha = 0;    
-                        //Ö´ĞĞÍ¸Ã÷»¯
+                        //æ‰§è¡Œé€æ˜åŒ–
             executeRGB(img, alpha);
             targetImage = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_RGB);
             Graphics2D g = targetImage.createGraphics();
             g.drawImage(img, 0, 0, null);
             g.dispose();
         } catch (Exception e) {
-            throw new RuntimeException("Í¼Æ¬Í¸Ã÷»¯Ö´ĞĞÒì³£");
+            throw new RuntimeException("å›¾ç‰‡é€æ˜åŒ–æ‰§è¡Œå¼‚å¸¸");
         }
         return targetImage;
     }
     
     /**
-     * Ö´ĞĞÍ¸Ã÷»¯µÄºËĞÄËã·¨
+     * æ‰§è¡Œé€æ˜åŒ–çš„æ ¸å¿ƒç®—æ³•
      * 
      * @param img
-     *                 Í¼Æ¬¶ÔÏó
+     *                 å›¾ç‰‡å¯¹è±¡
      * @param alpha
-     *                 Í¸Ã÷¶È
+     *                 é€æ˜åº¦
      * @throws Exception 
      */
     public static  void executeRGB(BufferedImage img, int alpha) throws Exception{
-        int rgb = 0;//RGBÖµ
-                    //x±íÊ¾BufferedImageµÄx×ø±ê£¬y±íÊ¾BufferedImageµÄy×ø±ê
+        int rgb = 0;//RGBå€¼
+                    //xè¡¨ç¤ºBufferedImageçš„xåæ ‡ï¼Œyè¡¨ç¤ºBufferedImageçš„yåæ ‡
         for(int x=img.getMinX();x<img.getWidth();x++){
             for(int y=img.getMinY();y<img.getHeight();y++){
-                     //»ñÈ¡µãÎ»µÄRGBÖµ½øĞĞ±È½ÏÖØĞÂÉè¶¨
+                     //è·å–ç‚¹ä½çš„RGBå€¼è¿›è¡Œæ¯”è¾ƒé‡æ–°è®¾å®š
                 rgb = img.getRGB(x, y); 
                 int R =(rgb & 0xff0000 ) >> 16 ; 
                 int G= (rgb & 0xff00 ) >> 8 ; 
@@ -493,14 +493,14 @@ public class ImageUtil {
     
     
     /**
-     * Í¼Æ¬¸ñÊ½×ª»¯²Ù×÷(ÎÄ¼şÎïÀí´æÅÌ)
+     * å›¾ç‰‡æ ¼å¼è½¬åŒ–æ“ä½œ(æ–‡ä»¶ç‰©ç†å­˜ç›˜)
      * 
      * @param imgPath    
-     *                     Ô­Ê¼Í¼Æ¬´æ·ÅµØÖ·
+     *                     åŸå§‹å›¾ç‰‡å­˜æ”¾åœ°å€
      * @param format
-     *                     ´ı×ª»»µÄ¸ñÊ½ jpeg,gif,png,bmpµÈ
+     *                     å¾…è½¬æ¢çš„æ ¼å¼ jpeg,gif,png,bmpç­‰
      * @param destPath
-     *                     Ä¿±êÎÄ¼şµØÖ·
+     *                     ç›®æ ‡æ–‡ä»¶åœ°å€
      * @throws Exception
      */
     public static void formatConvert(String imgPath, String format, String destPath)throws Exception{
@@ -508,39 +508,39 @@ public class ImageUtil {
             BufferedImage bufferedImage = ImageIO.read(new File(imgPath));
             ImageIO.write(bufferedImage, format, new File(destPath));
         } catch (IOException e) {
-            throw new RuntimeException("ÎÄ¼ş¸ñÊ½×ª»»³ö´í");
+            throw new RuntimeException("æ–‡ä»¶æ ¼å¼è½¬æ¢å‡ºé”™");
         }
     }
     
     
     
     /**
-     * Í¼Æ¬¸ñÊ½×ª»¯²Ù×÷·µ»ØBufferedImage¶ÔÏó
+     * å›¾ç‰‡æ ¼å¼è½¬åŒ–æ“ä½œè¿”å›BufferedImageå¯¹è±¡
      * 
      * @param bufferedImage    
-     *                     BufferedImageÍ¼Æ¬×ª»»¶ÔÏó
+     *                     BufferedImageå›¾ç‰‡è½¬æ¢å¯¹è±¡
      * @param format
-     *                     ´ı×ª»»µÄ¸ñÊ½ jpeg,gif,png,bmpµÈ
+     *                     å¾…è½¬æ¢çš„æ ¼å¼ jpeg,gif,png,bmpç­‰
      * @param destPath
-     *                     Ä¿±êÎÄ¼şµØÖ·
+     *                     ç›®æ ‡æ–‡ä»¶åœ°å€
      * @throws Exception
      */
     public static void formatConvert(BufferedImage bufferedImag, String format, String destPath)throws Exception{
         try {
             ImageIO.write(bufferedImag, format, new File(destPath));
         } catch (IOException e) {
-            throw new RuntimeException("ÎÄ¼ş¸ñÊ½×ª»»³ö´í");
+            throw new RuntimeException("æ–‡ä»¶æ ¼å¼è½¬æ¢å‡ºé”™");
         }
     }
     
     
     /**
-     * »ñÈ¡Í¼Æ¬ÎÄ¼şµÄÕæÊµ¸ñÊ½ĞÅÏ¢
+     * è·å–å›¾ç‰‡æ–‡ä»¶çš„çœŸå®æ ¼å¼ä¿¡æ¯
      * 
      * @param imgPath
-     *                     Í¼Æ¬Ô­ÎÄ¼ş´æ·ÅµØÖ·
+     *                     å›¾ç‰‡åŸæ–‡ä»¶å­˜æ”¾åœ°å€
      * @return
-     *                     Í¼Æ¬¸ñÊ½
+     *                     å›¾ç‰‡æ ¼å¼
      * @throws Exception
      */
     public static String imageFormat(String imgPath)throws Exception{

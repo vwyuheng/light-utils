@@ -8,68 +8,68 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 
 /**
- * DES¼Ó½âÃÜ¹¤¾ßÀà
+ * DESåŠ è§£å¯†å·¥å…·ç±»
  * 
  * @author longjiazuo
  */
 class DESUtils {
-	/** Ä¬ÈÏkey */
+	/** é»˜è®¤key */
 	protected final static String KEY = "ScAKC0XhadTHT3Al0QIDAQAB";
 	
 	/**
-	 * DES¼ÓÃÜ
+	 * DESåŠ å¯†
 	 * 
 	 * @param data
-	 * 				´ı¼ÓÃÜ×Ö·û´®
+	 * 				å¾…åŠ å¯†å­—ç¬¦ä¸²
 	 * @param key
-	 * 				Ğ£ÑéÎ»
+	 * 				æ ¡éªŒä½
 	 * @return
 	 */
     protected static String encrypt(String data,String key) {  
         String encryptedData = null;  
         try {  
-            // DESËã·¨ÒªÇóÓĞÒ»¸ö¿ÉĞÅÈÎµÄËæ»úÊıÔ´  
+            // DESç®—æ³•è¦æ±‚æœ‰ä¸€ä¸ªå¯ä¿¡ä»»çš„éšæœºæ•°æº  
             SecureRandom sr = new SecureRandom();  
             DESKeySpec deskey = new DESKeySpec(key.getBytes());  
-            // ´´½¨Ò»¸öÃÜ³×¹¤³§£¬È»ºóÓÃËü°ÑDESKeySpec×ª»»³ÉÒ»¸öSecretKey¶ÔÏó  
+            // åˆ›å»ºä¸€ä¸ªå¯†åŒ™å·¥å‚ï¼Œç„¶åç”¨å®ƒæŠŠDESKeySpecè½¬æ¢æˆä¸€ä¸ªSecretKeyå¯¹è±¡  
             SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DES");  
             SecretKey secretKey = keyFactory.generateSecret(deskey);  
-            // ¼ÓÃÜ¶ÔÏó  
+            // åŠ å¯†å¯¹è±¡  
             Cipher cipher = Cipher.getInstance("DES");  
             cipher.init(Cipher.ENCRYPT_MODE, secretKey, sr);  
-            // ¼ÓÃÜ£¬²¢°Ñ×Ö½ÚÊı×é±àÂë³É×Ö·û´®  
+            // åŠ å¯†ï¼Œå¹¶æŠŠå­—èŠ‚æ•°ç»„ç¼–ç æˆå­—ç¬¦ä¸²  
             encryptedData = new sun.misc.BASE64Encoder().encode(cipher.doFinal(data.getBytes()));  
         } catch (Exception e) {  
-            throw new RuntimeException("¼ÓÃÜ´íÎó£¬´íÎóĞÅÏ¢£º", e);  
+            throw new RuntimeException("åŠ å¯†é”™è¯¯ï¼Œé”™è¯¯ä¿¡æ¯ï¼š", e);  
         }  
         return encryptedData;  
     }  
 	
     /**
-     * DES½âÃÜ
+     * DESè§£å¯†
      *
      * @param cryptData
-     * 						´ı½âÃÜÃÜÎÄ
+     * 						å¾…è§£å¯†å¯†æ–‡
      * @param key
-     * 						Ğ£ÑéÎ»
+     * 						æ ¡éªŒä½
      * @return
      */
     protected static String decrypt(String cryptData,String key) {  
         String decryptedData = null;  
         try {  
-            // DESËã·¨ÒªÇóÓĞÒ»¸ö¿ÉĞÅÈÎµÄËæ»úÊıÔ´  
+            // DESç®—æ³•è¦æ±‚æœ‰ä¸€ä¸ªå¯ä¿¡ä»»çš„éšæœºæ•°æº  
             SecureRandom sr = new SecureRandom();  
             DESKeySpec deskey = new DESKeySpec(key.getBytes());  
-            // ´´½¨Ò»¸öÃÜ³×¹¤³§£¬È»ºóÓÃËü°ÑDESKeySpec×ª»»³ÉÒ»¸öSecretKey¶ÔÏó  
+            // åˆ›å»ºä¸€ä¸ªå¯†åŒ™å·¥å‚ï¼Œç„¶åç”¨å®ƒæŠŠDESKeySpecè½¬æ¢æˆä¸€ä¸ªSecretKeyå¯¹è±¡  
             SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DES");  
             SecretKey secretKey = keyFactory.generateSecret(deskey);  
-            // ½âÃÜ¶ÔÏó  
+            // è§£å¯†å¯¹è±¡  
             Cipher cipher = Cipher.getInstance("DES");  
             cipher.init(Cipher.DECRYPT_MODE, secretKey, sr);  
-            // °Ñ×Ö·û´®½âÂëÎª×Ö½ÚÊı×é£¬²¢½âÃÜ  
+            // æŠŠå­—ç¬¦ä¸²è§£ç ä¸ºå­—èŠ‚æ•°ç»„ï¼Œå¹¶è§£å¯†  
             decryptedData = new String(cipher.doFinal(new sun.misc.BASE64Decoder().decodeBuffer(cryptData)));  
         } catch (Exception e) {  
-            throw new RuntimeException("½âÃÜ´íÎó£¬´íÎóĞÅÏ¢£º", e);  
+            throw new RuntimeException("è§£å¯†é”™è¯¯ï¼Œé”™è¯¯ä¿¡æ¯ï¼š", e);  
         }  
         return decryptedData;  
     }  

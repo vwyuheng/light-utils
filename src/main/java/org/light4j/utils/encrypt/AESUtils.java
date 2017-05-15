@@ -8,21 +8,21 @@ import javax.crypto.spec.SecretKeySpec;
 
 
 /**
- * AES¼Ó½âÃÜ
+ * AESåŠ è§£å¯†
  * 
  * @author longjiazuo
  */
 class AESUtils {
-	/** Ä¬ÈÏÃØÔ¿ */
+	/** é»˜è®¤ç§˜é’¥ */
 	protected static final String KEY = "NOPO3nzMD3dndwS0MccuMeXCHgVlGOoYyFwLdS24Im2e7YyhB0wrUsyYf0";
 	
     /**
-     *  AES½âÃÜ
+     *  AESè§£å¯†
      *
      * @param encryptValue
-     * 						´ı½âÃÜÄÚÈİ
+     * 						å¾…è§£å¯†å†…å®¹
      * @param key
-     * 						ÃØÔ¿
+     * 						ç§˜é’¥
      * @return
      * @throws Exception
      */
@@ -31,12 +31,12 @@ class AESUtils {
     }
     
     /**
-     * AES¼ÓÃÜ 
+     * AESåŠ å¯† 
      *
      * @param value
-     * 					´ı¼ÓÃÜÄÚÈİ
+     * 					å¾…åŠ å¯†å†…å®¹
      * @param key
-     * 					ÃØÔ¿
+     * 					ç§˜é’¥
      * @return
      * @throws Exception
      */

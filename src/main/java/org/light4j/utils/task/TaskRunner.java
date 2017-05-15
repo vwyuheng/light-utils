@@ -4,13 +4,13 @@ import java.lang.reflect.Method;
 import java.util.Map;
 
 /**
- * Ö´ĞĞÈÎÎñµÄÏß³Ì
+ * æ‰§è¡Œä»»åŠ¡çš„çº¿ç¨‹
  * 
  * @author longjiazuo
  */
 public class TaskRunner implements Runnable{
 
-	/**ÈÎÎñÊµÌå¶¨Òå**/
+	/**ä»»åŠ¡å®ä½“å®šä¹‰**/
 	private TaskEntity task;
 
 	public TaskEntity getTask() {
@@ -22,17 +22,17 @@ public class TaskRunner implements Runnable{
 	}
 	
 	/**
-	 * Ïß³Ì¿ªÊ¼Ö´ĞĞ
+	 * çº¿ç¨‹å¼€å§‹æ‰§è¡Œ
 	 */
 	public void run() {
 		try {
-			/**ÀûÓÃJava·´Éä»úÖÆÊµÏÖÈÎÎñµ÷¶È**/
+			/**åˆ©ç”¨Javaåå°„æœºåˆ¶å®ç°ä»»åŠ¡è°ƒåº¦**/
 			Class<?> className = task.getTaskClass();
 			String classMethod = task.getTaskMethod();
 			Method method = className.getMethod(classMethod, Map.class);
 	        method.invoke(className.newInstance(),task.getTaskParam());
 		}catch (Exception e) {
-			System.out.println("³ö´íÁË£º" + e.getMessage());
+			System.out.println("å‡ºé”™äº†ï¼š" + e.getMessage());
 		}
 	}
 

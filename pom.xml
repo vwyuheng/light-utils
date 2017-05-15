@@ -45,11 +45,11 @@
             <version>3.2.0</version>
         </dependency>
         
-		<dependency>
+		<!-- <dependency>
 		    <groupId>activation</groupId>
 		    <artifactId>activation</artifactId>
 		    <version>1.0.2</version>
-		</dependency>
+		</dependency> -->
         
 		<dependency>
 		    <groupId>javax.mail</groupId>

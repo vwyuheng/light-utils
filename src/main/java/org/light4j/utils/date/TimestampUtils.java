@@ -4,14 +4,14 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 /**
- * Timestamp¹¤¾ßÀà
+ * Timestampå·¥å…·ç±»
  * 
  * @author longjiazuo
  */
 public class TimestampUtils {
 	/**
-     * ½«String ×ª»»Îª timestamp<br>
-     * ×¢£ºvalue±ØĞëĞÎÈç£º yyyy-mm-dd hh:mm:ss[.f...] ÕâÑùµÄ¸ñÊ½£¬ÖĞÀ¨ºÅ±íÊ¾¿ÉÑ¡£¬·ñÔò±¨´í£¡£¡£¡ 
+     * å°†String è½¬æ¢ä¸º timestamp<br>
+     * æ³¨ï¼švalueå¿…é¡»å½¢å¦‚ï¼š yyyy-mm-dd hh:mm:ss[.f...] è¿™æ ·çš„æ ¼å¼ï¼Œä¸­æ‹¬å·è¡¨ç¤ºå¯é€‰ï¼Œå¦åˆ™æŠ¥é”™ï¼ï¼ï¼ 
      * 
      * @param value
      * @param format
@@ -24,7 +24,7 @@ public class TimestampUtils {
     }
     
     /**
-     * ½«timeStamp ×ª»»ÎªStringÀàĞÍ£¬formatÎªnullÔòÊ¹ÓÃÄ¬ÈÏ¸ñÊ½ yyyy-MM-dd HH:mm:ss
+     * å°†timeStamp è½¬æ¢ä¸ºStringç±»å‹ï¼Œformatä¸ºnullåˆ™ä½¿ç”¨é»˜è®¤æ ¼å¼ yyyy-MM-dd HH:mm:ss
      * 
      * @param value
      * @param format

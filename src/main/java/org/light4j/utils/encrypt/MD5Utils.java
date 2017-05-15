@@ -4,7 +4,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * MD5¼ÓÃÜ
+ * MD5åŠ å¯†
  * 
  * @author longjiazuo
  */
@@ -15,15 +15,15 @@ class MD5Utils {
 	
 	protected static String encrypt(String value,String key) {
 		try {
-			// ÄÃµ½Ò»¸öMD5×ª»»Æ÷£¨Èç¹ûÏëÒªSHA1²ÎÊı»»³É¡±SHA1¡±£©
+			// æ‹¿åˆ°ä¸€ä¸ªMD5è½¬æ¢å™¨ï¼ˆå¦‚æœæƒ³è¦SHA1å‚æ•°æ¢æˆâ€SHA1â€ï¼‰
 			MessageDigest messageDigest = MessageDigest.getInstance(key);
-			// ÊäÈëµÄ×Ö·û´®×ª»»³É×Ö½ÚÊı×é
+			// è¾“å…¥çš„å­—ç¬¦ä¸²è½¬æ¢æˆå­—èŠ‚æ•°ç»„
 			byte[] inputByteArray = value.getBytes();
-			// inputByteArrayÊÇÊäÈë×Ö·û´®×ª»»µÃµ½µÄ×Ö½ÚÊı×é
+			// inputByteArrayæ˜¯è¾“å…¥å­—ç¬¦ä¸²è½¬æ¢å¾—åˆ°çš„å­—èŠ‚æ•°ç»„
 			messageDigest.update(inputByteArray);
-			// ×ª»»²¢·µ»Ø½á¹û£¬Ò²ÊÇ×Ö½ÚÊı×é£¬°üº¬16¸öÔªËØ
+			// è½¬æ¢å¹¶è¿”å›ç»“æœï¼Œä¹Ÿæ˜¯å­—èŠ‚æ•°ç»„ï¼ŒåŒ…å«16ä¸ªå…ƒç´ 
 			byte[] resultByteArray = messageDigest.digest();
-			// ×Ö·ûÊı×é×ª»»³É×Ö·û´®·µ»Ø
+			// å­—ç¬¦æ•°ç»„è½¬æ¢æˆå­—ç¬¦ä¸²è¿”å›
 			return byteArrayToHex(resultByteArray);
 		} catch (NoSuchAlgorithmException e) {
 			return null;
@@ -32,18 +32,18 @@ class MD5Utils {
 
 	private static String byteArrayToHex(byte[] byteArray) {
 
-		// Ê×ÏÈ³õÊ¼»¯Ò»¸ö×Ö·ûÊı×é£¬ÓÃÀ´´æ·ÅÃ¿¸ö16½øÖÆ×Ö·û
+		// é¦–å…ˆåˆå§‹åŒ–ä¸€ä¸ªå­—ç¬¦æ•°ç»„ï¼Œç”¨æ¥å­˜æ”¾æ¯ä¸ª16è¿›åˆ¶å­—ç¬¦
 		char[] hexDigits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
 				'A', 'B', 'C', 'D', 'E', 'F' };
-		// newÒ»¸ö×Ö·ûÊı×é£¬Õâ¸ö¾ÍÊÇÓÃÀ´×é³É½á¹û×Ö·û´®µÄ£¨½âÊÍÒ»ÏÂ£ºÒ»¸öbyteÊÇ°ËÎ»¶ş½øÖÆ£¬Ò²¾ÍÊÇ2Î»Ê®Áù½øÖÆ×Ö·û£¨2µÄ8´Î·½µÈÓÚ16µÄ2´Î·½£©£©
+		// newä¸€ä¸ªå­—ç¬¦æ•°ç»„ï¼Œè¿™ä¸ªå°±æ˜¯ç”¨æ¥ç»„æˆç»“æœå­—ç¬¦ä¸²çš„ï¼ˆè§£é‡Šä¸€ä¸‹ï¼šä¸€ä¸ªbyteæ˜¯å…«ä½äºŒè¿›åˆ¶ï¼Œä¹Ÿå°±æ˜¯2ä½åå…­è¿›åˆ¶å­—ç¬¦ï¼ˆ2çš„8æ¬¡æ–¹ç­‰äº16çš„2æ¬¡æ–¹ï¼‰ï¼‰
 		char[] resultCharArray = new char[byteArray.length * 2];
-		// ±éÀú×Ö½ÚÊı×é£¬Í¨¹ıÎ»ÔËËã£¨Î»ÔËËãĞ§ÂÊ¸ß£©£¬×ª»»³É×Ö·û·Åµ½×Ö·ûÊı×éÖĞÈ¥
+		// éå†å­—èŠ‚æ•°ç»„ï¼Œé€šè¿‡ä½è¿ç®—ï¼ˆä½è¿ç®—æ•ˆç‡é«˜ï¼‰ï¼Œè½¬æ¢æˆå­—ç¬¦æ”¾åˆ°å­—ç¬¦æ•°ç»„ä¸­å»
 		int index = 0;
 		for (byte b : byteArray) {
 			resultCharArray[index++] = hexDigits[b >>> 4 & 0xf];
 			resultCharArray[index++] = hexDigits[b & 0xf];
 		}
-		// ×Ö·ûÊı×é×éºÏ³É×Ö·û´®·µ»Ø
+		// å­—ç¬¦æ•°ç»„ç»„åˆæˆå­—ç¬¦ä¸²è¿”å›
 		return new String(resultCharArray);
 	}
 }

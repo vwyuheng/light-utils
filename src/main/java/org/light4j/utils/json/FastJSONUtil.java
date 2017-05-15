@@ -8,42 +8,42 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 
 /**
- * ·â×°fastJson¹¤¾ßÀà
+ * å°è£…fastJsonå·¥å…·ç±»
  * 
  * @author longjiazuo
  */
 public class FastJSONUtil {
 
 	/**
-	 * °ÑJSONÎÄ±¾parseÎªJSONObject»òÕßJSONArray
+	 * æŠŠJSONæ–‡æœ¬parseä¸ºJSONObjectæˆ–è€…JSONArray
 	 */
 	public static Object parse(String text) {
 		return JSON.parse(text);
 	}
 
 	/**
-	 * °ÑJSONÎÄ±¾parse³ÉJSONObject
+	 * æŠŠJSONæ–‡æœ¬parseæˆJSONObject
 	 */
 	public static JSONObject parseObject(String text) {
 		return JSONObject.parseObject(text);
 	}
 
 	/**
-	 * °ÑJSONÎÄ±¾parseÎªJavaBean
+	 * æŠŠJSONæ–‡æœ¬parseä¸ºJavaBean
 	 */
 	public static <T> T parseObject(String text, Class<T> clazz) {
 		return JSON.parseObject(text, clazz);
 	}
 
 	/**
-	 * °ÑJSONÎÄ±¾parse³ÉJSONArray
+	 * æŠŠJSONæ–‡æœ¬parseæˆJSONArray
 	 */
 	public static JSONArray parseArray(String text) {
 		return JSON.parseArray(text);
 	}
 
 	/**
-	 * °ÑJSONÎÄ±¾parse³ÉJavaBean¼¯ºÏ
+	 * æŠŠJSONæ–‡æœ¬parseæˆJavaBeané›†åˆ
 	 * 
 	 */
 	public static <T> List<T> parseArray(String text, Class<T> clazz) {
@@ -51,7 +51,7 @@ public class FastJSONUtil {
 	}
 
 	/**
-	 * ½«JavaBeanĞòÁĞ»¯ÎªJSONÎÄ±¾
+	 * å°†JavaBeanåºåˆ—åŒ–ä¸ºJSONæ–‡æœ¬
 	 * 
 	 */
 	public static String toJSONString(Object object) {
@@ -59,7 +59,7 @@ public class FastJSONUtil {
 	}
 
 	/**
-	 * ½«JavaBeanĞòÁĞ»¯ÎªJSONÎÄ±¾
+	 * å°†JavaBeanåºåˆ—åŒ–ä¸ºJSONæ–‡æœ¬
 	 * 
 	 */
 	public static String toJSONString(Object object, String serializerFeature) {
@@ -67,7 +67,7 @@ public class FastJSONUtil {
 	}
 
 	/**
-	 * ½«JavaBeanĞòÁĞ»¯Îª´ø¸ñÊ½µÄJSONÎÄ±¾
+	 * å°†JavaBeanåºåˆ—åŒ–ä¸ºå¸¦æ ¼å¼çš„JSONæ–‡æœ¬
 	 * 
 	 */
 	public static String toJSONString(Object object, boolean prettyFormat) {
@@ -75,7 +75,7 @@ public class FastJSONUtil {
 	}
 
 	/**
-	 * ½«JavaBean×ª»»ÎªJSONObject»òÕßJSONArray
+	 * å°†JavaBeanè½¬æ¢ä¸ºJSONObjectæˆ–è€…JSONArray
 	 * 
 	 */
 	public static Object toJSON(Object javaObject) {
