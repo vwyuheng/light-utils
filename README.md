@@ -1,77 +1,77 @@
 # light-utils
-ÔÚjava±àÂë¹ý³ÌÖÐÎÒÃÇ¿ÉÄÜ»áÓöµ½¸÷ÖÖ¸÷ÑùµÄutil£¬jutilsÊÇLZÔÚ±à³Ì¹ý³ÌÖÐ×Ü½áµÄ¹¤¾ßÀà£¬°üÀ¨£º»ù´¡¹¤¾ßÀà£¨Ê±¼ä¡¢ÕýÔò±í´ïÊ½¡¢×Ö·û´®¡¢Ëæ»úÊýµÈµÈ£©£¬excel½âÎöÉú³É¡¢word½âÎöÉú³É¡¢ÎÄ¼þ²Ù×÷¡¢Í¼Æ¬²Ù×÷¡¢Ãô¸Ð×Ö¡¢¼Ó½âÃÜµÈµÈ¡£
+åœ¨javaç¼–ç è¿‡ç¨‹ä¸­æˆ‘ä»¬å¯èƒ½ä¼šé‡åˆ°å„ç§å„æ ·çš„å·¥å…·ç±»ï¼Œlight-utilsæ˜¯åœ¨ç¼–ç¨‹è¿‡ç¨‹ä¸­æ€»ç»“çš„å·¥å…·ç±»ï¼ŒåŒ…æ‹¬ï¼šåŸºç¡€å·¥å…·ç±»ï¼ˆæ—¶é—´ã€æ­£åˆ™è¡¨è¾¾å¼ã€å­—ç¬¦ä¸²ã€éšæœºæ•°ç­‰ç­‰ï¼‰ï¼Œexcelè§£æžç”Ÿæˆã€wordè§£æžç”Ÿæˆã€æ–‡ä»¶æ“ä½œã€å›¾ç‰‡æ“ä½œã€æ•æ„Ÿå­—ã€åŠ è§£å¯†ç­‰ç­‰ã€‚
 
-<h2>ÌØÐÔ</h2>
-<p>1¡¢¹¦ÄÜÆëÈ«£¬ÓÐÄãËùÏë¡£</p>
-<p>2¡¢¼òµ¥Ò×ÓÃ£¬ÎÞÑ§Ï°³É±¾¡£</p>
+<h2>ç‰¹æ€§</h2>
+<p>1ã€åŠŸèƒ½é½å…¨ï¼Œæœ‰ä½ æ‰€æƒ³ã€‚</p>
+<p>2ã€ç®€å•æ˜“ç”¨ï¼Œæ— å­¦ä¹ æˆæœ¬ã€‚</p>
 
-<h2>Ö÷Òª¹¦ÄÜ</h2>
-<h3>package:base--»ù±¾¹¦ÄÜ</h3>
-<p>ConverUtils£º×ª»»¹¤¾ßÀà£¬Ö÷ÒªÓ¦ÓÃÓÚ¸÷ÖÖÀàÐÍÖ®¼äµÄ×ª»»</p>
-<p>IdCardValidator:Éí·ÝÖ¤Ð£Ñé¹¤¾ßÀà£¬Ìá¹©½ÏÎª¾«È·µÄÉí·ÝÖ¤Ð£Ñé</p>
-<p>MoneyUtils:½ðÇ®´¦Àí¹¤¾ßÀà</p>
-<p>RegexUtils:ÕýÔò±í´ïÊ½¹¤¾ßÀà£¬ÑéÖ¤Êý¾ÝÊÇ·ñ·ûºÏ¹æ·¶</p>
-<p>StringUtils:×Ö·û´®¹¤¾ßÀà£¬¶Ô×Ö·û´®½øÐÐ³£¹æµÄ´¦Àí</p>
-<p>ValidateHelper: ÅÐ¶Ï¶ÔÏó¡¢×Ö·û´®¡¢¼¯ºÏÊÇ·ñÎª¿Õ¡¢²»Îª¿Õ</p>
-
-<h3></h3>
-<h3>package:clone--¿ËÂ¡</h3>
-<p>CloneUtils:¿ËÂ¡¹¤¾ßÀà£¬½øÐÐÉî¿ËÂ¡,°üÀ¨¶ÔÏó¡¢¼¯ºÏ</p>
+<h2>ä¸»è¦åŠŸèƒ½</h2>
+<h3>package:base--åŸºæœ¬åŠŸèƒ½</h3>
+<p>ConverUtilsï¼šè½¬æ¢å·¥å…·ç±»ï¼Œä¸»è¦åº”ç”¨äºŽå„ç§ç±»åž‹ä¹‹é—´çš„è½¬æ¢</p>
+<p>IdCardValidator:èº«ä»½è¯æ ¡éªŒå·¥å…·ç±»ï¼Œæä¾›è¾ƒä¸ºç²¾ç¡®çš„èº«ä»½è¯æ ¡éªŒ</p>
+<p>MoneyUtils:é‡‘é’±å¤„ç†å·¥å…·ç±»</p>
+<p>RegexUtils:æ­£åˆ™è¡¨è¾¾å¼å·¥å…·ç±»ï¼ŒéªŒè¯æ•°æ®æ˜¯å¦ç¬¦åˆè§„èŒƒ</p>
+<p>StringUtils:å­—ç¬¦ä¸²å·¥å…·ç±»ï¼Œå¯¹å­—ç¬¦ä¸²è¿›è¡Œå¸¸è§„çš„å¤„ç†</p>
+<p>ValidateHelper: åˆ¤æ–­å¯¹è±¡ã€å­—ç¬¦ä¸²ã€é›†åˆæ˜¯å¦ä¸ºç©ºã€ä¸ä¸ºç©º</p>
 
 <h3></h3>
-<h3>package:json-json¹¤¾ßÀà</h3>
-<p>CloneUtils:¶Ô°¢Àï°Í°Ífastjson·â×°µÄ¹¤¾ßÀà,Ìá¹©json²Ù×÷Ïà¹ØµÄ¹¦ÄÜ</p>
+<h3>package:clone--å…‹éš†</h3>
+<p>CloneUtils:å…‹éš†å·¥å…·ç±»ï¼Œè¿›è¡Œæ·±å…‹éš†,åŒ…æ‹¬å¯¹è±¡ã€é›†åˆ</p>
 
 <h3></h3>
-<h3>date£ºÊ±¼äÀà</h3>
-<p>DateFromatUtils£º¸ñÊ½×ª»»¹¤¾ßÀà</p>
-<p>DateUtils:ÈÕÆÚ¡¢Ê±¼ä¹¤¾ßÀà</p>
-<p>TimestampUtils£ºtimeStamp¹¤¾ßÀà</p>
+<h3>package:json-jsonå·¥å…·ç±»</h3>
+<p>CloneUtils:å¯¹é˜¿é‡Œå·´å·´fastjsonå°è£…çš„å·¥å…·ç±»,æä¾›jsonæ“ä½œç›¸å…³çš„åŠŸèƒ½</p>
 
 <h3></h3>
-<h3>package:encrypt--¼Ó½âÃÜ</h3>
-<p>EncryptAndDecryptUtils£º¼Ó½âÃÜ¹¤¾ßÀàÎ¨Ò»Èë¿Ú</p>
-<p>AESUtils:AES¼Ó½âÃÜ¹¤¾ßÀà</p>
-<p>Base64Utils:base64¼Ó½âÃÜ¹¤¾ßÀà</p>
-<p>DESUtils£ºdes¼Ó½âÃÜ¹¤¾ßÀà</p>
-<p>MD5Utils£ºmd5¡¢SHA¼Ó½âÃÜ¹¤¾ßÀà£¨¸ù¾Ý×ª»»Æ÷²ÎÊý²»Í¬£¬ÏÖÔÚ²»Í¬µÄ¼ÓÃÜ·½Ê½£©</p>
+<h3>dateï¼šæ—¶é—´ç±»</h3>
+<p>DateFromatUtilsï¼šæ ¼å¼è½¬æ¢å·¥å…·ç±»</p>
+<p>DateUtils:æ—¥æœŸã€æ—¶é—´å·¥å…·ç±»</p>
+<p>TimestampUtilsï¼štimeStampå·¥å…·ç±»</p>
+
+<h3></h3>
+<h3>package:encrypt--åŠ è§£å¯†</h3>
+<p>EncryptAndDecryptUtilsï¼šåŠ è§£å¯†å·¥å…·ç±»å”¯ä¸€å…¥å£</p>
+<p>AESUtils:AESåŠ è§£å¯†å·¥å…·ç±»</p>
+<p>Base64Utils:base64åŠ è§£å¯†å·¥å…·ç±»</p>
+<p>DESUtilsï¼šdesåŠ è§£å¯†å·¥å…·ç±»</p>
+<p>MD5Utilsï¼šmd5ã€SHAåŠ è§£å¯†å·¥å…·ç±»ï¼ˆæ ¹æ®è½¬æ¢å™¨å‚æ•°ä¸åŒï¼ŒçŽ°åœ¨ä¸åŒçš„åŠ å¯†æ–¹å¼ï¼‰</p>
 
 <h3></h3>
 <h3>package:excel--excel</h3>
-<p>ExcelExportHelper:Excel Éú³ÉÍ¨ÓÃÀà£¬ÎªÁË¼æÈÝ£¬ËùÓÐ Excel Í³Ò»Éú³É Excel2003 ¼´£ºxx.xls</p>
-<p>ExcelReadHelper:½âÎöExcel£¬Ö§³Ö2003¡¢2007</p>
+<p>ExcelExportHelper:Excel ç”Ÿæˆé€šç”¨ç±»ï¼Œä¸ºäº†å…¼å®¹ï¼Œæ‰€æœ‰ Excel ç»Ÿä¸€ç”Ÿæˆ Excel2003 å³ï¼šxx.xls</p>
+<p>ExcelReadHelper:è§£æžExcelï¼Œæ”¯æŒ2003ã€2007</p>
 
-<h3>package:file--ÎÄ¼þ´¦Àí</h3>
-<p>FileUtils:ÎÄ¼þ´¦Àí¹¤¾ßÀà</p>
-<p>ZipUitls:ZIP¹¤¾ßÀà</p>
+<h3>package:file--æ–‡ä»¶å¤„ç†</h3>
+<p>FileUtils:æ–‡ä»¶å¤„ç†å·¥å…·ç±»</p>
+<p>ZipUitls:ZIPå·¥å…·ç±»</p>
 
-<h3>package:http--httpÇëÇó¹¤¾ßÀà</h3>
-<p>HttpUtils:HTTP POSTºÍGET´¦Àí¹¤¾ßÀà</p>
+<h3>package:http--httpè¯·æ±‚å·¥å…·ç±»</h3>
+<p>HttpUtils:HTTP POSTå’ŒGETå¤„ç†å·¥å…·ç±»</p>
 
-<h3>package:ImageUtil--Í¼Ïñ´¦Àí</h3>
-<p>ImageUtil:Í¼Ïñ´¦Àí¡£¶ÔÍ¼Æ¬½øÐÐÑ¹Ëõ¡¢Ë®Ó¡¡¢ÉìËõ±ä»»¡¢Í¸Ã÷´¦Àí¡¢¸ñÊ½×ª»»²Ù×÷</p>
+<h3>package:ImageUtil--å›¾åƒå¤„ç†</h3>
+<p>ImageUtil:å›¾åƒå¤„ç†ã€‚å¯¹å›¾ç‰‡è¿›è¡ŒåŽ‹ç¼©ã€æ°´å°ã€ä¼¸ç¼©å˜æ¢ã€é€æ˜Žå¤„ç†ã€æ ¼å¼è½¬æ¢æ“ä½œ</p>
 
-<h3>mail:ÓÊ¼þÀà</h3>
-<p>EmailUtils:ÓÊ¼þ·¢ËÍ¹¤¾ßÀà</p>
+<h3>mail:é‚®ä»¶ç±»</h3>
+<p>EmailUtils:é‚®ä»¶å‘é€å·¥å…·ç±»</p>
 
-<h3>math£ºÊý×ÖÀà</h3>
-<p>BigDecimalUtils£ºBigDecimal¹¤¾ßÀà</p>
+<h3>mathï¼šæ•°å­—ç±»</h3>
+<p>BigDecimalUtilsï¼šBigDecimalå·¥å…·ç±»</p>
 
-<h3>random£ºËæ»úÊýÀà</h3>
-<p>RandomUtils:Ëæ»úÊý¹¤¾ßÀà</p>
+<h3>randomï¼šéšæœºæ•°ç±»</h3>
+<p>RandomUtils:éšæœºæ•°å·¥å…·ç±»</p>
 
-<h3>QRCode£º¶þÎ¬ÂëÀà</h3>
-<p>MatrixToImageCofig£º¶þÎ¬ÂëÅäÖÃ</p>
-<p>MatrixToImageWriter:¶þÎ¬Âë¹¤¾ßÀà</p>
+<h3>QRCodeï¼šäºŒç»´ç ç±»</h3>
+<p>MatrixToImageCofigï¼šäºŒç»´ç é…ç½®</p>
+<p>MatrixToImageWriter:äºŒç»´ç å·¥å…·ç±»</p>
 
-<h3>sequence£ºÐòÁÐ</h3>
-<p>GenerateSequenceUtils£ºÉú³ÉÎ¨Ò»µÄÐòÁÐ</p>
+<h3>sequenceï¼šåºåˆ—</h3>
+<p>GenerateSequenceUtilsï¼šç”Ÿæˆå”¯ä¸€çš„åºåˆ—</p>
 
-<h3>task£ºÈÎÎñµ÷¶ÈÀà</h3>
-<p>TaskUtils£ºJava¶àÏß³Ì¡¢¶ÓÁÐÊµÏÖÈÎÎñµ÷¶È</p>
+<h3>taskï¼šä»»åŠ¡è°ƒåº¦ç±»</h3>
+<p>TaskUtilsï¼šJavaå¤šçº¿ç¨‹ã€é˜Ÿåˆ—å®žçŽ°ä»»åŠ¡è°ƒåº¦</p>
 
-<h3>package:sensitiveword--JÃô¸Ð´Ê</h3>
-<p>SensitivewordFilterUtil:Ãú¸Ð´Ê¹ýÂË¹¤¾ßÀà</p>
-<p>SensitiveWordInit:³õÊ¼»¯Ãô¸Ð´Ê¿â£¬½«Ãô¸Ð´Ê¼ÓÈëµ½HashMapÖÐ£¬¹¹½¨DFAËã·¨Ä£ÐÍ</p>
+<h3>package:sensitiveword--Jæ•æ„Ÿè¯</h3>
+<p>SensitivewordFilterUtil:é“­æ„Ÿè¯è¿‡æ»¤å·¥å…·ç±»</p>
+<p>SensitiveWordInit:åˆå§‹åŒ–æ•æ„Ÿè¯åº“ï¼Œå°†æ•æ„Ÿè¯åŠ å…¥åˆ°HashMapä¸­ï¼Œæž„å»ºDFAç®—æ³•æ¨¡åž‹</p>
 
-<h3>word£ºwordÀà</h3>
+<h3>wordï¼šwordç±»</h3>
