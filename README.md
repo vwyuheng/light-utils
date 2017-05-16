@@ -7,7 +7,7 @@ jar包已经发布到maven中央仓库,直接在pom.xml文件加入下面依赖�
 	<artifactId>light-utils</artifactId>
 	<version>1.0.0</version>
 </dependency>
-</code></pre>
+</code></pre> 
 <h2>一. 特性</h2>
 <p>1、功能齐全，有你所想。</p>
 <p>2、简单易用，无学习成本。</p>
