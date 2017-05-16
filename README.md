@@ -1,13 +1,13 @@
 # light-utils
-在java编码过程中我们可能会遇到各种各样的工具类，light-utils是在编程过程中总结的工具类，自己实现或者参考自别的工具类，包括：基础工具类（时间、正则表达式、字符串、随机数等等），excel解析生成、word解析生成、文件操作、图片操作、敏感字、加解密等等。
+在java编码过程中我们可能会遇到各种各样的工具类，light-utils是在编程过程中总结的工具类，自己实现或者参考自别的工具类，包括：基础工具类（时间、正则表达式、字符串、随机数等等），excel解析生成、word解析生成、文件操作、图片操作、敏感字、加解密等等。<br/>
 jar包已经发布到maven中央仓库,直接在pom.xml文件加入下面依赖即可:
-<pre><code>
+```
 <dependency>
 	<groupId>org.light4j</groupId>
 	<artifactId>light-utils</artifactId>
 	<version>1.0.0</version>
 </dependency>
-</code></pre> 
+```
 <h2>一. 特性</h2>
 <p>1、功能齐全，有你所想。</p>
 <p>2、简单易用，无学习成本。</p>
